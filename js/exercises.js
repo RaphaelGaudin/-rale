@@ -3,7 +3,7 @@
 import { itemsForLevel, themeOf } from './content.js';
 import { normalizeAnswer, pick, removeAccents, sample, shuffle, stripArticle, stripPunctuation, tokenize } from './util.js';
 
-function distractors(item, count, key) {
+export function distractors(item, count, key) {
   const theme = themeOf(item);
   const same = theme.items.filter((i) => i.kind === item.kind && i.id !== item.id);
   const wider = itemsForLevel(item.level).filter((i) => i.kind === item.kind && i.themeId !== item.themeId);

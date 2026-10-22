@@ -1,5 +1,5 @@
 // Progression de l'utilisateur, sauvegardée dans le stockage local du téléphone.
-import { addDays, dayKey, daysBetween, startOfDay } from './util.js';
+import { addDays, dayKey, daysBetween, shuffle, startOfDay } from './util.js';
 import * as SRS from './srs.js';
 import { itemsById, itemsForLevel, LEVELS, themesForLevel } from './content.js';
 
@@ -184,6 +184,27 @@ export function suggestedTheme() {
     if (theme) return theme;
   }
   return null;
+}
+
+/**
+ * Après le test de niveau : les éléments des niveaux réussis sont considérés comme connus
+ * (étape 2) et reviennent en révision, étalés sur `days` jours, pour confirmer les acquis.
+ * Une erreur les fera redescendre comme n'importe quel élément.
+ */
+export function seedKnownLevels(levels, days = 21) {
+  const today = startOfDay();
+  const items = shuffle(levels.flatMap((l) => itemsForLevel(l)).filter((i) => !isLearned(i.id)));
+  items.forEach((item, i) => {
+    state.items[item.id] = {
+      stage: 2,
+      due: dayKey(addDays(today, 1 + (i % days))),
+      learnedAt: dayKey(today),
+      seeded: true,
+      last: new Date().toISOString(),
+    };
+  });
+  save();
+  return items.length;
 }
 
 export function exportData() {

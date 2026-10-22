@@ -31,7 +31,13 @@ L'icône Órale apparaît sur ton écran d'accueil. L'app s'ouvre en plein écra
 
 ## ✨ Fonctionnalités
 
-- **Test de niveau adaptatif** (A1 → B2) : 4 questions par niveau, on monte tant qu'on en réussit au moins 3.
+- **Test de niveau adaptatif** (A1 → B2) :
+  - 8 questions par niveau, chacune tirée d'un thème différent ;
+  - les questions couvrent le vocabulaire, la grammaire, la compréhension écrite et orale, et un dialogue ;
+  - on monte avec au moins 6 bonnes réponses sur 8, et on s'arrête dès que ce score devient impossible ;
+  - un bouton « Je ne sais pas » évite les réponses au hasard ;
+  - le bilan détaille le score par niveau et par compétence ;
+  - les niveaux réussis peuvent rejoindre les révisions, étalés sur 3 semaines, pour confirmer les acquis.
 - **32 thèmes de la vie au Mexique**, 8 par niveau : taquería, marché, Día de Muertos, lucha libre, la chamba, l'argot chilango, l'histoire du Mexique… Le contenu compte **448 éléments** :
   - des mots illustrés ;
   - des phrases ;

@@ -498,3 +498,23 @@ body.in-lesson .tabbar { display: none; }
 .mini-stats strong .art-svg.inline { width: 1.1em; height: 1.1em; vertical-align: 0; }
 .filter-chips .chip { display: inline-flex; align-items: center; }
 .level-up .art-svg.inline { width: 1.5em; height: 1.5em; }
+
+/* ── Test de niveau ── */
+.small-title { font-size: 36px; }
+.test-intro .perks li, .result .perks li { font-weight: 600; font-size: 15px; }
+.dont-know { color: var(--muted); }
+.exercise.locked { pointer-events: none; }
+.score-table { width: 100%; display: flex; flex-direction: column; gap: 8px; background: var(--surface); border-radius: 18px; padding: 14px; }
+.score-row { display: grid; grid-template-columns: 34px 1fr 56px; align-items: center; gap: 10px; font-size: 15px; text-align: left; }
+.score-row span { text-align: right; font-weight: 700; }
+.score-bar { height: 10px; border-radius: 5px; background: var(--surface-2); overflow: hidden; }
+.score-bar i { display: block; height: 100%; border-radius: 5px; background: var(--red); }
+.score-row.ok .score-bar i { background: var(--green); }
+.score-row.ok span { color: var(--green); }
+.skill-grid { width: 100%; display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; }
+.skill { background: var(--surface); border-radius: 16px; padding: 10px; display: flex; flex-direction: column; }
+.skill strong { font-size: 20px; }
+.skill span { font-size: 12px; color: var(--muted); }
+.seed-setting { width: 100%; background: var(--surface); border-radius: 18px; padding: 14px; text-align: left; flex-wrap: nowrap; }
+.seed-setting small { display: block; color: var(--muted); font-weight: 500; font-size: 13px; margin-top: 2px; }
+.switch { flex: none; }
