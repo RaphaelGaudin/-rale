@@ -1,0 +1,266 @@
+// Affichage des exercices : QCM, épellation, phrase à reconstruire, écriture.
+import { h } from '../util.js';
+import { speak, speakLines, stop } from '../speech.js';
+import { buzz, play } from '../sound.js';
+import { checkBuilt, checkWritten } from '../exercises.js';
+import { icon, speakerButton, withBlank } from './components.js';
+
+function promptView(ex) {
+  const p = ex.prompt;
+  const parts = [];
+
+  if (p.dialogue) {
+    parts.push(dialoguePrompt(p));
+    return h('div', { class: 'prompt prompt-dialogue' }, parts);
+  }
+
+  if (p.listenOnly) {
+    parts.push(h('div', { class: 'listen-zone' }, speakerButton(p.audio, { big: true, label: 'Réécouter' }), h('p', { class: 'muted' }, 'Touche pour réécouter')));
+  }
+
+  if (p.emoji) {
+    const showCaption = ex.showCaption || p.forceCaption;
+    const caption = h('div', { class: `caption ${showCaption ? '' : 'hidden-caption'}` }, showCaption ? p.caption : 'Touche l\'image pour un indice');
+    const art = h('button', {
+      class: 'art',
+      'aria-label': 'Illustration',
+      onclick: () => {
+        if (!showCaption) {
+          caption.textContent = p.caption;
+          caption.classList.remove('hidden-caption');
+        }
+      },
+    }, h('span', { class: 'emoji' }, p.emoji));
+    parts.push(art, caption);
+  }
+
+  if (p.text) {
+    parts.push(
+      h('div', { class: 'prompt-text-row' },
+        h('p', { class: `prompt-text ${p.lang === 'fr' ? 'fr' : 'es'} ${p.text.length > 40 ? 'long' : ''}` },
+          p.speaker ? h('span', { class: 'speaker-name' }, `${p.speaker} : `) : null,
+          p.blank ? withBlank(p.text) : p.text),
+        p.audio ? speakerButton(p.audio) : null),
+    );
+    if (p.caption && !p.emoji) parts.push(h('p', { class: 'hint' }, p.caption));
+  }
+
+  if (p.autoplay && p.audio) setTimeout(() => speak(p.audio), 350);
+  return h('div', { class: 'prompt' }, parts);
+}
+
+function dialoguePrompt(p) {
+  const speakers = [...new Set(p.dialogue.map((l) => l.speaker))];
+  const bubbles = p.dialogue.map((line) =>
+    h('div', { class: `bubble ${speakers.indexOf(line.speaker) % 2 ? 'right' : 'left'}` },
+      h('span', { class: 'who' }, line.speaker), h('span', {}, line.es)));
+  const transcript = h('div', { class: `transcript ${p.listenOnly ? 'concealed' : ''}` }, bubbles);
+  const playBtn = h('button', {
+    class: 'btn btn-ghost play-dialogue',
+    onclick: () => playAll(),
+  }, icon('play'), p.listenOnly ? ' Écouter le dialogue' : ' Écouter');
+  const playAll = () => {
+    playBtn.classList.add('playing');
+    speakLines(p.dialogue, (i) => {
+      bubbles.forEach((b, j) => b.classList.toggle('active', j === i));
+      if (i === -1) playBtn.classList.remove('playing');
+    });
+  };
+  if (p.autoplayDialogue) setTimeout(playAll, 400);
+  const reveal = p.listenOnly
+    ? h('button', { class: 'link', onclick: (e) => { transcript.classList.remove('concealed'); e.currentTarget.remove(); } }, 'Afficher le texte')
+    : null;
+  return [playBtn, transcript, reveal, h('p', { class: 'question' }, p.question)];
+}
+
+// ── QCM ──
+
+function mcqView(ex, onAnswer) {
+  let answered = false;
+  const buttons = ex.choices.map((choice) => {
+    const btn = h(
+      'button',
+      {
+        class: `choice ${ex.choiceStyle === 'image' ? 'choice-image' : 'choice-text'}`,
+        onclick: () => {
+          if (answered) return;
+          answered = true;
+          btn.classList.add(choice.correct ? 'correct' : 'wrong');
+          buttons.forEach((b, i) => {
+            if (ex.choices[i].correct) b.classList.add('correct');
+            else if (b !== btn) b.classList.add('dim');
+          });
+          onAnswer(choice.correct);
+        },
+      },
+      choice.emoji ? h('span', { class: 'emoji' }, choice.emoji) : null,
+      ex.choiceStyle === 'image'
+        ? (ex.showCaption ? h('span', { class: 'choice-caption' }, choice.label) : null)
+        : h('span', {}, choice.label),
+    );
+    return btn;
+  });
+  return h('div', { class: `choices ${ex.choiceStyle === 'image' ? 'grid' : 'list'}` }, buttons);
+}
+
+// ── Épeler ──
+
+function spellView(ex, onAnswer) {
+  let pos = 0;
+  let mistakes = 0;
+  let done = false;
+  const slots = ex.target.map((ch) => h('span', { class: ch === ' ' ? 'slot space' : 'slot' }, ''));
+  const skipSpaces = () => {
+    while (pos < ex.target.length && ex.target[pos] === ' ') pos++;
+  };
+  skipSpaces();
+  const mark = () => slots.forEach((s, i) => s.classList.toggle('cursor', i === pos && !done));
+
+  const finish = (correct) => {
+    done = true;
+    mark();
+    tiles.forEach((t) => (t.disabled = true));
+    onAnswer(correct);
+  };
+
+  const tiles = ex.tiles.map((tile) => {
+    const btn = h('button', {
+      class: 'tile',
+      onclick: () => {
+        if (done || btn.classList.contains('used')) return;
+        if (tile.letter === ex.target[pos]) {
+          slots[pos].textContent = tile.letter;
+          slots[pos].classList.add('filled');
+          btn.classList.add('used');
+          play('tap');
+          pos++;
+          skipSpaces();
+          mark();
+          if (pos >= ex.target.length) finish(mistakes === 0);
+        } else {
+          mistakes++;
+          buzz(40);
+          btn.classList.remove('shake');
+          void btn.offsetWidth;
+          btn.classList.add('shake');
+          if (mistakes >= 3) {
+            slots.forEach((s, i) => {
+              if (!s.textContent && ex.target[i] !== ' ') {
+                s.textContent = ex.target[i];
+                s.classList.add('revealed');
+              }
+            });
+            finish(false);
+          }
+        }
+      },
+    }, tile.letter);
+    return btn;
+  });
+  mark();
+  return h('div', { class: 'spell' },
+    h('div', { class: 'slots' }, ex.article ? h('span', { class: 'article' }, ex.article) : null, slots),
+    h('div', { class: 'tiles' }, tiles));
+}
+
+// ── Reconstruire une phrase ──
+
+function buildView(ex, onAnswer) {
+  const placed = []; // indices des tuiles posées
+  let done = false;
+  const answerZone = h('div', { class: 'answer-zone' });
+  const bank = h('div', { class: 'tiles word-tiles' });
+  const check = h('button', { class: 'btn btn-primary', disabled: true }, 'Vérifier');
+
+  const tileButtons = ex.tiles.map((tile) =>
+    h('button', {
+      class: 'tile word',
+      onclick: () => {
+        if (done) return;
+        const idx = placed.indexOf(tile.id);
+        if (idx >= 0) placed.splice(idx, 1);
+        else placed.push(tile.id);
+        play('tap');
+        render();
+      },
+    }, tile.word));
+
+  const render = () => {
+    answerZone.replaceChildren(...placed.map((id) => tileButtons[id]));
+    bank.replaceChildren(...ex.tiles.map((t) => (placed.includes(t.id) ? h('span', { class: 'tile ghost' }, t.word) : tileButtons[t.id])));
+    check.disabled = placed.length === 0;
+  };
+
+  check.addEventListener('click', () => {
+    if (done) return;
+    done = true;
+    const words = placed.map((id) => ex.tiles[id].word);
+    const correct = checkBuilt(words, ex.tokens);
+    answerZone.classList.add(correct ? 'correct' : 'wrong');
+    check.remove();
+    onAnswer(correct);
+  });
+  render();
+  return h('div', { class: 'build' }, answerZone, bank, h('div', { class: 'actions' }, check));
+}
+
+// ── Écrire ──
+
+const SPECIAL_KEYS = ['á', 'é', 'í', 'ó', 'ú', 'ñ', 'ü', '¿', '¡'];
+
+function writeView(ex, onAnswer) {
+  let done = false;
+  const input = h('input', {
+    class: 'write-input',
+    type: 'text',
+    autocomplete: 'off',
+    autocorrect: 'off',
+    autocapitalize: 'none',
+    spellcheck: 'false',
+    lang: 'es',
+    placeholder: 'Écris ici…',
+    enterkeyhint: 'done',
+  });
+  const submit = () => {
+    if (done || !input.value.trim()) return;
+    done = true;
+    input.blur();
+    const { correct, note } = checkWritten(input.value, ex.answer);
+    input.classList.add(correct ? 'correct' : 'wrong');
+    input.disabled = true;
+    onAnswer(correct, note);
+  };
+  input.addEventListener('keydown', (e) => e.key === 'Enter' && submit());
+  const keys = SPECIAL_KEYS.map((k) =>
+    h('button', {
+      class: 'key',
+      onpointerdown: (e) => e.preventDefault(), // garde le clavier ouvert
+      onclick: () => {
+        const start = input.selectionStart ?? input.value.length;
+        const end = input.selectionEnd ?? input.value.length;
+        input.value = input.value.slice(0, start) + k + input.value.slice(end);
+        input.setSelectionRange(start + 1, start + 1);
+        input.focus();
+      },
+    }, k));
+  setTimeout(() => input.focus(), 400);
+  return h('div', { class: 'write' }, input, h('div', { class: 'keys' }, keys),
+    h('div', { class: 'actions' }, h('button', { class: 'btn btn-primary', onclick: submit }, 'Vérifier')));
+}
+
+/** Construit la vue d'un exercice. `onAnswer(correct, note)` est appelé une seule fois. */
+export function exerciseView(ex, onAnswer) {
+  stop();
+  let answered = false;
+  const once = (correct, note) => {
+    if (answered) return;
+    answered = true;
+    onAnswer(correct, note);
+  };
+  const body =
+    ex.type === 'spell' ? spellView(ex, once)
+      : ex.type === 'build' ? buildView(ex, once)
+        : ex.type === 'write' ? writeView(ex, once)
+          : mcqView(ex, once);
+  return h('div', { class: `exercise ex-${ex.type}` }, h('p', { class: 'ex-label' }, ex.label), promptView(ex), body);
+}
