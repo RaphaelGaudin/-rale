@@ -1,5 +1,6 @@
 // Composants d'interface réutilisables.
 import { h } from '../util.js';
+import { ART } from '../data/art.js';
 import { speak } from '../speech.js';
 import { MASTERED_STAGE } from '../srs.js';
 
@@ -50,8 +51,17 @@ export const ICONS = {
   backspace: '<svg viewBox="0 0 24 24"><path d="M22 5H8l-6 7 6 7h14V5Zm-3.6 10.6-1.4 1.4-3-3-3 3-1.4-1.4 3-3-3-3L11 8.2l3 3 3-3 1.4 1.4-3 3 3 3Z"/></svg>',
 };
 
+/** Illustration dessinée (voir tools/art). */
+export function art(key, className = '') {
+  const el = document.createElement('span');
+  el.className = `art-svg ${className}`;
+  el.innerHTML = ART[key] || ART['ui-star'];
+  return el;
+}
+
 export function icon(name, className = '') {
-  if (name === 'flame') return h('span', { class: `icon emoji-icon ${className}` }, '🔥');
+  if (name === 'flame') return art('ui-flame', `icon ${className}`);
+  if (name === 'star') return art('ui-star', `icon ${className}`);
   return svg(ICONS[name], `icon ${className}`);
 }
 

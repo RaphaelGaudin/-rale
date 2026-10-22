@@ -3,7 +3,7 @@ import { h } from '../util.js';
 import { speak, speakLines, stop } from '../speech.js';
 import { buzz, play } from '../sound.js';
 import { checkBuilt, checkWritten } from '../exercises.js';
-import { icon, speakerButton, withBlank } from './components.js';
+import { art, icon, speakerButton, withBlank } from './components.js';
 
 function promptView(ex) {
   const p = ex.prompt;
@@ -18,10 +18,10 @@ function promptView(ex) {
     parts.push(h('div', { class: 'listen-zone' }, speakerButton(p.audio, { big: true, label: 'Réécouter' }), h('p', { class: 'muted' }, 'Touche pour réécouter')));
   }
 
-  if (p.emoji) {
+  if (p.art) {
     const showCaption = ex.showCaption || p.forceCaption;
     const caption = h('div', { class: `caption ${showCaption ? '' : 'hidden-caption'}` }, showCaption ? p.caption : 'Touche l\'image pour un indice');
-    const art = h('button', {
+    const tile = h('button', {
       class: 'art',
       'aria-label': 'Illustration',
       onclick: () => {
@@ -30,8 +30,8 @@ function promptView(ex) {
           caption.classList.remove('hidden-caption');
         }
       },
-    }, h('span', { class: 'emoji' }, p.emoji));
-    parts.push(art, caption);
+    }, art(p.art));
+    parts.push(tile, caption);
   }
 
   if (p.text) {
@@ -42,7 +42,7 @@ function promptView(ex) {
           p.blank ? withBlank(p.text) : p.text),
         p.audio ? speakerButton(p.audio) : null),
     );
-    if (p.caption && !p.emoji) parts.push(h('p', { class: 'hint' }, p.caption));
+    if (p.caption && !p.art) parts.push(h('p', { class: 'hint' }, p.caption));
   }
 
   if (p.autoplay && p.audio) setTimeout(() => speak(p.audio), 350);
@@ -93,7 +93,7 @@ function mcqView(ex, onAnswer) {
           onAnswer(choice.correct);
         },
       },
-      choice.emoji ? h('span', { class: 'emoji' }, choice.emoji) : null,
+      choice.art ? art(choice.art) : null,
       ex.choiceStyle === 'image'
         ? (ex.showCaption ? h('span', { class: 'choice-caption' }, choice.label) : null)
         : h('span', {}, choice.label),

@@ -1,22 +1,26 @@
 // Cartes de présentation d'un élément (nouveau mot, phrase, grammaire, dialogue).
 import { h } from '../util.js';
 import { speak, speakLines } from '../speech.js';
-import { icon, speakerButton } from './components.js';
+import { art, icon, speakerButton } from './components.js';
 
 function wordCard(item) {
   return [
-    h('div', { class: 'art art-big' }, h('span', { class: 'emoji' }, item.emoji)),
+    h('div', { class: 'art art-big' }, art(item.art)),
     h('div', { class: 'term-row' }, h('h2', { class: 'term' }, item.es), speakerButton(item.es)),
     h('p', { class: 'translation' }, item.fr),
-    item.note ? h('p', { class: 'note' }, '💡 ', item.note) : null,
+    item.note ? note(item.note) : null,
   ];
+}
+
+function note(text) {
+  return h('p', { class: 'note' }, art('ui-bulb', 'inline'), text);
 }
 
 function phraseCard(item) {
   return [
     h('div', { class: 'term-row' }, h('h2', { class: 'term phrase' }, item.es), speakerButton(item.es)),
     h('p', { class: 'translation' }, item.fr),
-    item.note ? h('p', { class: 'note' }, '💡 ', item.note) : null,
+    item.note ? note(item.note) : null,
   ];
 }
 

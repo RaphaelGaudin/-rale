@@ -2,8 +2,8 @@
 import { h, addDays, dayKey, startOfDay, weekdayShort, plural } from '../util.js';
 import { LEVELS, LEVEL_INFO } from '../content.js';
 import * as store from '../store.js';
-import { speak, voiceDescription, mexicanVoice } from '../speech.js';
-import { header, logo, toast } from './components.js';
+import { speak, voiceDescription, mexicanVoice, hasRecordedVoices, allClipUrls } from '../speech.js';
+import { art, header, logo, toast } from './components.js';
 
 export function profileView(ctx) {
   const s = store.state;
@@ -25,10 +25,10 @@ export function profileView(ctx) {
           h('h2', {}, `Niveau ${s.level} · ${LEVEL_INFO[s.level].name}`),
           h('p', { class: 'muted' }, s.placement ? `Test de niveau : ${s.placement}` : 'Parcours depuis le début'))),
       h('div', { class: 'mini-stats four' },
-        h('div', {}, h('strong', {}, `🔥 ${store.currentStreak()}`), h('span', {}, 'série')),
-        h('div', {}, h('strong', {}, `🏅 ${s.bestStreak}`), h('span', {}, 'record')),
-        h('div', {}, h('strong', {}, `⭐ ${s.xp}`), h('span', {}, 'XP')),
-        h('div', {}, h('strong', {}, `📚 ${learned}`), h('span', {}, 'appris'))),
+        h('div', {}, h('strong', {}, art('ui-flame', 'inline'), store.currentStreak()), h('span', {}, 'série')),
+        h('div', {}, h('strong', {}, art('ui-trophy', 'inline'), s.bestStreak), h('span', {}, 'record')),
+        h('div', {}, h('strong', {}, art('ui-star', 'inline'), s.xp), h('span', {}, 'XP')),
+        h('div', {}, h('strong', {}, art('ui-book', 'inline'), learned), h('span', {}, 'appris'))),
       h('section', { class: 'card' },
         h('h3', {}, 'Minutes par jour'),
         h('div', { class: 'forecast week' },
@@ -58,10 +58,19 @@ export function profileView(ctx) {
             h('button', { class: 'btn btn-ghost small', onclick: () => speak('Hola, ¿cómo estás? Bienvenido a México.') }, '▶︎ Tester'))),
         toggleRow('Sons', 'sound', render),
         toggleRow('Vibrations', 'haptics', render),
+        hasRecordedVoices()
+          ? settingRow('Voix',
+            h('div', { class: 'segmented small' },
+              [['recorded', 'Enregistrée'], ['device', 'iPhone']].map(([v, label]) =>
+                h('button', { class: (s.voice || 'recorded') === v ? 'on' : '', onclick: () => { store.update({ voice: v }); render(); speak('¡Hola! ¿Cómo estás?'); } }, label))))
+          : null,
         h('p', { class: 'muted small voice-info' }, voiceDescription()),
-        !mexicanVoice()
-          ? h('p', { class: 'muted small' }, 'Pour une voix mexicaine plus naturelle sur iPhone : Réglages › Accessibilité › Contenu énoncé › Voix › Espagnol (Mexique), puis télécharge « Paulina » ou « Juan » (version améliorée).')
-          : h('p', { class: 'muted small' }, 'Astuce : la version « améliorée » de la voix (Réglages › Accessibilité › Contenu énoncé › Voix) est bien plus naturelle.')),
+        hasRecordedVoices() && s.voice !== 'device'
+          ? h('button', { class: 'btn btn-ghost small', onclick: (e) => downloadVoices(e.currentTarget) }, 'Télécharger les voix pour le mode hors-ligne')
+          : !mexicanVoice()
+            ? h('p', { class: 'muted small' }, 'Pour une voix mexicaine plus naturelle sur iPhone : Réglages › Accessibilité › Contenu énoncé › Voix › Espagnol (Mexique), puis télécharge « Paulina » ou « Juan » (version améliorée).')
+            : h('p', { class: 'muted small' }, 'Astuce : la version « améliorée » de la voix (Réglages › Accessibilité › Contenu énoncé › Voix) est bien plus naturelle.'),
+        h('p', { class: 'muted small' }, 'Pas de son ? Monte le volume avec les boutons latéraux de l\'iPhone. Sur les iOS plus anciens que la version 17, désactive aussi le mode silencieux.')),
 
       h('section', { class: 'card settings' },
         h('h3', {}, 'Ma progression'),
@@ -80,10 +89,28 @@ export function profileView(ctx) {
               }
             },
           }, 'Tout effacer'))),
-      h('p', { class: 'muted small center' }, 'Órale · hecho con ❤️ y mucho chile'));
+      h('p', { class: 'muted small center' }, 'Órale · hecho con amor y mucho chile'));
   };
   render();
   return root;
+}
+
+/** Met en cache tous les fichiers audio pour pouvoir réviser sans réseau. */
+async function downloadVoices(button) {
+  const urls = allClipUrls();
+  let done = 0;
+  button.disabled = true;
+  const cache = 'caches' in window ? await caches.open('orale-audio') : null;
+  for (let i = 0; i < urls.length; i += 8) {
+    await Promise.all(urls.slice(i, i + 8).map(async (url) => {
+      try {
+        if (cache && !(await cache.match(url))) await cache.add(url);
+      } catch { /* on réessaiera plus tard */ }
+      done++;
+    }));
+    button.textContent = `Téléchargement… ${Math.round((done / urls.length) * 100)} %`;
+  }
+  button.textContent = 'Voix disponibles hors-ligne ✓';
 }
 
 function settingRow(label, control) {

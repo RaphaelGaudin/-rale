@@ -2,7 +2,7 @@
 import { h, plural } from '../util.js';
 import { LEVELS, LEVEL_INFO, themesForLevel } from '../content.js';
 import * as store from '../store.js';
-import { icon, logo, ring } from './components.js';
+import { art, icon, logo, ring } from './components.js';
 
 export function learnView(ctx) {
   const s = store.state;
@@ -15,17 +15,17 @@ export function learnView(ctx) {
     h('div', { class: 'hero-goal' },
       ring(store.goalRatio(), { size: 84, stroke: 9, color: '#FFFFFF', track: 'rgba(255,255,255,.25)', content: store.goalRatio() >= 1 ? '✓' : `${minutes}′` }),
       h('div', {},
-        h('p', { class: 'hero-label' }, store.goalRatio() >= 1 ? 'Objectif du jour atteint 🎉' : 'Objectif du jour'),
+        h('p', { class: 'hero-label' }, store.goalRatio() >= 1 ? 'Objectif du jour atteint !' : 'Objectif du jour'),
         h('p', { class: 'hero-value' }, `${minutes} / ${s.dailyGoal} min`))),
     suggested
       ? h('button', { class: 'btn btn-light hero-cta', onclick: () => ctx.startLesson({ mode: 'theme', theme: suggested }) },
-        h('span', { class: 'emoji' }, suggested.emoji),
+        art(suggested.art, 'cta-art'),
         h('span', {}, h('strong', {}, 'Leçon de 5 min'), h('small', {}, suggested.titleEs)))
-      : h('p', {}, 'Tu as tout appris ! Continue tes révisions. 🏆'));
+      : h('p', {}, 'Tu as tout appris ! Continue tes révisions.'));
 
   const reviewCard = due
     ? h('button', { class: 'review-banner', onclick: () => ctx.startLesson({ mode: 'review' }) },
-      h('span', { class: 'emoji' }, '🔁'),
+      art('ui-review', 'banner-art'),
       h('span', {}, h('strong', {}, plural(due, 'élément'), ' à réviser'), h('small', {}, 'Ne laisse pas tes mots s\'envoler !')),
       icon('play'))
     : null;
@@ -57,7 +57,7 @@ function themeCard(theme, ctx) {
   const p = store.themeProgress(theme);
   return h('button', { class: 'theme-card', style: { '--theme': theme.color }, onclick: () => ctx.openTheme(theme) },
     h('div', { class: 'theme-art' },
-      ring(p.ratio, { size: 64, stroke: 5, color: '#fff', track: 'rgba(255,255,255,.25)', content: h('span', { class: 'emoji' }, theme.emoji) })),
+      ring(p.ratio, { size: 64, stroke: 5, color: '#fff', track: 'rgba(255,255,255,.25)', content: art(theme.art, 'theme-art-svg') })),
     h('strong', {}, theme.titleEs),
     h('small', {}, theme.titleFr),
     p.learned === p.total ? h('span', { class: 'done-badge' }, '✓') : null);

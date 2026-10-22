@@ -1,5 +1,11 @@
 // Sons de validation synthétisés avec Web Audio (aucun fichier à télécharger).
 import { state } from './store.js';
+import { unlockSpeech } from './speech.js';
+
+// iOS 17+ : le son est joué même quand le bouton « silencieux » est activé.
+try {
+  if (navigator.audioSession) navigator.audioSession.type = 'playback';
+} catch (e) { /* non pris en charge */ }
 
 let ctx = null;
 
@@ -24,11 +30,16 @@ export function unlockOnFirstGesture() {
       src.connect(c.destination);
       src.start(0);
     }
-    window.removeEventListener('touchend', unlock);
-    window.removeEventListener('click', unlock);
+    unlockSpeech();
+    window.removeEventListener('touchend', unlock, true);
+    window.removeEventListener('click', unlock, true);
   };
-  window.addEventListener('touchend', unlock, { passive: true });
-  window.addEventListener('click', unlock);
+  window.addEventListener('touchend', unlock, { capture: true, passive: true });
+  window.addEventListener('click', unlock, true);
+  // Au retour dans l'app, iOS suspend parfois le contexte audio.
+  document.addEventListener('visibilitychange', () => {
+    if (document.visibilityState === 'visible' && ctx?.state !== 'running') ctx?.resume();
+  });
 }
 
 function tone(c, { freq, start, duration, type = 'sine', gain = 0.18, slideTo }) {

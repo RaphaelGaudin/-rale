@@ -5,7 +5,7 @@ export const THEMES = [
   "level": "A1",
   "titleEs": "Saludos",
   "titleFr": "Les salutations",
-  "emoji": "👋",
+  "art": "hola",
   "color": "#E4007C",
   "items": [
    {
@@ -13,91 +13,91 @@ export const THEMES = [
     "kind": "word",
     "es": "hola",
     "fr": "salut / bonjour",
-    "emoji": "🙋"
+    "art": "hola"
    },
    {
     "id": "a1-saludos-w1",
     "kind": "word",
     "es": "adiós",
     "fr": "au revoir",
-    "emoji": "👋"
+    "art": "adios"
    },
    {
     "id": "a1-saludos-w2",
     "kind": "word",
     "es": "gracias",
     "fr": "merci",
-    "emoji": "🙏"
+    "art": "gracias"
    },
    {
     "id": "a1-saludos-w3",
     "kind": "word",
     "es": "por favor",
     "fr": "s'il te plaît",
-    "emoji": "🥺"
+    "art": "por-favor"
    },
    {
     "id": "a1-saludos-w4",
     "kind": "word",
     "es": "buenos días",
     "fr": "bonjour (le matin)",
-    "emoji": "🌅"
+    "art": "buenos-dias"
    },
    {
     "id": "a1-saludos-w5",
     "kind": "word",
     "es": "buenas noches",
     "fr": "bonsoir / bonne nuit",
-    "emoji": "🌙"
+    "art": "buenas-noches"
    },
    {
     "id": "a1-saludos-w6",
     "kind": "word",
     "es": "el amigo",
     "fr": "l'ami",
-    "emoji": "🧑‍🤝‍🧑"
+    "art": "amigo"
    },
    {
     "id": "a1-saludos-w7",
     "kind": "word",
     "es": "mucho gusto",
     "fr": "enchanté(e)",
-    "emoji": "🤝"
+    "art": "mucho-gusto"
    },
    {
     "id": "a1-saludos-p0",
     "kind": "phrase",
     "es": "¿Cómo estás?",
     "fr": "Comment vas-tu ?",
-    "emoji": "💬"
+    "art": "ui-phrase"
    },
    {
     "id": "a1-saludos-p1",
     "kind": "phrase",
     "es": "Me llamo Sofía.",
     "fr": "Je m'appelle Sofía.",
-    "emoji": "💬"
+    "art": "ui-phrase"
    },
    {
     "id": "a1-saludos-p2",
     "kind": "phrase",
     "es": "¿De dónde eres?",
     "fr": "D'où viens-tu ?",
-    "emoji": "💬"
+    "art": "ui-phrase"
    },
    {
     "id": "a1-saludos-p3",
     "kind": "phrase",
     "es": "Nos vemos mañana.",
     "fr": "On se voit demain.",
-    "emoji": "💬"
+    "art": "ui-phrase"
    },
    {
     "id": "a1-saludos-g",
     "kind": "grammar",
     "es": "yo soy, tú eres…",
     "fr": "Le verbe ser (être)",
-    "emoji": "📘",
+    "art": "ui-grammar",
     "explanation": "Ser sert à se présenter : nom, origine, profession. yo soy, tú eres, él / ella / usted es, nosotros somos, ustedes son. Au Mexique, on n'utilise pas « vosotros » : on dit « ustedes » pour « vous » au pluriel, même entre amis.",
     "examples": [
      {
@@ -126,7 +126,7 @@ export const THEMES = [
     "kind": "dialogue",
     "es": "En la calle",
     "fr": "Dans la rue",
-    "emoji": "🗣️",
+    "art": "ui-dialogue",
     "lines": [
      {
       "speaker": "Lupita",
@@ -167,7 +167,7 @@ export const THEMES = [
   "level": "A1",
   "titleEs": "La familia",
   "titleFr": "La famille",
-  "emoji": "👨‍👩‍👧",
+  "art": "familia",
   "color": "#00A86B",
   "items": [
    {
@@ -175,91 +175,91 @@ export const THEMES = [
     "kind": "word",
     "es": "la familia",
     "fr": "la famille",
-    "emoji": "👨‍👩‍👧‍👦"
+    "art": "familia"
    },
    {
     "id": "a1-familia-w1",
     "kind": "word",
     "es": "la mamá",
     "fr": "la maman",
-    "emoji": "👩"
+    "art": "mama"
    },
    {
     "id": "a1-familia-w2",
     "kind": "word",
     "es": "el papá",
     "fr": "le papa",
-    "emoji": "👨"
+    "art": "papa"
    },
    {
     "id": "a1-familia-w3",
     "kind": "word",
     "es": "el hermano",
     "fr": "le frère",
-    "emoji": "👦"
+    "art": "hermano"
    },
    {
     "id": "a1-familia-w4",
     "kind": "word",
     "es": "la hermana",
     "fr": "la sœur",
-    "emoji": "👧"
+    "art": "hermana"
    },
    {
     "id": "a1-familia-w5",
     "kind": "word",
     "es": "la abuela",
     "fr": "la grand-mère",
-    "emoji": "👵"
+    "art": "abuela"
    },
    {
     "id": "a1-familia-w6",
     "kind": "word",
     "es": "el abuelo",
     "fr": "le grand-père",
-    "emoji": "👴"
+    "art": "abuelo"
    },
    {
     "id": "a1-familia-w7",
     "kind": "word",
     "es": "el bebé",
     "fr": "le bébé",
-    "emoji": "👶"
+    "art": "bebe"
    },
    {
     "id": "a1-familia-p0",
     "kind": "phrase",
     "es": "Tengo dos hermanos.",
     "fr": "J'ai deux frères (ou frères et sœurs).",
-    "emoji": "💬"
+    "art": "ui-phrase"
    },
    {
     "id": "a1-familia-p1",
     "kind": "phrase",
     "es": "Mi mamá se llama Carmen.",
     "fr": "Ma mère s'appelle Carmen.",
-    "emoji": "💬"
+    "art": "ui-phrase"
    },
    {
     "id": "a1-familia-p2",
     "kind": "phrase",
     "es": "¿Tienes hijos?",
     "fr": "As-tu des enfants ?",
-    "emoji": "💬"
+    "art": "ui-phrase"
    },
    {
     "id": "a1-familia-p3",
     "kind": "phrase",
     "es": "Mi abuela vive en Puebla.",
     "fr": "Ma grand-mère vit à Puebla.",
-    "emoji": "💬"
+    "art": "ui-phrase"
    },
    {
     "id": "a1-familia-g",
     "kind": "grammar",
     "es": "mi, tu, su",
     "fr": "Les possessifs",
-    "emoji": "📘",
+    "art": "ui-grammar",
     "explanation": "mi = mon / ma, tu = ton / ta, su = son / sa / votre. Au pluriel on ajoute -s : mis hermanos, tus papás. « tu » sans accent = ton / ta ; « tú » avec accent = toi. Au Mexique, « mis papás » veut dire « mes parents ».",
     "examples": [
      {
@@ -288,7 +288,7 @@ export const THEMES = [
     "kind": "dialogue",
     "es": "La foto familiar",
     "fr": "La photo de famille",
-    "emoji": "🗣️",
+    "art": "ui-dialogue",
     "lines": [
      {
       "speaker": "Ana",
@@ -329,7 +329,7 @@ export const THEMES = [
   "level": "A1",
   "titleEs": "En el mercado",
   "titleFr": "Au marché",
-  "emoji": "🥭",
+  "art": "mango",
   "color": "#FF6B1A",
   "items": [
    {
@@ -337,21 +337,21 @@ export const THEMES = [
     "kind": "word",
     "es": "el mango",
     "fr": "la mangue",
-    "emoji": "🥭"
+    "art": "mango"
    },
    {
     "id": "a1-mercado-w1",
     "kind": "word",
     "es": "el aguacate",
     "fr": "l'avocat",
-    "emoji": "🥑"
+    "art": "aguacate"
    },
    {
     "id": "a1-mercado-w2",
     "kind": "word",
     "es": "el limón",
     "fr": "le citron vert",
-    "emoji": "🍋",
+    "art": "limon",
     "note": "Au Mexique, « limón » désigne le petit citron vert."
    },
    {
@@ -359,7 +359,7 @@ export const THEMES = [
     "kind": "word",
     "es": "el jitomate",
     "fr": "la tomate",
-    "emoji": "🍅",
+    "art": "jitomate",
     "note": "Mot mexicain venu du nahuatl ; ailleurs on dit « tomate »."
    },
    {
@@ -367,7 +367,7 @@ export const THEMES = [
     "kind": "word",
     "es": "el elote",
     "fr": "l'épi de maïs",
-    "emoji": "🌽",
+    "art": "elote",
     "note": "Vendu grillé dans la rue avec mayonnaise, fromage et piment."
    },
    {
@@ -375,56 +375,56 @@ export const THEMES = [
     "kind": "word",
     "es": "el chile",
     "fr": "le piment",
-    "emoji": "🌶️"
+    "art": "chile"
    },
    {
     "id": "a1-mercado-w6",
     "kind": "word",
     "es": "la sandía",
     "fr": "la pastèque",
-    "emoji": "🍉"
+    "art": "sandia"
    },
    {
     "id": "a1-mercado-w7",
     "kind": "word",
     "es": "el plátano",
     "fr": "la banane",
-    "emoji": "🍌"
+    "art": "platano"
    },
    {
     "id": "a1-mercado-p0",
     "kind": "phrase",
     "es": "¿Cuánto cuesta el kilo?",
     "fr": "Combien coûte le kilo ?",
-    "emoji": "💬"
+    "art": "ui-phrase"
    },
    {
     "id": "a1-mercado-p1",
     "kind": "phrase",
     "es": "Me da un kilo de jitomates, por favor.",
     "fr": "Donnez-moi un kilo de tomates, s'il vous plaît.",
-    "emoji": "💬"
+    "art": "ui-phrase"
    },
    {
     "id": "a1-mercado-p2",
     "kind": "phrase",
     "es": "¿Pica mucho?",
     "fr": "Ça pique beaucoup ?",
-    "emoji": "💬"
+    "art": "ui-phrase"
    },
    {
     "id": "a1-mercado-p3",
     "kind": "phrase",
     "es": "Está muy rico.",
     "fr": "C'est très bon.",
-    "emoji": "💬"
+    "art": "ui-phrase"
    },
    {
     "id": "a1-mercado-g",
     "kind": "grammar",
     "es": "el / la, -s / -es",
     "fr": "Le genre et le pluriel",
-    "emoji": "📘",
+    "art": "ui-grammar",
     "explanation": "Les noms en -o sont souvent masculins (el mango), ceux en -a souvent féminins (la sandía). Le pluriel : -s après une voyelle (los mangos), -es après une consonne (los limones). Exceptions fréquentes : el día, la mano.",
     "examples": [
      {
@@ -453,7 +453,7 @@ export const THEMES = [
     "kind": "dialogue",
     "es": "En el puesto de fruta",
     "fr": "Au stand de fruits",
-    "emoji": "🗣️",
+    "art": "ui-dialogue",
     "lines": [
      {
       "speaker": "Marchante",
@@ -494,7 +494,7 @@ export const THEMES = [
   "level": "A1",
   "titleEs": "La taquería",
   "titleFr": "La taqueria",
-  "emoji": "🌮",
+  "art": "taco",
   "color": "#1E88E5",
   "items": [
    {
@@ -502,49 +502,49 @@ export const THEMES = [
     "kind": "word",
     "es": "el taco",
     "fr": "le taco",
-    "emoji": "🌮"
+    "art": "taco"
    },
    {
     "id": "a1-taqueria-w1",
     "kind": "word",
     "es": "la tortilla",
     "fr": "la galette de maïs",
-    "emoji": "🫓"
+    "art": "tortilla"
    },
    {
     "id": "a1-taqueria-w2",
     "kind": "word",
     "es": "la salsa",
     "fr": "la sauce",
-    "emoji": "🥣"
+    "art": "salsa"
    },
    {
     "id": "a1-taqueria-w3",
     "kind": "word",
     "es": "el queso",
     "fr": "le fromage",
-    "emoji": "🧀"
+    "art": "queso"
    },
    {
     "id": "a1-taqueria-w4",
     "kind": "word",
     "es": "la carne",
     "fr": "la viande",
-    "emoji": "🥩"
+    "art": "carne"
    },
    {
     "id": "a1-taqueria-w5",
     "kind": "word",
     "es": "la cebolla",
     "fr": "l'oignon",
-    "emoji": "🧅"
+    "art": "cebolla"
    },
    {
     "id": "a1-taqueria-w6",
     "kind": "word",
     "es": "el agua",
     "fr": "l'eau",
-    "emoji": "💧",
+    "art": "agua",
     "note": "Féminin, mais on dit « el agua » pour éviter le son « la a »."
    },
    {
@@ -552,42 +552,42 @@ export const THEMES = [
     "kind": "word",
     "es": "el refresco",
     "fr": "le soda",
-    "emoji": "🥤"
+    "art": "refresco"
    },
    {
     "id": "a1-taqueria-p0",
     "kind": "phrase",
     "es": "Me da tres tacos al pastor.",
     "fr": "Je voudrais trois tacos al pastor.",
-    "emoji": "💬"
+    "art": "ui-phrase"
    },
    {
     "id": "a1-taqueria-p1",
     "kind": "phrase",
     "es": "¿Con todo?",
     "fr": "Avec tout ? (oignon et coriandre)",
-    "emoji": "💬"
+    "art": "ui-phrase"
    },
    {
     "id": "a1-taqueria-p2",
     "kind": "phrase",
     "es": "Sin cebolla, por favor.",
     "fr": "Sans oignon, s'il vous plaît.",
-    "emoji": "💬"
+    "art": "ui-phrase"
    },
    {
     "id": "a1-taqueria-p3",
     "kind": "phrase",
     "es": "¿Cuánto le debo?",
     "fr": "Combien je vous dois ?",
-    "emoji": "💬"
+    "art": "ui-phrase"
    },
    {
     "id": "a1-taqueria-g",
     "kind": "grammar",
     "es": "quiero, quieres…",
     "fr": "Querer : vouloir",
-    "emoji": "📘",
+    "art": "ui-grammar",
     "explanation": "Pour commander : quiero (je veux), quieres, quiere, queremos, quieren. Plus poli : quisiera (je voudrais). Au Mexique, on dit très souvent « Me da… » (vous me donnez…) : c'est poli et naturel.",
     "examples": [
      {
@@ -616,7 +616,7 @@ export const THEMES = [
     "kind": "dialogue",
     "es": "En el puesto de tacos",
     "fr": "Au stand de tacos",
-    "emoji": "🗣️",
+    "art": "ui-dialogue",
     "lines": [
      {
       "speaker": "Taquero",
@@ -657,7 +657,7 @@ export const THEMES = [
   "level": "A1",
   "titleEs": "Números y dinero",
   "titleFr": "Nombres et argent",
-  "emoji": "💰",
+  "art": "billete",
   "color": "#8E44AD",
   "items": [
    {
@@ -665,42 +665,42 @@ export const THEMES = [
     "kind": "word",
     "es": "uno",
     "fr": "un",
-    "emoji": "1️⃣"
+    "art": "uno"
    },
    {
     "id": "a1-numeros-w1",
     "kind": "word",
     "es": "dos",
     "fr": "deux",
-    "emoji": "2️⃣"
+    "art": "dos"
    },
    {
     "id": "a1-numeros-w2",
     "kind": "word",
     "es": "tres",
     "fr": "trois",
-    "emoji": "3️⃣"
+    "art": "tres"
    },
    {
     "id": "a1-numeros-w3",
     "kind": "word",
     "es": "diez",
     "fr": "dix",
-    "emoji": "🔟"
+    "art": "diez"
    },
    {
     "id": "a1-numeros-w4",
     "kind": "word",
     "es": "cien",
     "fr": "cent",
-    "emoji": "💯"
+    "art": "cien"
    },
    {
     "id": "a1-numeros-w5",
     "kind": "word",
     "es": "el peso",
     "fr": "le peso",
-    "emoji": "💲",
+    "art": "peso",
     "note": "La monnaie mexicaine."
    },
    {
@@ -708,49 +708,49 @@ export const THEMES = [
     "kind": "word",
     "es": "el billete",
     "fr": "le billet",
-    "emoji": "💵"
+    "art": "billete"
    },
    {
     "id": "a1-numeros-w7",
     "kind": "word",
     "es": "la moneda",
     "fr": "la pièce",
-    "emoji": "🪙"
+    "art": "moneda"
    },
    {
     "id": "a1-numeros-p0",
     "kind": "phrase",
     "es": "¿Cuánto es?",
     "fr": "C'est combien ?",
-    "emoji": "💬"
+    "art": "ui-phrase"
    },
    {
     "id": "a1-numeros-p1",
     "kind": "phrase",
     "es": "Son cincuenta pesos.",
     "fr": "Ça fait cinquante pesos.",
-    "emoji": "💬"
+    "art": "ui-phrase"
    },
    {
     "id": "a1-numeros-p2",
     "kind": "phrase",
     "es": "¿Aceptan tarjeta?",
     "fr": "Vous acceptez la carte ?",
-    "emoji": "💬"
+    "art": "ui-phrase"
    },
    {
     "id": "a1-numeros-p3",
     "kind": "phrase",
     "es": "No tengo cambio.",
     "fr": "Je n'ai pas de monnaie.",
-    "emoji": "💬"
+    "art": "ui-phrase"
    },
    {
     "id": "a1-numeros-g",
     "kind": "grammar",
     "es": "uno, dos… cien",
     "fr": "Compter jusqu'à 100",
-    "emoji": "📘",
+    "art": "ui-grammar",
     "explanation": "De 16 à 29 on écrit en un seul mot : dieciséis, veinte, veintiuno. À partir de 31 on utilise « y » : treinta y cinco. Cien devient ciento devant un autre nombre : ciento veinte.",
     "examples": [
      {
@@ -779,7 +779,7 @@ export const THEMES = [
     "kind": "dialogue",
     "es": "En la tiendita",
     "fr": "À l'épicerie du coin",
-    "emoji": "🗣️",
+    "art": "ui-dialogue",
     "lines": [
      {
       "speaker": "Tendero",
@@ -820,7 +820,7 @@ export const THEMES = [
   "level": "A1",
   "titleEs": "La casa",
   "titleFr": "La maison",
-  "emoji": "🏠",
+  "art": "casa",
   "color": "#F5B700",
   "items": [
    {
@@ -828,91 +828,91 @@ export const THEMES = [
     "kind": "word",
     "es": "la casa",
     "fr": "la maison",
-    "emoji": "🏠"
+    "art": "casa"
    },
    {
     "id": "a1-casa-w1",
     "kind": "word",
     "es": "la cocina",
     "fr": "la cuisine",
-    "emoji": "🍳"
+    "art": "cocina"
    },
    {
     "id": "a1-casa-w2",
     "kind": "word",
     "es": "la cama",
     "fr": "le lit",
-    "emoji": "🛏️"
+    "art": "cama"
    },
    {
     "id": "a1-casa-w3",
     "kind": "word",
     "es": "la puerta",
     "fr": "la porte",
-    "emoji": "🚪"
+    "art": "puerta"
    },
    {
     "id": "a1-casa-w4",
     "kind": "word",
     "es": "la ventana",
     "fr": "la fenêtre",
-    "emoji": "🪟"
+    "art": "ventana"
    },
    {
     "id": "a1-casa-w5",
     "kind": "word",
     "es": "el baño",
     "fr": "la salle de bain / les toilettes",
-    "emoji": "🚽"
+    "art": "bano"
    },
    {
     "id": "a1-casa-w6",
     "kind": "word",
     "es": "la silla",
     "fr": "la chaise",
-    "emoji": "🪑"
+    "art": "silla"
    },
    {
     "id": "a1-casa-w7",
     "kind": "word",
     "es": "el sillón",
     "fr": "le canapé / le fauteuil",
-    "emoji": "🛋️"
+    "art": "sillon"
    },
    {
     "id": "a1-casa-p0",
     "kind": "phrase",
     "es": "Mi casa es tu casa.",
     "fr": "Fais comme chez toi.",
-    "emoji": "💬"
+    "art": "ui-phrase"
    },
    {
     "id": "a1-casa-p1",
     "kind": "phrase",
     "es": "¿Dónde está el baño?",
     "fr": "Où sont les toilettes ?",
-    "emoji": "💬"
+    "art": "ui-phrase"
    },
    {
     "id": "a1-casa-p2",
     "kind": "phrase",
     "es": "La cocina es muy grande.",
     "fr": "La cuisine est très grande.",
-    "emoji": "💬"
+    "art": "ui-phrase"
    },
    {
     "id": "a1-casa-p3",
     "kind": "phrase",
     "es": "Abre la ventana, por favor.",
     "fr": "Ouvre la fenêtre, s'il te plaît.",
-    "emoji": "💬"
+    "art": "ui-phrase"
    },
    {
     "id": "a1-casa-g",
     "kind": "grammar",
     "es": "estar, hay",
     "fr": "Estar et hay pour situer",
-    "emoji": "📘",
+    "art": "ui-grammar",
     "explanation": "On utilise estar pour dire où se trouve quelque chose : estoy, estás, está, estamos, están. « Hay » signifie « il y a » et ne change jamais.",
     "examples": [
      {
@@ -941,7 +941,7 @@ export const THEMES = [
     "kind": "dialogue",
     "es": "La visita",
     "fr": "La visite",
-    "emoji": "🗣️",
+    "art": "ui-dialogue",
     "lines": [
      {
       "speaker": "Rosa",
@@ -987,7 +987,7 @@ export const THEMES = [
   "level": "A1",
   "titleEs": "Ropa y colores",
   "titleFr": "Vêtements et couleurs",
-  "emoji": "👕",
+  "art": "sombrero",
   "color": "#00A6A6",
   "items": [
    {
@@ -995,91 +995,91 @@ export const THEMES = [
     "kind": "word",
     "es": "la camisa",
     "fr": "la chemise",
-    "emoji": "👔"
+    "art": "camisa"
    },
    {
     "id": "a1-ropa-w1",
     "kind": "word",
     "es": "el pantalón",
     "fr": "le pantalon",
-    "emoji": "👖"
+    "art": "pantalon"
    },
    {
     "id": "a1-ropa-w2",
     "kind": "word",
     "es": "los zapatos",
     "fr": "les chaussures",
-    "emoji": "👞"
+    "art": "zapatos"
    },
    {
     "id": "a1-ropa-w3",
     "kind": "word",
     "es": "el sombrero",
     "fr": "le chapeau",
-    "emoji": "👒"
+    "art": "sombrero"
    },
    {
     "id": "a1-ropa-w4",
     "kind": "word",
     "es": "rojo",
     "fr": "rouge",
-    "emoji": "🔴"
+    "art": "rojo"
    },
    {
     "id": "a1-ropa-w5",
     "kind": "word",
     "es": "verde",
     "fr": "vert",
-    "emoji": "🟢"
+    "art": "verde"
    },
    {
     "id": "a1-ropa-w6",
     "kind": "word",
     "es": "azul",
     "fr": "bleu",
-    "emoji": "🔵"
+    "art": "azul"
    },
    {
     "id": "a1-ropa-w7",
     "kind": "word",
     "es": "blanco",
     "fr": "blanc",
-    "emoji": "⚪"
+    "art": "blanco"
    },
    {
     "id": "a1-ropa-p0",
     "kind": "phrase",
     "es": "Me gusta tu camisa.",
     "fr": "J'aime ta chemise.",
-    "emoji": "💬"
+    "art": "ui-phrase"
    },
    {
     "id": "a1-ropa-p1",
     "kind": "phrase",
     "es": "La bandera de México es verde, blanca y roja.",
     "fr": "Le drapeau du Mexique est vert, blanc et rouge.",
-    "emoji": "💬"
+    "art": "ui-phrase"
    },
    {
     "id": "a1-ropa-p2",
     "kind": "phrase",
     "es": "Necesito unos zapatos nuevos.",
     "fr": "J'ai besoin de nouvelles chaussures.",
-    "emoji": "💬"
+    "art": "ui-phrase"
    },
    {
     "id": "a1-ropa-p3",
     "kind": "phrase",
     "es": "¿Lo tiene en azul?",
     "fr": "Vous l'avez en bleu ?",
-    "emoji": "💬"
+    "art": "ui-phrase"
    },
    {
     "id": "a1-ropa-g",
     "kind": "grammar",
     "es": "rojo, roja, rojos",
     "fr": "L'accord des adjectifs",
-    "emoji": "📘",
+    "art": "ui-grammar",
     "explanation": "L'adjectif se place en général après le nom et s'accorde : un sombrero rojo, una camisa roja, unos zapatos rojos. Les couleurs en -e ou en consonne ne changent qu'au pluriel : verde → verdes, azul → azules.",
     "examples": [
      {
@@ -1108,7 +1108,7 @@ export const THEMES = [
     "kind": "dialogue",
     "es": "En la tienda de ropa",
     "fr": "Au magasin de vêtements",
-    "emoji": "🗣️",
+    "art": "ui-dialogue",
     "lines": [
      {
       "speaker": "Vendedora",
@@ -1149,7 +1149,7 @@ export const THEMES = [
   "level": "A1",
   "titleEs": "El clima y los días",
   "titleFr": "La météo et les jours",
-  "emoji": "☀️",
+  "art": "sol",
   "color": "#D62839",
   "items": [
    {
@@ -1157,91 +1157,91 @@ export const THEMES = [
     "kind": "word",
     "es": "el sol",
     "fr": "le soleil",
-    "emoji": "☀️"
+    "art": "sol"
    },
    {
     "id": "a1-clima-w1",
     "kind": "word",
     "es": "la lluvia",
     "fr": "la pluie",
-    "emoji": "🌧️"
+    "art": "lluvia"
    },
    {
     "id": "a1-clima-w2",
     "kind": "word",
     "es": "el calor",
     "fr": "la chaleur",
-    "emoji": "🥵"
+    "art": "calor"
    },
    {
     "id": "a1-clima-w3",
     "kind": "word",
     "es": "el frío",
     "fr": "le froid",
-    "emoji": "🥶"
+    "art": "frio"
    },
    {
     "id": "a1-clima-w4",
     "kind": "word",
     "es": "hoy",
     "fr": "aujourd'hui",
-    "emoji": "📆"
+    "art": "hoy"
    },
    {
     "id": "a1-clima-w5",
     "kind": "word",
     "es": "mañana",
     "fr": "demain",
-    "emoji": "⏭️"
+    "art": "manana"
    },
    {
     "id": "a1-clima-w6",
     "kind": "word",
     "es": "la noche",
     "fr": "la nuit",
-    "emoji": "🌃"
+    "art": "noche"
    },
    {
     "id": "a1-clima-w7",
     "kind": "word",
     "es": "la semana",
     "fr": "la semaine",
-    "emoji": "🗓️"
+    "art": "semana"
    },
    {
     "id": "a1-clima-p0",
     "kind": "phrase",
     "es": "Hace mucho calor.",
     "fr": "Il fait très chaud.",
-    "emoji": "💬"
+    "art": "ui-phrase"
    },
    {
     "id": "a1-clima-p1",
     "kind": "phrase",
     "es": "Está lloviendo.",
     "fr": "Il pleut.",
-    "emoji": "💬"
+    "art": "ui-phrase"
    },
    {
     "id": "a1-clima-p2",
     "kind": "phrase",
     "es": "¿Qué día es hoy?",
     "fr": "Quel jour sommes-nous ?",
-    "emoji": "💬"
+    "art": "ui-phrase"
    },
    {
     "id": "a1-clima-p3",
     "kind": "phrase",
     "es": "Hoy es lunes.",
     "fr": "Aujourd'hui, c'est lundi.",
-    "emoji": "💬"
+    "art": "ui-phrase"
    },
    {
     "id": "a1-clima-g",
     "kind": "grammar",
     "es": "hace calor, hace frío",
     "fr": "Hacer pour la météo",
-    "emoji": "📘",
+    "art": "ui-grammar",
     "explanation": "Pour parler du temps qu'il fait, on utilise hacer : hace calor, hace frío, hace sol, hace viento. Pour la pluie : llueve (il pleut) ou está lloviendo. En été, à Mexico, il pleut presque chaque après-midi !",
     "examples": [
      {
@@ -1270,7 +1270,7 @@ export const THEMES = [
     "kind": "dialogue",
     "es": "¿Vamos al parque?",
     "fr": "On va au parc ?",
-    "emoji": "🗣️",
+    "art": "ui-dialogue",
     "lines": [
      {
       "speaker": "Julia",
@@ -1311,7 +1311,7 @@ export const THEMES = [
   "level": "A2",
   "titleEs": "En la ciudad",
   "titleFr": "En ville",
-  "emoji": "🏙️",
+  "art": "metro",
   "color": "#E4007C",
   "items": [
    {
@@ -1319,28 +1319,28 @@ export const THEMES = [
     "kind": "word",
     "es": "la calle",
     "fr": "la rue",
-    "emoji": "🛣️"
+    "art": "calle"
    },
    {
     "id": "a2-ciudad-w1",
     "kind": "word",
     "es": "la esquina",
     "fr": "le coin de rue",
-    "emoji": "🚦"
+    "art": "esquina"
    },
    {
     "id": "a2-ciudad-w2",
     "kind": "word",
     "es": "el metro",
     "fr": "le métro",
-    "emoji": "🚇"
+    "art": "metro"
    },
    {
     "id": "a2-ciudad-w3",
     "kind": "word",
     "es": "el camión",
     "fr": "le bus",
-    "emoji": "🚌",
+    "art": "camion",
     "note": "Au Mexique, « camión » désigne aussi le bus urbain."
    },
    {
@@ -1348,63 +1348,63 @@ export const THEMES = [
     "kind": "word",
     "es": "el parque",
     "fr": "le parc",
-    "emoji": "🌳"
+    "art": "parque"
    },
    {
     "id": "a2-ciudad-w5",
     "kind": "word",
     "es": "la iglesia",
     "fr": "l'église",
-    "emoji": "⛪"
+    "art": "iglesia"
    },
    {
     "id": "a2-ciudad-w6",
     "kind": "word",
     "es": "el banco",
     "fr": "la banque",
-    "emoji": "🏦"
+    "art": "banco"
    },
    {
     "id": "a2-ciudad-w7",
     "kind": "word",
     "es": "la farmacia",
     "fr": "la pharmacie",
-    "emoji": "💊"
+    "art": "farmacia"
    },
    {
     "id": "a2-ciudad-p0",
     "kind": "phrase",
     "es": "¿Cómo llego al Zócalo?",
     "fr": "Comment j'arrive au Zócalo ?",
-    "emoji": "💬"
+    "art": "ui-phrase"
    },
    {
     "id": "a2-ciudad-p1",
     "kind": "phrase",
     "es": "Siga derecho dos cuadras.",
     "fr": "Continuez tout droit sur deux pâtés de maisons.",
-    "emoji": "💬"
+    "art": "ui-phrase"
    },
    {
     "id": "a2-ciudad-p2",
     "kind": "phrase",
     "es": "Dé vuelta a la izquierda.",
     "fr": "Tournez à gauche.",
-    "emoji": "💬"
+    "art": "ui-phrase"
    },
    {
     "id": "a2-ciudad-p3",
     "kind": "phrase",
     "es": "Está a la vuelta.",
     "fr": "C'est juste au coin.",
-    "emoji": "💬"
+    "art": "ui-phrase"
    },
    {
     "id": "a2-ciudad-g",
     "kind": "grammar",
     "es": "siga, tome, dé vuelta",
     "fr": "L'impératif poli (usted)",
-    "emoji": "📘",
+    "art": "ui-grammar",
     "explanation": "Pour donner des indications avec usted, on part de la forme « yo » du présent et on change la voyelle finale : tomo → tome, sigo → siga, bajo → baje. Les Mexicains vouvoient facilement les inconnus.",
     "examples": [
      {
@@ -1433,7 +1433,7 @@ export const THEMES = [
     "kind": "dialogue",
     "es": "Perdido en el Centro",
     "fr": "Perdu dans le centre",
-    "emoji": "🗣️",
+    "art": "ui-dialogue",
     "lines": [
      {
       "speaker": "Tom",
@@ -1474,7 +1474,7 @@ export const THEMES = [
   "level": "A2",
   "titleEs": "De viaje",
   "titleFr": "En voyage",
-  "emoji": "✈️",
+  "art": "piramide",
   "color": "#00A86B",
   "items": [
    {
@@ -1482,56 +1482,56 @@ export const THEMES = [
     "kind": "word",
     "es": "la playa",
     "fr": "la plage",
-    "emoji": "🏖️"
+    "art": "playa"
    },
    {
     "id": "a2-viaje-w1",
     "kind": "word",
     "es": "el hotel",
     "fr": "l'hôtel",
-    "emoji": "🏨"
+    "art": "hotel"
    },
    {
     "id": "a2-viaje-w2",
     "kind": "word",
     "es": "la maleta",
     "fr": "la valise",
-    "emoji": "🧳"
+    "art": "maleta"
    },
    {
     "id": "a2-viaje-w3",
     "kind": "word",
     "es": "el boleto",
     "fr": "le billet (de transport)",
-    "emoji": "🎫"
+    "art": "boleto"
    },
    {
     "id": "a2-viaje-w4",
     "kind": "word",
     "es": "el avión",
     "fr": "l'avion",
-    "emoji": "✈️"
+    "art": "avion"
    },
    {
     "id": "a2-viaje-w5",
     "kind": "word",
     "es": "el pasaporte",
     "fr": "le passeport",
-    "emoji": "🛂"
+    "art": "pasaporte"
    },
    {
     "id": "a2-viaje-w6",
     "kind": "word",
     "es": "la pirámide",
     "fr": "la pyramide",
-    "emoji": "🔺"
+    "art": "piramide"
    },
    {
     "id": "a2-viaje-w7",
     "kind": "word",
     "es": "el cenote",
     "fr": "le cénote",
-    "emoji": "🤿",
+    "art": "cenote",
     "note": "Gouffre d'eau douce typique du Yucatán."
    },
    {
@@ -1539,35 +1539,35 @@ export const THEMES = [
     "kind": "phrase",
     "es": "Quiero reservar una habitación.",
     "fr": "Je voudrais réserver une chambre.",
-    "emoji": "💬"
+    "art": "ui-phrase"
    },
    {
     "id": "a2-viaje-p1",
     "kind": "phrase",
     "es": "¿A qué hora sale el autobús a Oaxaca?",
     "fr": "À quelle heure part le bus pour Oaxaca ?",
-    "emoji": "💬"
+    "art": "ui-phrase"
    },
    {
     "id": "a2-viaje-p2",
     "kind": "phrase",
     "es": "Fuimos a Teotihuacán el sábado.",
     "fr": "Nous sommes allés à Teotihuacán samedi.",
-    "emoji": "💬"
+    "art": "ui-phrase"
    },
    {
     "id": "a2-viaje-p3",
     "kind": "phrase",
     "es": "Se me olvidó el pasaporte.",
     "fr": "J'ai oublié mon passeport.",
-    "emoji": "💬"
+    "art": "ui-phrase"
    },
    {
     "id": "a2-viaje-g",
     "kind": "grammar",
     "es": "viajé, comí, fui",
     "fr": "Le prétérit",
-    "emoji": "📘",
+    "art": "ui-grammar",
     "explanation": "Au Mexique, on utilise surtout le prétérit pour les actions passées, même récentes : hoy comí tacos (aujourd'hui j'ai mangé des tacos). -ar : viajé, viajaste, viajó. -er / -ir : comí, comiste, comió. Irréguliers fréquents : fui (je suis allé), tuve (j'ai eu).",
     "examples": [
      {
@@ -1596,7 +1596,7 @@ export const THEMES = [
     "kind": "dialogue",
     "es": "En la recepción",
     "fr": "À la réception",
-    "emoji": "🗣️",
+    "art": "ui-dialogue",
     "lines": [
      {
       "speaker": "Recepcionista",
@@ -1642,7 +1642,7 @@ export const THEMES = [
   "level": "A2",
   "titleEs": "La rutina diaria",
   "titleFr": "La routine quotidienne",
-  "emoji": "⏰",
+  "art": "despertarse",
   "color": "#FF6B1A",
   "items": [
    {
@@ -1650,14 +1650,14 @@ export const THEMES = [
     "kind": "word",
     "es": "despertarse",
     "fr": "se réveiller",
-    "emoji": "⏰"
+    "art": "despertarse"
    },
    {
     "id": "a2-rutina-w1",
     "kind": "word",
     "es": "bañarse",
     "fr": "se doucher",
-    "emoji": "🚿",
+    "art": "banarse",
     "note": "Au Mexique, « bañarse » = prendre une douche."
    },
    {
@@ -1665,21 +1665,21 @@ export const THEMES = [
     "kind": "word",
     "es": "desayunar",
     "fr": "prendre le petit-déjeuner",
-    "emoji": "🥞"
+    "art": "desayunar"
    },
    {
     "id": "a2-rutina-w3",
     "kind": "word",
     "es": "trabajar",
     "fr": "travailler",
-    "emoji": "💼"
+    "art": "trabajar"
    },
    {
     "id": "a2-rutina-w4",
     "kind": "word",
     "es": "comer",
     "fr": "déjeuner",
-    "emoji": "🍲",
+    "art": "comer",
     "note": "Le repas principal, vers 14 h – 15 h."
    },
    {
@@ -1687,56 +1687,56 @@ export const THEMES = [
     "kind": "word",
     "es": "cenar",
     "fr": "dîner",
-    "emoji": "🍽️"
+    "art": "cenar"
    },
    {
     "id": "a2-rutina-w6",
     "kind": "word",
     "es": "dormir",
     "fr": "dormir",
-    "emoji": "😴"
+    "art": "dormir"
    },
    {
     "id": "a2-rutina-w7",
     "kind": "word",
     "es": "el café",
     "fr": "le café",
-    "emoji": "☕"
+    "art": "cafe"
    },
    {
     "id": "a2-rutina-p0",
     "kind": "phrase",
     "es": "Me despierto a las seis.",
     "fr": "Je me réveille à six heures.",
-    "emoji": "💬"
+    "art": "ui-phrase"
    },
    {
     "id": "a2-rutina-p1",
     "kind": "phrase",
     "es": "Siempre desayuno chilaquiles.",
     "fr": "Je prends toujours des chilaquiles au petit-déjeuner.",
-    "emoji": "💬"
+    "art": "ui-phrase"
    },
    {
     "id": "a2-rutina-p2",
     "kind": "phrase",
     "es": "¿A qué hora comes?",
     "fr": "À quelle heure tu déjeunes ?",
-    "emoji": "💬"
+    "art": "ui-phrase"
    },
    {
     "id": "a2-rutina-p3",
     "kind": "phrase",
     "es": "Los domingos no hago nada.",
     "fr": "Le dimanche, je ne fais rien.",
-    "emoji": "💬"
+    "art": "ui-phrase"
    },
    {
     "id": "a2-rutina-g",
     "kind": "grammar",
     "es": "me baño, te bañas…",
     "fr": "Les verbes pronominaux",
-    "emoji": "📘",
+    "art": "ui-grammar",
     "explanation": "Les verbes en -se se conjuguent avec me, te, se, nos, se : me baño, te bañas, se baña, nos bañamos, se bañan. Le pronom se place avant le verbe conjugué.",
     "examples": [
      {
@@ -1765,7 +1765,7 @@ export const THEMES = [
     "kind": "dialogue",
     "es": "Un día normal",
     "fr": "Une journée normale",
-    "emoji": "🗣️",
+    "art": "ui-dialogue",
     "lines": [
      {
       "speaker": "Karla",
@@ -1806,7 +1806,7 @@ export const THEMES = [
   "level": "A2",
   "titleEs": "La salud",
   "titleFr": "La santé",
-  "emoji": "🩺",
+  "art": "doctor",
   "color": "#1E88E5",
   "items": [
    {
@@ -1814,91 +1814,91 @@ export const THEMES = [
     "kind": "word",
     "es": "la cabeza",
     "fr": "la tête",
-    "emoji": "🤕"
+    "art": "cabeza"
    },
    {
     "id": "a2-salud-w1",
     "kind": "word",
     "es": "el estómago",
     "fr": "l'estomac / le ventre",
-    "emoji": "🤢"
+    "art": "estomago"
    },
    {
     "id": "a2-salud-w2",
     "kind": "word",
     "es": "el diente",
     "fr": "la dent",
-    "emoji": "🦷"
+    "art": "diente"
    },
    {
     "id": "a2-salud-w3",
     "kind": "word",
     "es": "la mano",
     "fr": "la main",
-    "emoji": "✋"
+    "art": "mano"
    },
    {
     "id": "a2-salud-w4",
     "kind": "word",
     "es": "el pie",
     "fr": "le pied",
-    "emoji": "🦶"
+    "art": "pie"
    },
    {
     "id": "a2-salud-w5",
     "kind": "word",
     "es": "el doctor",
     "fr": "le médecin",
-    "emoji": "🧑‍⚕️"
+    "art": "doctor"
    },
    {
     "id": "a2-salud-w6",
     "kind": "word",
     "es": "la pastilla",
     "fr": "le comprimé",
-    "emoji": "💊"
+    "art": "pastilla"
    },
    {
     "id": "a2-salud-w7",
     "kind": "word",
     "es": "la fiebre",
     "fr": "la fièvre",
-    "emoji": "🤒"
+    "art": "fiebre"
    },
    {
     "id": "a2-salud-p0",
     "kind": "phrase",
     "es": "Me duele la cabeza.",
     "fr": "J'ai mal à la tête.",
-    "emoji": "💬"
+    "art": "ui-phrase"
    },
    {
     "id": "a2-salud-p1",
     "kind": "phrase",
     "es": "Tengo fiebre.",
     "fr": "J'ai de la fièvre.",
-    "emoji": "💬"
+    "art": "ui-phrase"
    },
    {
     "id": "a2-salud-p2",
     "kind": "phrase",
     "es": "Necesito ir al doctor.",
     "fr": "J'ai besoin d'aller chez le médecin.",
-    "emoji": "💬"
+    "art": "ui-phrase"
    },
    {
     "id": "a2-salud-p3",
     "kind": "phrase",
     "es": "¡Que te mejores!",
     "fr": "Remets-toi vite !",
-    "emoji": "💬"
+    "art": "ui-phrase"
    },
    {
     "id": "a2-salud-g",
     "kind": "grammar",
     "es": "me duele, me duelen",
     "fr": "Doler : avoir mal",
-    "emoji": "📘",
+    "art": "ui-grammar",
     "explanation": "Doler fonctionne comme gustar : c'est la partie du corps qui « fait mal ». Me duele la cabeza (une chose), me duelen los pies (plusieurs). Le pronom indique la personne : me, te, le, nos, les.",
     "examples": [
      {
@@ -1927,7 +1927,7 @@ export const THEMES = [
     "kind": "dialogue",
     "es": "En el consultorio",
     "fr": "Chez le médecin",
-    "emoji": "🗣️",
+    "art": "ui-dialogue",
     "lines": [
      {
       "speaker": "Doctora",
@@ -1973,7 +1973,7 @@ export const THEMES = [
   "level": "A2",
   "titleEs": "Fiestas y tradiciones",
   "titleFr": "Fêtes et traditions",
-  "emoji": "🪅",
+  "art": "pinata",
   "color": "#8E44AD",
   "items": [
    {
@@ -1981,21 +1981,21 @@ export const THEMES = [
     "kind": "word",
     "es": "la piñata",
     "fr": "la piñata",
-    "emoji": "🪅"
+    "art": "pinata"
    },
    {
     "id": "a2-fiestas-w1",
     "kind": "word",
     "es": "el mariachi",
     "fr": "le mariachi",
-    "emoji": "🎺"
+    "art": "mariachi"
    },
    {
     "id": "a2-fiestas-w2",
     "kind": "word",
     "es": "la calavera",
     "fr": "la tête de mort",
-    "emoji": "💀",
+    "art": "calavera",
     "note": "Symbole joyeux du Día de Muertos."
    },
    {
@@ -2003,14 +2003,14 @@ export const THEMES = [
     "kind": "word",
     "es": "la vela",
     "fr": "la bougie",
-    "emoji": "🕯️"
+    "art": "vela"
    },
    {
     "id": "a2-fiestas-w4",
     "kind": "word",
     "es": "el cempasúchil",
     "fr": "la rose d'Inde",
-    "emoji": "🌼",
+    "art": "cempasuchil",
     "note": "La fleur orange du Día de Muertos."
    },
    {
@@ -2018,49 +2018,49 @@ export const THEMES = [
     "kind": "word",
     "es": "los fuegos artificiales",
     "fr": "le feu d'artifice",
-    "emoji": "🎆"
+    "art": "fuegos-artificiales"
    },
    {
     "id": "a2-fiestas-w6",
     "kind": "word",
     "es": "el pan de muerto",
     "fr": "le pain des morts",
-    "emoji": "🍞"
+    "art": "pan-de-muerto"
    },
    {
     "id": "a2-fiestas-w7",
     "kind": "word",
     "es": "la ofrenda",
     "fr": "l'autel des morts",
-    "emoji": "🏵️"
+    "art": "ofrenda"
    },
    {
     "id": "a2-fiestas-p0",
     "kind": "phrase",
     "es": "¡Feliz cumpleaños!",
     "fr": "Joyeux anniversaire !",
-    "emoji": "💬"
+    "art": "ui-phrase"
    },
    {
     "id": "a2-fiestas-p1",
     "kind": "phrase",
     "es": "¡Viva México!",
     "fr": "Vive le Mexique !",
-    "emoji": "💬"
+    "art": "ui-phrase"
    },
    {
     "id": "a2-fiestas-p2",
     "kind": "phrase",
     "es": "Ponemos una ofrenda para mis abuelos.",
     "fr": "Nous faisons un autel pour mes grands-parents.",
-    "emoji": "💬"
+    "art": "ui-phrase"
    },
    {
     "id": "a2-fiestas-p3",
     "kind": "phrase",
     "es": "¡Dale, dale, dale, no pierdas el tino!",
     "fr": "Vas-y, vas-y, ne rate pas ton coup !",
-    "emoji": "💬",
+    "art": "ui-phrase",
     "note": "La chanson qu'on chante en tapant la piñata."
    },
    {
@@ -2068,7 +2068,7 @@ export const THEMES = [
     "kind": "grammar",
     "es": "voy a bailar",
     "fr": "Ir a + infinitif : le futur proche",
-    "emoji": "📘",
+    "art": "ui-grammar",
     "explanation": "Pour parler de projets, on utilise ir a + infinitif : voy a bailar (je vais danser), vamos a cantar (nous allons chanter). C'est la façon la plus courante de parler du futur au Mexique.",
     "examples": [
      {
@@ -2097,7 +2097,7 @@ export const THEMES = [
     "kind": "dialogue",
     "es": "Día de Muertos",
     "fr": "Le jour des morts",
-    "emoji": "🗣️",
+    "art": "ui-dialogue",
     "lines": [
      {
       "speaker": "Inés",
@@ -2138,7 +2138,7 @@ export const THEMES = [
   "level": "A2",
   "titleEs": "Tiempo libre",
   "titleFr": "Les loisirs",
-  "emoji": "⚽",
+  "art": "lucha-libre",
   "color": "#F5B700",
   "items": [
    {
@@ -2146,84 +2146,84 @@ export const THEMES = [
     "kind": "word",
     "es": "el fútbol",
     "fr": "le football",
-    "emoji": "⚽"
+    "art": "futbol"
    },
    {
     "id": "a2-ocio-w1",
     "kind": "word",
     "es": "la lucha libre",
     "fr": "le catch mexicain",
-    "emoji": "🤼"
+    "art": "lucha-libre"
    },
    {
     "id": "a2-ocio-w2",
     "kind": "word",
     "es": "la música",
     "fr": "la musique",
-    "emoji": "🎶"
+    "art": "musica"
    },
    {
     "id": "a2-ocio-w3",
     "kind": "word",
     "es": "el cine",
     "fr": "le cinéma",
-    "emoji": "🎬"
+    "art": "cine"
    },
    {
     "id": "a2-ocio-w4",
     "kind": "word",
     "es": "el libro",
     "fr": "le livre",
-    "emoji": "📖"
+    "art": "libro"
    },
    {
     "id": "a2-ocio-w5",
     "kind": "word",
     "es": "la guitarra",
     "fr": "la guitare",
-    "emoji": "🎸"
+    "art": "guitarra"
    },
    {
     "id": "a2-ocio-w6",
     "kind": "word",
     "es": "el baile",
     "fr": "la danse",
-    "emoji": "💃"
+    "art": "baile"
    },
    {
     "id": "a2-ocio-w7",
     "kind": "word",
     "es": "la fiesta",
     "fr": "la fête",
-    "emoji": "🥳"
+    "art": "fiesta"
    },
    {
     "id": "a2-ocio-p0",
     "kind": "phrase",
     "es": "¿Qué te gusta hacer los fines de semana?",
     "fr": "Qu'aimes-tu faire le week-end ?",
-    "emoji": "💬"
+    "art": "ui-phrase"
    },
    {
     "id": "a2-ocio-p1",
     "kind": "phrase",
     "es": "Me encanta bailar salsa.",
     "fr": "J'adore danser la salsa.",
-    "emoji": "💬"
+    "art": "ui-phrase"
    },
    {
     "id": "a2-ocio-p2",
     "kind": "phrase",
     "es": "¿Vamos al cine?",
     "fr": "On va au cinéma ?",
-    "emoji": "💬"
+    "art": "ui-phrase"
    },
    {
     "id": "a2-ocio-p3",
     "kind": "phrase",
     "es": "Le voy a las Chivas.",
     "fr": "Je supporte les Chivas.",
-    "emoji": "💬",
+    "art": "ui-phrase",
     "note": "« Irle a un equipo » : supporter une équipe."
    },
    {
@@ -2231,7 +2231,7 @@ export const THEMES = [
     "kind": "grammar",
     "es": "me gusta, me encanta",
     "fr": "Gustar et encantar",
-    "emoji": "📘",
+    "art": "ui-grammar",
     "explanation": "Gustar s'accorde avec ce qui plaît : me gusta el fútbol, me gustan las películas. Encantar (adorer) fonctionne pareil : me encanta la lucha libre. Pour insister : a mí me gusta, a ti te gusta.",
     "examples": [
      {
@@ -2260,7 +2260,7 @@ export const THEMES = [
     "kind": "dialogue",
     "es": "El plan del sábado",
     "fr": "Le programme de samedi",
-    "emoji": "🗣️",
+    "art": "ui-dialogue",
     "lines": [
      {
       "speaker": "Memo",
@@ -2301,7 +2301,7 @@ export const THEMES = [
   "level": "A2",
   "titleEs": "Cocina mexicana",
   "titleFr": "La cuisine mexicaine",
-  "emoji": "🫔",
+  "art": "tamal",
   "color": "#00A6A6",
   "items": [
    {
@@ -2309,7 +2309,7 @@ export const THEMES = [
     "kind": "word",
     "es": "el mole",
     "fr": "le mole",
-    "emoji": "🍛",
+    "art": "mole",
     "note": "Sauce épaisse aux piments… et au chocolat."
    },
    {
@@ -2317,7 +2317,7 @@ export const THEMES = [
     "kind": "word",
     "es": "el pozole",
     "fr": "le pozole",
-    "emoji": "🍲",
+    "art": "pozole",
     "note": "Soupe au maïs, plat de fête."
    },
    {
@@ -2325,14 +2325,14 @@ export const THEMES = [
     "kind": "word",
     "es": "el tamal",
     "fr": "le tamal",
-    "emoji": "🫔"
+    "art": "tamal"
    },
    {
     "id": "a2-cocina-w3",
     "kind": "word",
     "es": "los chilaquiles",
     "fr": "les chilaquiles",
-    "emoji": "🥘",
+    "art": "chilaquiles",
     "note": "Chips de tortilla en sauce, au petit-déjeuner."
    },
    {
@@ -2340,21 +2340,21 @@ export const THEMES = [
     "kind": "word",
     "es": "los frijoles",
     "fr": "les haricots",
-    "emoji": "🫘"
+    "art": "frijoles"
    },
    {
     "id": "a2-cocina-w5",
     "kind": "word",
     "es": "la quesadilla",
     "fr": "la quesadilla",
-    "emoji": "🧀"
+    "art": "quesadilla"
    },
    {
     "id": "a2-cocina-w6",
     "kind": "word",
     "es": "la horchata",
     "fr": "l'horchata",
-    "emoji": "🥛",
+    "art": "horchata",
     "note": "Boisson sucrée au riz et à la cannelle."
    },
    {
@@ -2362,7 +2362,7 @@ export const THEMES = [
     "kind": "word",
     "es": "la concha",
     "fr": "la brioche « concha »",
-    "emoji": "🥐",
+    "art": "concha",
     "note": "Le pain sucré le plus populaire."
    },
    {
@@ -2370,28 +2370,28 @@ export const THEMES = [
     "kind": "phrase",
     "es": "¿Me pasas la sal?",
     "fr": "Tu me passes le sel ?",
-    "emoji": "💬"
+    "art": "ui-phrase"
    },
    {
     "id": "a2-cocina-p1",
     "kind": "phrase",
     "es": "El mole lleva chocolate.",
     "fr": "Le mole contient du chocolat.",
-    "emoji": "💬"
+    "art": "ui-phrase"
    },
    {
     "id": "a2-cocina-p2",
     "kind": "phrase",
     "es": "Este pozole está buenísimo.",
     "fr": "Ce pozole est délicieux.",
-    "emoji": "💬"
+    "art": "ui-phrase"
    },
    {
     "id": "a2-cocina-p3",
     "kind": "phrase",
     "es": "¿La quesadilla lleva queso?",
     "fr": "La quesadilla contient du fromage ?",
-    "emoji": "💬",
+    "art": "ui-phrase",
     "note": "Débat éternel : à Mexico, il faut le préciser !"
    },
    {
@@ -2399,7 +2399,7 @@ export const THEMES = [
     "kind": "grammar",
     "es": "buenísimo, riquísimo",
     "fr": "Le superlatif en -ísimo",
-    "emoji": "📘",
+    "art": "ui-grammar",
     "explanation": "Pour dire « très », on peut ajouter -ísimo au lieu de muy : bueno → buenísimo, rico → riquísimo, padre → padrísimo. Les Mexicains l'adorent !",
     "examples": [
      {
@@ -2428,7 +2428,7 @@ export const THEMES = [
     "kind": "dialogue",
     "es": "En casa de la abuela",
     "fr": "Chez la grand-mère",
-    "emoji": "🗣️",
+    "art": "ui-dialogue",
     "lines": [
      {
       "speaker": "Abuela",
@@ -2469,7 +2469,7 @@ export const THEMES = [
   "level": "A2",
   "titleEs": "Los animales",
   "titleFr": "Les animaux",
-  "emoji": "🦎",
+  "art": "ajolote",
   "color": "#D62839",
   "items": [
    {
@@ -2477,42 +2477,42 @@ export const THEMES = [
     "kind": "word",
     "es": "el perro",
     "fr": "le chien",
-    "emoji": "🐕"
+    "art": "perro"
    },
    {
     "id": "a2-animales-w1",
     "kind": "word",
     "es": "el gato",
     "fr": "le chat",
-    "emoji": "🐈"
+    "art": "gato"
    },
    {
     "id": "a2-animales-w2",
     "kind": "word",
     "es": "el burro",
     "fr": "l'âne",
-    "emoji": "🫏"
+    "art": "burro"
    },
    {
     "id": "a2-animales-w3",
     "kind": "word",
     "es": "el águila",
     "fr": "l'aigle",
-    "emoji": "🦅"
+    "art": "aguila"
    },
    {
     "id": "a2-animales-w4",
     "kind": "word",
     "es": "la serpiente",
     "fr": "le serpent",
-    "emoji": "🐍"
+    "art": "serpiente"
    },
    {
     "id": "a2-animales-w5",
     "kind": "word",
     "es": "el ajolote",
     "fr": "l'axolotl",
-    "emoji": "🦎",
+    "art": "ajolote",
     "note": "Amphibien qui ne vit que dans les canaux de Xochimilco."
    },
    {
@@ -2520,49 +2520,49 @@ export const THEMES = [
     "kind": "word",
     "es": "la mariposa",
     "fr": "le papillon",
-    "emoji": "🦋"
+    "art": "mariposa"
    },
    {
     "id": "a2-animales-w7",
     "kind": "word",
     "es": "el jaguar",
     "fr": "le jaguar",
-    "emoji": "🐆"
+    "art": "jaguar"
    },
    {
     "id": "a2-animales-p0",
     "kind": "phrase",
     "es": "Tengo un perro que se llama Chispa.",
     "fr": "J'ai un chien qui s'appelle Chispa.",
-    "emoji": "💬"
+    "art": "ui-phrase"
    },
    {
     "id": "a2-animales-p1",
     "kind": "phrase",
     "es": "El ajolote vive en Xochimilco.",
     "fr": "L'axolotl vit à Xochimilco.",
-    "emoji": "💬"
+    "art": "ui-phrase"
    },
    {
     "id": "a2-animales-p2",
     "kind": "phrase",
     "es": "¡Cuidado con el perro!",
     "fr": "Attention au chien !",
-    "emoji": "💬"
+    "art": "ui-phrase"
    },
    {
     "id": "a2-animales-p3",
     "kind": "phrase",
     "es": "Las mariposas monarca llegan en invierno.",
     "fr": "Les papillons monarques arrivent en hiver.",
-    "emoji": "💬"
+    "art": "ui-phrase"
    },
    {
     "id": "a2-animales-g",
     "kind": "grammar",
     "es": "más… que, tan… como",
     "fr": "Comparer",
-    "emoji": "📘",
+    "art": "ui-grammar",
     "explanation": "más… que (plus… que), menos… que (moins… que), tan… como (aussi… que). Irréguliers : mejor (meilleur), peor (pire), mayor (plus âgé), menor (plus jeune).",
     "examples": [
      {
@@ -2591,7 +2591,7 @@ export const THEMES = [
     "kind": "dialogue",
     "es": "En Xochimilco",
     "fr": "À Xochimilco",
-    "emoji": "🗣️",
+    "art": "ui-dialogue",
     "lines": [
      {
       "speaker": "Guía",
@@ -2632,7 +2632,7 @@ export const THEMES = [
   "level": "B1",
   "titleEs": "La chamba",
   "titleFr": "Le travail",
-  "emoji": "💼",
+  "art": "chamba",
   "color": "#E4007C",
   "items": [
    {
@@ -2640,7 +2640,7 @@ export const THEMES = [
     "kind": "word",
     "es": "la chamba",
     "fr": "le boulot",
-    "emoji": "🛠️",
+    "art": "chamba",
     "note": "Très mexicain et familier."
    },
    {
@@ -2648,21 +2648,21 @@ export const THEMES = [
     "kind": "word",
     "es": "el jefe",
     "fr": "le patron",
-    "emoji": "🧑‍💼"
+    "art": "jefe"
    },
    {
     "id": "b1-chamba-w2",
     "kind": "word",
     "es": "la oficina",
     "fr": "le bureau",
-    "emoji": "🏢"
+    "art": "oficina"
    },
    {
     "id": "b1-chamba-w3",
     "kind": "word",
     "es": "la junta",
     "fr": "la réunion",
-    "emoji": "👥",
+    "art": "junta",
     "note": "Au Mexique, une réunion de travail."
    },
    {
@@ -2670,63 +2670,63 @@ export const THEMES = [
     "kind": "word",
     "es": "el sueldo",
     "fr": "le salaire",
-    "emoji": "💰"
+    "art": "sueldo"
    },
    {
     "id": "b1-chamba-w5",
     "kind": "word",
     "es": "la computadora",
     "fr": "l'ordinateur",
-    "emoji": "💻"
+    "art": "computadora"
    },
    {
     "id": "b1-chamba-w6",
     "kind": "word",
     "es": "el correo",
     "fr": "le mail / le courrier",
-    "emoji": "📧"
+    "art": "correo"
    },
    {
     "id": "b1-chamba-w7",
     "kind": "word",
     "es": "el horario",
     "fr": "les horaires",
-    "emoji": "🕘"
+    "art": "horario"
    },
    {
     "id": "b1-chamba-p0",
     "kind": "phrase",
     "es": "Tengo una junta a las diez.",
     "fr": "J'ai une réunion à dix heures.",
-    "emoji": "💬"
+    "art": "ui-phrase"
    },
    {
     "id": "b1-chamba-p1",
     "kind": "phrase",
     "es": "Estoy buscando chamba.",
     "fr": "Je cherche du boulot.",
-    "emoji": "💬"
+    "art": "ui-phrase"
    },
    {
     "id": "b1-chamba-p2",
     "kind": "phrase",
     "es": "¿Me puedes mandar el archivo por correo?",
     "fr": "Tu peux m'envoyer le fichier par mail ?",
-    "emoji": "💬"
+    "art": "ui-phrase"
    },
    {
     "id": "b1-chamba-p3",
     "kind": "phrase",
     "es": "Hoy salgo temprano de la oficina.",
     "fr": "Aujourd'hui, je sors tôt du bureau.",
-    "emoji": "💬"
+    "art": "ui-phrase"
    },
    {
     "id": "b1-chamba-g",
     "kind": "grammar",
     "es": "ser / estar",
     "fr": "Ser ou estar ?",
-    "emoji": "📘",
+    "art": "ui-grammar",
     "explanation": "Ser décrit l'identité et les caractéristiques stables (soy ingeniera). Estar décrit un état ou une localisation (estoy cansado, la oficina está en Reforma). Le sens change parfois : ser listo (être intelligent), estar listo (être prêt).",
     "examples": [
      {
@@ -2755,7 +2755,7 @@ export const THEMES = [
     "kind": "dialogue",
     "es": "La entrevista de trabajo",
     "fr": "L'entretien d'embauche",
-    "emoji": "🗣️",
+    "art": "ui-dialogue",
     "lines": [
      {
       "speaker": "Licenciada",
@@ -2801,7 +2801,7 @@ export const THEMES = [
   "level": "B1",
   "titleEs": "Hablar como chilango",
   "titleFr": "Parler comme à Mexico",
-  "emoji": "🇲🇽",
+  "art": "orale",
   "color": "#00A86B",
   "items": [
    {
@@ -2809,7 +2809,7 @@ export const THEMES = [
     "kind": "word",
     "es": "¡órale!",
     "fr": "allez ! / d'accord ! / waouh !",
-    "emoji": "🙌",
+    "art": "orale",
     "note": "Le mot fétiche des Mexicains… et le nom de l'app !"
    },
    {
@@ -2817,49 +2817,49 @@ export const THEMES = [
     "kind": "word",
     "es": "chido",
     "fr": "cool",
-    "emoji": "😎"
+    "art": "chido"
    },
    {
     "id": "b1-chilango-w2",
     "kind": "word",
     "es": "¿qué onda?",
     "fr": "quoi de neuf ?",
-    "emoji": "🤙"
+    "art": "que-onda"
    },
    {
     "id": "b1-chilango-w3",
     "kind": "word",
     "es": "el cuate",
     "fr": "le pote",
-    "emoji": "🤜"
+    "art": "cuate"
    },
    {
     "id": "b1-chilango-w4",
     "kind": "word",
     "es": "la neta",
     "fr": "la vérité / sérieux",
-    "emoji": "💯"
+    "art": "neta"
    },
    {
     "id": "b1-chilango-w5",
     "kind": "word",
     "es": "ahorita",
     "fr": "tout de suite… ou plus tard",
-    "emoji": "⏳"
+    "art": "ahorita"
    },
    {
     "id": "b1-chilango-w6",
     "kind": "word",
     "es": "¡aguas!",
     "fr": "attention !",
-    "emoji": "⚠️"
+    "art": "aguas"
    },
    {
     "id": "b1-chilango-w7",
     "kind": "word",
     "es": "padre",
     "fr": "génial",
-    "emoji": "👍",
+    "art": "padre",
     "note": "« ¡Qué padre! » = trop bien !"
    },
    {
@@ -2867,35 +2867,35 @@ export const THEMES = [
     "kind": "phrase",
     "es": "¡Qué padre está tu casa!",
     "fr": "Ta maison est trop bien !",
-    "emoji": "💬"
+    "art": "ui-phrase"
    },
    {
     "id": "b1-chilango-p1",
     "kind": "phrase",
     "es": "¿Neta? No te creo.",
     "fr": "Sérieux ? Je ne te crois pas.",
-    "emoji": "💬"
+    "art": "ui-phrase"
    },
    {
     "id": "b1-chilango-p2",
     "kind": "phrase",
     "es": "Ahorita lo hago.",
     "fr": "Je le fais tout de suite (… peut-être).",
-    "emoji": "💬"
+    "art": "ui-phrase"
    },
    {
     "id": "b1-chilango-p3",
     "kind": "phrase",
     "es": "¡Aguas con el coche!",
     "fr": "Attention à la voiture !",
-    "emoji": "💬"
+    "art": "ui-phrase"
    },
    {
     "id": "b1-chilango-g",
     "kind": "grammar",
     "es": "ahorita, cafecito",
     "fr": "Les diminutifs -ito / -ita",
-    "emoji": "📘",
+    "art": "ui-grammar",
     "explanation": "Les Mexicains ajoutent -ito, -ita pour adoucir ou rendre affectueux : ahorita, cafecito, un ratito (un petit moment), poquito. « Ahorita » peut signifier « tout de suite » comme « plus tard, peut-être jamais »… le contexte compte !",
     "examples": [
      {
@@ -2924,7 +2924,7 @@ export const THEMES = [
     "kind": "dialogue",
     "es": "Entre cuates",
     "fr": "Entre potes",
-    "emoji": "🗣️",
+    "art": "ui-dialogue",
     "lines": [
      {
       "speaker": "Pepe",
@@ -2965,7 +2965,7 @@ export const THEMES = [
   "level": "B1",
   "titleEs": "Buscar depa",
   "titleFr": "Chercher un appart",
-  "emoji": "🔑",
+  "art": "llave",
   "color": "#FF6B1A",
   "items": [
    {
@@ -2973,7 +2973,7 @@ export const THEMES = [
     "kind": "word",
     "es": "el departamento",
     "fr": "l'appartement",
-    "emoji": "🏢",
+    "art": "departamento",
     "note": "On dit souvent « el depa »."
    },
    {
@@ -2981,21 +2981,21 @@ export const THEMES = [
     "kind": "word",
     "es": "la renta",
     "fr": "le loyer",
-    "emoji": "💸"
+    "art": "renta"
    },
    {
     "id": "b1-vivienda-w2",
     "kind": "word",
     "es": "el vecino",
     "fr": "le voisin",
-    "emoji": "🙋‍♂️"
+    "art": "vecino"
    },
    {
     "id": "b1-vivienda-w3",
     "kind": "word",
     "es": "la colonia",
     "fr": "le quartier",
-    "emoji": "🏘️",
+    "art": "colonia",
     "note": "À Mexico : la Roma, la Condesa, Coyoacán…"
    },
    {
@@ -3003,63 +3003,63 @@ export const THEMES = [
     "kind": "word",
     "es": "la recámara",
     "fr": "la chambre",
-    "emoji": "🛏️"
+    "art": "recamara"
    },
    {
     "id": "b1-vivienda-w5",
     "kind": "word",
     "es": "la llave",
     "fr": "la clé",
-    "emoji": "🔑"
+    "art": "llave"
    },
    {
     "id": "b1-vivienda-w6",
     "kind": "word",
     "es": "el elevador",
     "fr": "l'ascenseur",
-    "emoji": "🛗"
+    "art": "elevador"
    },
    {
     "id": "b1-vivienda-w7",
     "kind": "word",
     "es": "la azotea",
     "fr": "le toit-terrasse",
-    "emoji": "🌇"
+    "art": "azotea"
    },
    {
     "id": "b1-vivienda-p0",
     "kind": "phrase",
     "es": "Busco un depa de dos recámaras.",
     "fr": "Je cherche un appart avec deux chambres.",
-    "emoji": "💬"
+    "art": "ui-phrase"
    },
    {
     "id": "b1-vivienda-p1",
     "kind": "phrase",
     "es": "¿La renta incluye los servicios?",
     "fr": "Le loyer inclut les charges ?",
-    "emoji": "💬"
+    "art": "ui-phrase"
    },
    {
     "id": "b1-vivienda-p2",
     "kind": "phrase",
     "es": "Vivo en la colonia Roma.",
     "fr": "J'habite dans le quartier Roma.",
-    "emoji": "💬"
+    "art": "ui-phrase"
    },
    {
     "id": "b1-vivienda-p3",
     "kind": "phrase",
     "es": "Mis vecinos hacen mucho ruido.",
     "fr": "Mes voisins font beaucoup de bruit.",
-    "emoji": "💬"
+    "art": "ui-phrase"
    },
    {
     "id": "b1-vivienda-g",
     "kind": "grammar",
     "es": "busco un depa que tenga…",
     "fr": "Le subjonctif après « busco… que »",
-    "emoji": "📘",
+    "art": "ui-grammar",
     "explanation": "Quand on cherche quelque chose qui n'existe peut-être pas, on utilise le subjonctif : busco un depa que tenga terraza. Formation : on part de la forme yo du présent (tengo → tenga, hablo → hable, vivo → viva).",
     "examples": [
      {
@@ -3088,7 +3088,7 @@ export const THEMES = [
     "kind": "dialogue",
     "es": "Visita al depa",
     "fr": "Visite de l'appart",
-    "emoji": "🗣️",
+    "art": "ui-dialogue",
     "lines": [
      {
       "speaker": "Casera",
@@ -3134,7 +3134,7 @@ export const THEMES = [
   "level": "B1",
   "titleEs": "En la fonda",
   "titleFr": "Au petit resto",
-  "emoji": "🍽️",
+  "art": "comida-corrida",
   "color": "#1E88E5",
   "items": [
    {
@@ -3142,35 +3142,35 @@ export const THEMES = [
     "kind": "word",
     "es": "el mesero",
     "fr": "le serveur",
-    "emoji": "🤵"
+    "art": "mesero"
    },
    {
     "id": "b1-fonda-w1",
     "kind": "word",
     "es": "la cuenta",
     "fr": "l'addition",
-    "emoji": "🧾"
+    "art": "cuenta"
    },
    {
     "id": "b1-fonda-w2",
     "kind": "word",
     "es": "la propina",
     "fr": "le pourboire",
-    "emoji": "🫙"
+    "art": "propina"
    },
    {
     "id": "b1-fonda-w3",
     "kind": "word",
     "es": "el menú",
     "fr": "la carte",
-    "emoji": "📋"
+    "art": "menu"
    },
    {
     "id": "b1-fonda-w4",
     "kind": "word",
     "es": "la comida corrida",
     "fr": "le menu du jour",
-    "emoji": "🍱",
+    "art": "comida-corrida",
     "note": "Soupe, riz, plat, boisson et dessert à petit prix."
    },
    {
@@ -3178,56 +3178,56 @@ export const THEMES = [
     "kind": "word",
     "es": "el vaso",
     "fr": "le verre",
-    "emoji": "🥃"
+    "art": "vaso"
    },
    {
     "id": "b1-fonda-w6",
     "kind": "word",
     "es": "la cuchara",
     "fr": "la cuillère",
-    "emoji": "🥄"
+    "art": "cuchara"
    },
    {
     "id": "b1-fonda-w7",
     "kind": "word",
     "es": "el tenedor",
     "fr": "la fourchette",
-    "emoji": "🍴"
+    "art": "tenedor"
    },
    {
     "id": "b1-fonda-p0",
     "kind": "phrase",
     "es": "¿Me trae la cuenta, por favor?",
     "fr": "Vous m'apportez l'addition, s'il vous plaît ?",
-    "emoji": "💬"
+    "art": "ui-phrase"
    },
    {
     "id": "b1-fonda-p1",
     "kind": "phrase",
     "es": "¿Qué nos recomienda?",
     "fr": "Que nous recommandez-vous ?",
-    "emoji": "💬"
+    "art": "ui-phrase"
    },
    {
     "id": "b1-fonda-p2",
     "kind": "phrase",
     "es": "La propina no está incluida.",
     "fr": "Le pourboire n'est pas inclus.",
-    "emoji": "💬"
+    "art": "ui-phrase"
    },
    {
     "id": "b1-fonda-p3",
     "kind": "phrase",
     "es": "¿Nos podría traer otro tenedor?",
     "fr": "Pourriez-vous nous apporter une autre fourchette ?",
-    "emoji": "💬"
+    "art": "ui-phrase"
    },
    {
     "id": "b1-fonda-g",
     "kind": "grammar",
     "es": "podría, me gustaría",
     "fr": "Le conditionnel de politesse",
-    "emoji": "📘",
+    "art": "ui-grammar",
     "explanation": "Pour être poli : ¿podría…? (pourriez-vous), me gustaría (j'aimerais). Formation : infinitif + -ía, -ías, -ía… Irréguliers : poder → podría, tener → tendría, hacer → haría.",
     "examples": [
      {
@@ -3256,7 +3256,7 @@ export const THEMES = [
     "kind": "dialogue",
     "es": "La comida corrida",
     "fr": "Le menu du jour",
-    "emoji": "🗣️",
+    "art": "ui-dialogue",
     "lines": [
      {
       "speaker": "Mesero",
@@ -3297,7 +3297,7 @@ export const THEMES = [
   "level": "B1",
   "titleEs": "Las emociones",
   "titleFr": "Les émotions",
-  "emoji": "😊",
+  "art": "feliz",
   "color": "#8E44AD",
   "items": [
    {
@@ -3305,21 +3305,21 @@ export const THEMES = [
     "kind": "word",
     "es": "feliz",
     "fr": "heureux / heureuse",
-    "emoji": "😊"
+    "art": "feliz"
    },
    {
     "id": "b1-emociones-w1",
     "kind": "word",
     "es": "triste",
     "fr": "triste",
-    "emoji": "😢"
+    "art": "triste"
    },
    {
     "id": "b1-emociones-w2",
     "kind": "word",
     "es": "enojado",
     "fr": "fâché",
-    "emoji": "😠",
+    "art": "enojado",
     "note": "Au Mexique on dit « enojado » plutôt que « enfadado »."
    },
    {
@@ -3327,56 +3327,56 @@ export const THEMES = [
     "kind": "word",
     "es": "cansado",
     "fr": "fatigué",
-    "emoji": "😩"
+    "art": "cansado"
    },
    {
     "id": "b1-emociones-w4",
     "kind": "word",
     "es": "nervioso",
     "fr": "nerveux",
-    "emoji": "😬"
+    "art": "nervioso"
    },
    {
     "id": "b1-emociones-w5",
     "kind": "word",
     "es": "sorprendido",
     "fr": "surpris",
-    "emoji": "😮"
+    "art": "sorprendido"
    },
    {
     "id": "b1-emociones-w6",
     "kind": "word",
     "es": "aburrido",
     "fr": "qui s'ennuie",
-    "emoji": "🥱"
+    "art": "aburrido"
    },
    {
     "id": "b1-emociones-w7",
     "kind": "word",
     "es": "orgulloso",
     "fr": "fier",
-    "emoji": "😌"
+    "art": "orgulloso"
    },
    {
     "id": "b1-emociones-p0",
     "kind": "phrase",
     "es": "Estoy muy emocionado por el viaje.",
     "fr": "Je suis très impatient de partir en voyage.",
-    "emoji": "💬"
+    "art": "ui-phrase"
    },
    {
     "id": "b1-emociones-p1",
     "kind": "phrase",
     "es": "No te enojes conmigo.",
     "fr": "Ne te fâche pas contre moi.",
-    "emoji": "💬"
+    "art": "ui-phrase"
    },
    {
     "id": "b1-emociones-p2",
     "kind": "phrase",
     "es": "Me da mucha pena.",
     "fr": "Ça me gêne beaucoup.",
-    "emoji": "💬",
+    "art": "ui-phrase",
     "note": "Au Mexique, « pena » = la gêne, la honte."
    },
    {
@@ -3384,14 +3384,14 @@ export const THEMES = [
     "kind": "phrase",
     "es": "¡Qué coraje!",
     "fr": "Ça m'énerve !",
-    "emoji": "💬"
+    "art": "ui-phrase"
    },
    {
     "id": "b1-emociones-g",
     "kind": "grammar",
     "es": "me alegra que vengas",
     "fr": "Le subjonctif après les émotions",
-    "emoji": "📘",
+    "art": "ui-grammar",
     "explanation": "Après une expression de sentiment (me alegra que, me molesta que, tengo miedo de que), le verbe qui suit est au subjonctif : me alegra que vengas (je suis content que tu viennes).",
     "examples": [
      {
@@ -3420,7 +3420,7 @@ export const THEMES = [
     "kind": "dialogue",
     "es": "¿Qué te pasa?",
     "fr": "Qu'est-ce qui t'arrive ?",
-    "emoji": "🗣️",
+    "art": "ui-dialogue",
     "lines": [
      {
       "speaker": "Fer",
@@ -3461,7 +3461,7 @@ export const THEMES = [
   "level": "B1",
   "titleEs": "La naturaleza",
   "titleFr": "La nature",
-  "emoji": "🌋",
+  "art": "volcan",
   "color": "#F5B700",
   "items": [
    {
@@ -3469,42 +3469,42 @@ export const THEMES = [
     "kind": "word",
     "es": "el volcán",
     "fr": "le volcan",
-    "emoji": "🌋"
+    "art": "volcan"
    },
    {
     "id": "b1-naturaleza-w1",
     "kind": "word",
     "es": "la montaña",
     "fr": "la montagne",
-    "emoji": "⛰️"
+    "art": "montana"
    },
    {
     "id": "b1-naturaleza-w2",
     "kind": "word",
     "es": "la selva",
     "fr": "la jungle",
-    "emoji": "🌴"
+    "art": "selva"
    },
    {
     "id": "b1-naturaleza-w3",
     "kind": "word",
     "es": "el desierto",
     "fr": "le désert",
-    "emoji": "🏜️"
+    "art": "desierto"
    },
    {
     "id": "b1-naturaleza-w4",
     "kind": "word",
     "es": "el río",
     "fr": "la rivière / le fleuve",
-    "emoji": "🏞️"
+    "art": "rio"
    },
    {
     "id": "b1-naturaleza-w5",
     "kind": "word",
     "es": "el nopal",
     "fr": "le nopal (cactus)",
-    "emoji": "🌵",
+    "art": "nopal",
     "note": "Il figure sur le drapeau et dans l'assiette !"
    },
    {
@@ -3512,14 +3512,14 @@ export const THEMES = [
     "kind": "word",
     "es": "el mar",
     "fr": "la mer",
-    "emoji": "🌊"
+    "art": "mar"
    },
    {
     "id": "b1-naturaleza-w7",
     "kind": "word",
     "es": "el maguey",
     "fr": "l'agave",
-    "emoji": "🪴",
+    "art": "maguey",
     "note": "On en tire le mezcal et la tequila."
    },
    {
@@ -3527,35 +3527,35 @@ export const THEMES = [
     "kind": "phrase",
     "es": "El Popocatépetl está activo.",
     "fr": "Le Popocatépetl est actif.",
-    "emoji": "💬"
+    "art": "ui-phrase"
    },
    {
     "id": "b1-naturaleza-p1",
     "kind": "phrase",
     "es": "Subimos al Nevado de Toluca.",
     "fr": "Nous sommes montés au Nevado de Toluca.",
-    "emoji": "💬"
+    "art": "ui-phrase"
    },
    {
     "id": "b1-naturaleza-p2",
     "kind": "phrase",
     "es": "En la selva de Chiapas llueve mucho.",
     "fr": "Dans la jungle du Chiapas, il pleut beaucoup.",
-    "emoji": "💬"
+    "art": "ui-phrase"
    },
    {
     "id": "b1-naturaleza-p3",
     "kind": "phrase",
     "es": "El tequila se hace con agave azul.",
     "fr": "La tequila se fait avec de l'agave bleu.",
-    "emoji": "💬"
+    "art": "ui-phrase"
    },
    {
     "id": "b1-naturaleza-g",
     "kind": "grammar",
     "es": "hacía / hizo",
     "fr": "Prétérit ou imparfait ?",
-    "emoji": "📘",
+    "art": "ui-grammar",
     "explanation": "L'imparfait (-aba, -ía) décrit le décor et les habitudes : hacía frío, había mucha gente. Le prétérit raconte les actions ponctuelles : subimos, vimos el volcán. On les combine : cuando llegamos, llovía.",
     "examples": [
      {
@@ -3584,7 +3584,7 @@ export const THEMES = [
     "kind": "dialogue",
     "es": "Excursión al volcán",
     "fr": "Excursion au volcan",
-    "emoji": "🗣️",
+    "art": "ui-dialogue",
     "lines": [
      {
       "speaker": "Raúl",
@@ -3625,7 +3625,7 @@ export const THEMES = [
   "level": "B1",
   "titleEs": "De compras",
   "titleFr": "Faire les courses",
-  "emoji": "🛍️",
+  "art": "tianguis",
   "color": "#00A6A6",
   "items": [
    {
@@ -3633,7 +3633,7 @@ export const THEMES = [
     "kind": "word",
     "es": "el tianguis",
     "fr": "le marché ambulant",
-    "emoji": "⛺",
+    "art": "tianguis",
     "note": "Marché de rue qui s'installe un jour par semaine."
    },
    {
@@ -3641,84 +3641,84 @@ export const THEMES = [
     "kind": "word",
     "es": "la oferta",
     "fr": "la promotion",
-    "emoji": "🏷️"
+    "art": "oferta"
    },
    {
     "id": "b1-compras-w2",
     "kind": "word",
     "es": "la tarjeta",
     "fr": "la carte bancaire",
-    "emoji": "💳"
+    "art": "tarjeta"
    },
    {
     "id": "b1-compras-w3",
     "kind": "word",
     "es": "el efectivo",
     "fr": "les espèces",
-    "emoji": "💵"
+    "art": "efectivo"
    },
    {
     "id": "b1-compras-w4",
     "kind": "word",
     "es": "la talla",
     "fr": "la taille",
-    "emoji": "📏"
+    "art": "talla"
    },
    {
     "id": "b1-compras-w5",
     "kind": "word",
     "es": "el descuento",
     "fr": "la réduction",
-    "emoji": "🔖"
+    "art": "descuento"
    },
    {
     "id": "b1-compras-w6",
     "kind": "word",
     "es": "el recibo",
     "fr": "le reçu",
-    "emoji": "🧾"
+    "art": "recibo"
    },
    {
     "id": "b1-compras-w7",
     "kind": "word",
     "es": "la tiendita",
     "fr": "l'épicerie du coin",
-    "emoji": "🏪"
+    "art": "tiendita"
    },
    {
     "id": "b1-compras-p0",
     "kind": "phrase",
     "es": "¿Me hace un descuento?",
     "fr": "Vous me faites une réduction ?",
-    "emoji": "💬"
+    "art": "ui-phrase"
    },
    {
     "id": "b1-compras-p1",
     "kind": "phrase",
     "es": "¿Se puede pagar con tarjeta?",
     "fr": "On peut payer par carte ?",
-    "emoji": "💬"
+    "art": "ui-phrase"
    },
    {
     "id": "b1-compras-p2",
     "kind": "phrase",
     "es": "Solo aceptamos efectivo.",
     "fr": "Nous n'acceptons que les espèces.",
-    "emoji": "💬"
+    "art": "ui-phrase"
    },
    {
     "id": "b1-compras-p3",
     "kind": "phrase",
     "es": "¿Me lo puedo probar?",
     "fr": "Je peux l'essayer ?",
-    "emoji": "💬"
+    "art": "ui-phrase"
    },
    {
     "id": "b1-compras-g",
     "kind": "grammar",
     "es": "me lo, se lo",
     "fr": "Deux pronoms ensemble",
-    "emoji": "📘",
+    "art": "ui-grammar",
     "explanation": "Le complément indirect vient en premier : me lo das (tu me le donnes). « le » et « les » deviennent « se » devant lo, la, los, las : se lo doy (je le lui donne). Avec un infinitif, on peut les accrocher à la fin : ¿puedo probármelo?",
     "examples": [
      {
@@ -3747,7 +3747,7 @@ export const THEMES = [
     "kind": "dialogue",
     "es": "Regateando en el tianguis",
     "fr": "Marchander au marché",
-    "emoji": "🗣️",
+    "art": "ui-dialogue",
     "lines": [
      {
       "speaker": "Vendedor",
@@ -3793,7 +3793,7 @@ export const THEMES = [
   "level": "B1",
   "titleEs": "La tecnología",
   "titleFr": "La technologie",
-  "emoji": "📱",
+  "art": "celular",
   "color": "#D62839",
   "items": [
    {
@@ -3801,91 +3801,91 @@ export const THEMES = [
     "kind": "word",
     "es": "el celular",
     "fr": "le portable",
-    "emoji": "📱"
+    "art": "celular"
    },
    {
     "id": "b1-tecnologia-w1",
     "kind": "word",
     "es": "el mensaje",
     "fr": "le message",
-    "emoji": "💬"
+    "art": "mensaje"
    },
    {
     "id": "b1-tecnologia-w2",
     "kind": "word",
     "es": "la contraseña",
     "fr": "le mot de passe",
-    "emoji": "🔒"
+    "art": "contrasena"
    },
    {
     "id": "b1-tecnologia-w3",
     "kind": "word",
     "es": "el cargador",
     "fr": "le chargeur",
-    "emoji": "🔌"
+    "art": "cargador"
    },
    {
     "id": "b1-tecnologia-w4",
     "kind": "word",
     "es": "la aplicación",
     "fr": "l'application",
-    "emoji": "📲"
+    "art": "aplicacion"
    },
    {
     "id": "b1-tecnologia-w5",
     "kind": "word",
     "es": "la pantalla",
     "fr": "l'écran",
-    "emoji": "🖥️"
+    "art": "pantalla"
    },
    {
     "id": "b1-tecnologia-w6",
     "kind": "word",
     "es": "la foto",
     "fr": "la photo",
-    "emoji": "📸"
+    "art": "foto"
    },
    {
     "id": "b1-tecnologia-w7",
     "kind": "word",
     "es": "la red",
     "fr": "le réseau",
-    "emoji": "📶"
+    "art": "red"
    },
    {
     "id": "b1-tecnologia-p0",
     "kind": "phrase",
     "es": "Se me acabó la pila.",
     "fr": "Je n'ai plus de batterie.",
-    "emoji": "💬"
+    "art": "ui-phrase"
    },
    {
     "id": "b1-tecnologia-p1",
     "kind": "phrase",
     "es": "¿Cuál es la contraseña del wifi?",
     "fr": "Quel est le mot de passe du wifi ?",
-    "emoji": "💬"
+    "art": "ui-phrase"
    },
    {
     "id": "b1-tecnologia-p2",
     "kind": "phrase",
     "es": "Te mando un mensaje cuando llegue.",
     "fr": "Je t'envoie un message quand j'arrive.",
-    "emoji": "💬"
+    "art": "ui-phrase"
    },
    {
     "id": "b1-tecnologia-p3",
     "kind": "phrase",
     "es": "No tengo señal.",
     "fr": "Je n'ai pas de réseau.",
-    "emoji": "💬"
+    "art": "ui-phrase"
    },
    {
     "id": "b1-tecnologia-g",
     "kind": "grammar",
     "es": "cuando llegue…",
     "fr": "Cuando + subjonctif (futur)",
-    "emoji": "📘",
+    "art": "ui-grammar",
     "explanation": "Quand « cuando » introduit une action future, il est suivi du subjonctif : cuando llegue, te escribo (quand j'arriverai, je t'écris). Pour une habitude, on garde l'indicatif : cuando llego, siempre te escribo.",
     "examples": [
      {
@@ -3914,7 +3914,7 @@ export const THEMES = [
     "kind": "dialogue",
     "es": "Sin pila",
     "fr": "Plus de batterie",
-    "emoji": "🗣️",
+    "art": "ui-dialogue",
     "lines": [
      {
       "speaker": "Andrea",
@@ -3955,7 +3955,7 @@ export const THEMES = [
   "level": "B2",
   "titleEs": "Sociedad y política",
   "titleFr": "Société et politique",
-  "emoji": "🗳️",
+  "art": "elecciones",
   "color": "#E4007C",
   "items": [
    {
@@ -3963,91 +3963,91 @@ export const THEMES = [
     "kind": "word",
     "es": "las elecciones",
     "fr": "les élections",
-    "emoji": "🗳️"
+    "art": "elecciones"
    },
    {
     "id": "b2-sociedad-w1",
     "kind": "word",
     "es": "el gobierno",
     "fr": "le gouvernement",
-    "emoji": "🏛️"
+    "art": "gobierno"
    },
    {
     "id": "b2-sociedad-w2",
     "kind": "word",
     "es": "la ley",
     "fr": "la loi",
-    "emoji": "⚖️"
+    "art": "ley"
    },
    {
     "id": "b2-sociedad-w3",
     "kind": "word",
     "es": "el ciudadano",
     "fr": "le citoyen",
-    "emoji": "🧑"
+    "art": "ciudadano"
    },
    {
     "id": "b2-sociedad-w4",
     "kind": "word",
     "es": "el voto",
     "fr": "le vote",
-    "emoji": "✅"
+    "art": "voto"
    },
    {
     "id": "b2-sociedad-w5",
     "kind": "word",
     "es": "la marcha",
     "fr": "la manifestation",
-    "emoji": "📢"
+    "art": "marcha"
    },
    {
     "id": "b2-sociedad-w6",
     "kind": "word",
     "es": "la presidenta",
     "fr": "la présidente",
-    "emoji": "👩‍💼"
+    "art": "presidenta"
    },
    {
     "id": "b2-sociedad-w7",
     "kind": "word",
     "es": "la desigualdad",
     "fr": "l'inégalité",
-    "emoji": "📊"
+    "art": "desigualdad"
    },
    {
     "id": "b2-sociedad-p0",
     "kind": "phrase",
     "es": "La participación ciudadana es fundamental.",
     "fr": "La participation citoyenne est essentielle.",
-    "emoji": "💬"
+    "art": "ui-phrase"
    },
    {
     "id": "b2-sociedad-p1",
     "kind": "phrase",
     "es": "Hubo una marcha en el Zócalo.",
     "fr": "Il y a eu une manifestation sur le Zócalo.",
-    "emoji": "💬"
+    "art": "ui-phrase"
    },
    {
     "id": "b2-sociedad-p2",
     "kind": "phrase",
     "es": "México eligió a su primera presidenta en 2024.",
     "fr": "Le Mexique a élu sa première présidente en 2024.",
-    "emoji": "💬"
+    "art": "ui-phrase"
    },
    {
     "id": "b2-sociedad-p3",
     "kind": "phrase",
     "es": "Habría que combatir la corrupción.",
     "fr": "Il faudrait combattre la corruption.",
-    "emoji": "💬"
+    "art": "ui-phrase"
    },
    {
     "id": "b2-sociedad-g",
     "kind": "grammar",
     "es": "si fuera…, cambiaría…",
     "fr": "Hypothèses : si + subjonctif imparfait",
-    "emoji": "📘",
+    "art": "ui-grammar",
     "explanation": "Pour une hypothèse peu probable ou irréelle : si + subjonctif imparfait, puis conditionnel. Si yo fuera presidente, cambiaría la ley. Formation : 3e personne du pluriel du prétérit sans -ron + -ra : fueron → fuera, tuvieron → tuviera.",
     "examples": [
      {
@@ -4076,7 +4076,7 @@ export const THEMES = [
     "kind": "dialogue",
     "es": "Debate en la sobremesa",
     "fr": "Débat en fin de repas",
-    "emoji": "🗣️",
+    "art": "ui-dialogue",
     "lines": [
      {
       "speaker": "Tío Jorge",
@@ -4117,7 +4117,7 @@ export const THEMES = [
   "level": "B2",
   "titleEs": "Medio ambiente",
   "titleFr": "L'environnement",
-  "emoji": "🌱",
+  "art": "reciclaje",
   "color": "#00A86B",
   "items": [
    {
@@ -4125,91 +4125,91 @@ export const THEMES = [
     "kind": "word",
     "es": "la contaminación",
     "fr": "la pollution",
-    "emoji": "🏭"
+    "art": "contaminacion"
    },
    {
     "id": "b2-ambiente-w1",
     "kind": "word",
     "es": "el reciclaje",
     "fr": "le recyclage",
-    "emoji": "♻️"
+    "art": "reciclaje"
    },
    {
     "id": "b2-ambiente-w2",
     "kind": "word",
     "es": "la sequía",
     "fr": "la sécheresse",
-    "emoji": "🥀"
+    "art": "sequia"
    },
    {
     "id": "b2-ambiente-w3",
     "kind": "word",
     "es": "la energía solar",
     "fr": "l'énergie solaire",
-    "emoji": "🔆"
+    "art": "energia-solar"
    },
    {
     "id": "b2-ambiente-w4",
     "kind": "word",
     "es": "la basura",
     "fr": "les déchets",
-    "emoji": "🗑️"
+    "art": "basura"
    },
    {
     "id": "b2-ambiente-w5",
     "kind": "word",
     "es": "el bosque",
     "fr": "la forêt",
-    "emoji": "🌲"
+    "art": "bosque"
    },
    {
     "id": "b2-ambiente-w6",
     "kind": "word",
     "es": "el huracán",
     "fr": "l'ouragan",
-    "emoji": "🌀"
+    "art": "huracan"
    },
    {
     "id": "b2-ambiente-w7",
     "kind": "word",
     "es": "el calentamiento global",
     "fr": "le réchauffement climatique",
-    "emoji": "🌡️"
+    "art": "calentamiento-global"
    },
    {
     "id": "b2-ambiente-p0",
     "kind": "phrase",
     "es": "Hoy hay contingencia ambiental.",
     "fr": "Aujourd'hui, il y a une alerte à la pollution.",
-    "emoji": "💬"
+    "art": "ui-phrase"
    },
    {
     "id": "b2-ambiente-p1",
     "kind": "phrase",
     "es": "Hay que separar la basura.",
     "fr": "Il faut trier les déchets.",
-    "emoji": "💬"
+    "art": "ui-phrase"
    },
    {
     "id": "b2-ambiente-p2",
     "kind": "phrase",
     "es": "Cada vez hay menos agua en la ciudad.",
     "fr": "Il y a de moins en moins d'eau dans la ville.",
-    "emoji": "💬"
+    "art": "ui-phrase"
    },
    {
     "id": "b2-ambiente-p3",
     "kind": "phrase",
     "es": "Es urgente que actuemos.",
     "fr": "Il est urgent que nous agissions.",
-    "emoji": "💬"
+    "art": "ui-phrase"
    },
    {
     "id": "b2-ambiente-g",
     "kind": "grammar",
     "es": "es necesario que…",
     "fr": "Subjonctif après les tournures impersonnelles",
-    "emoji": "📘",
+    "art": "ui-grammar",
     "explanation": "Après es importante que, es necesario que, es urgente que…, on utilise le subjonctif quand il y a un sujet précis : es necesario que reciclemos. Sans sujet précis, on garde l'infinitif : es necesario reciclar.",
     "examples": [
      {
@@ -4238,7 +4238,7 @@ export const THEMES = [
     "kind": "dialogue",
     "es": "Hoy no circula",
     "fr": "Interdit de rouler",
-    "emoji": "🗣️",
+    "art": "ui-dialogue",
     "lines": [
      {
       "speaker": "Daniel",
@@ -4279,7 +4279,7 @@ export const THEMES = [
   "level": "B2",
   "titleEs": "Arte y cultura",
   "titleFr": "Art et culture",
-  "emoji": "🎨",
+  "art": "alebrije",
   "color": "#FF6B1A",
   "items": [
    {
@@ -4287,28 +4287,28 @@ export const THEMES = [
     "kind": "word",
     "es": "el mural",
     "fr": "la fresque murale",
-    "emoji": "🖼️"
+    "art": "mural"
    },
    {
     "id": "b2-arte-w1",
     "kind": "word",
     "es": "la pintora",
     "fr": "la peintre",
-    "emoji": "🎨"
+    "art": "pintora"
    },
    {
     "id": "b2-arte-w2",
     "kind": "word",
     "es": "la artesanía",
     "fr": "l'artisanat",
-    "emoji": "🧺"
+    "art": "artesania"
    },
    {
     "id": "b2-arte-w3",
     "kind": "word",
     "es": "el alebrije",
     "fr": "l'alebrije",
-    "emoji": "🐉",
+    "art": "alebrije",
     "note": "Créature fantastique en bois peint d'Oaxaca."
    },
    {
@@ -4316,63 +4316,63 @@ export const THEMES = [
     "kind": "word",
     "es": "el museo",
     "fr": "le musée",
-    "emoji": "🏛️"
+    "art": "museo"
    },
    {
     "id": "b2-arte-w5",
     "kind": "word",
     "es": "la poesía",
     "fr": "la poésie",
-    "emoji": "✍️"
+    "art": "poesia"
    },
    {
     "id": "b2-arte-w6",
     "kind": "word",
     "es": "la escultura",
     "fr": "la sculpture",
-    "emoji": "🗿"
+    "art": "escultura"
    },
    {
     "id": "b2-arte-w7",
     "kind": "word",
     "es": "la talavera",
     "fr": "la céramique de Puebla",
-    "emoji": "🏺"
+    "art": "talavera"
    },
    {
     "id": "b2-arte-p0",
     "kind": "phrase",
     "es": "Frida Kahlo pintó muchos autorretratos.",
     "fr": "Frida Kahlo a peint de nombreux autoportraits.",
-    "emoji": "💬"
+    "art": "ui-phrase"
    },
    {
     "id": "b2-arte-p1",
     "kind": "phrase",
     "es": "Los murales de Diego Rivera cuentan la historia de México.",
     "fr": "Les fresques de Diego Rivera racontent l'histoire du Mexique.",
-    "emoji": "💬"
+    "art": "ui-phrase"
    },
    {
     "id": "b2-arte-p2",
     "kind": "phrase",
     "es": "Este alebrije fue hecho en Oaxaca.",
     "fr": "Cet alebrije a été fabriqué à Oaxaca.",
-    "emoji": "💬"
+    "art": "ui-phrase"
    },
    {
     "id": "b2-arte-p3",
     "kind": "phrase",
     "es": "Me dejó sin palabras.",
     "fr": "Ça m'a laissé sans voix.",
-    "emoji": "💬"
+    "art": "ui-phrase"
    },
    {
     "id": "b2-arte-g",
     "kind": "grammar",
     "es": "fue pintado / se vende",
     "fr": "Le passif et le « se » impersonnel",
-    "emoji": "📘",
+    "art": "ui-grammar",
     "explanation": "Le passif se forme avec ser + participe : el mural fue pintado por Rivera. Mais on préfère souvent le « se » impersonnel : aquí se venden artesanías (ici, on vend de l'artisanat), se dice que… (on dit que…).",
     "examples": [
      {
@@ -4401,7 +4401,7 @@ export const THEMES = [
     "kind": "dialogue",
     "es": "En la Casa Azul",
     "fr": "À la Maison bleue",
-    "emoji": "🗣️",
+    "art": "ui-dialogue",
     "lines": [
      {
       "speaker": "Guía",
@@ -4442,7 +4442,7 @@ export const THEMES = [
   "level": "B2",
   "titleEs": "Historia de México",
   "titleFr": "Histoire du Mexique",
-  "emoji": "📜",
+  "art": "bandera",
   "color": "#1E88E5",
   "items": [
    {
@@ -4450,7 +4450,7 @@ export const THEMES = [
     "kind": "word",
     "es": "la independencia",
     "fr": "l'indépendance",
-    "emoji": "🔔",
+    "art": "independencia",
     "note": "La cloche du « Grito de Dolores » (1810)."
    },
    {
@@ -4458,49 +4458,49 @@ export const THEMES = [
     "kind": "word",
     "es": "la revolución",
     "fr": "la révolution",
-    "emoji": "⚔️"
+    "art": "revolucion"
    },
    {
     "id": "b2-historia-w2",
     "kind": "word",
     "es": "el imperio",
     "fr": "l'empire",
-    "emoji": "👑"
+    "art": "imperio"
    },
    {
     "id": "b2-historia-w3",
     "kind": "word",
     "es": "la conquista",
     "fr": "la conquête",
-    "emoji": "⛵"
+    "art": "conquista"
    },
    {
     "id": "b2-historia-w4",
     "kind": "word",
     "es": "el códice",
     "fr": "le codex",
-    "emoji": "📜"
+    "art": "codice"
    },
    {
     "id": "b2-historia-w5",
     "kind": "word",
     "es": "la bandera",
     "fr": "le drapeau",
-    "emoji": "🇲🇽"
+    "art": "bandera"
    },
    {
     "id": "b2-historia-w6",
     "kind": "word",
     "es": "el héroe",
     "fr": "le héros",
-    "emoji": "🦸"
+    "art": "heroe"
    },
    {
     "id": "b2-historia-w7",
     "kind": "word",
     "es": "la batalla",
     "fr": "la bataille",
-    "emoji": "🛡️",
+    "art": "batalla",
     "note": "Le 5 mai célèbre la bataille de Puebla (1862) contre la France."
    },
    {
@@ -4508,35 +4508,35 @@ export const THEMES = [
     "kind": "phrase",
     "es": "El 16 de septiembre se celebra la Independencia.",
     "fr": "Le 16 septembre, on célèbre l'Indépendance.",
-    "emoji": "💬"
+    "art": "ui-phrase"
    },
    {
     "id": "b2-historia-p1",
     "kind": "phrase",
     "es": "Tenochtitlan fue fundada en 1325.",
     "fr": "Tenochtitlan a été fondée en 1325.",
-    "emoji": "💬"
+    "art": "ui-phrase"
    },
    {
     "id": "b2-historia-p2",
     "kind": "phrase",
     "es": "La Revolución empezó en 1910.",
     "fr": "La Révolution a commencé en 1910.",
-    "emoji": "💬"
+    "art": "ui-phrase"
    },
    {
     "id": "b2-historia-p3",
     "kind": "phrase",
     "es": "Si no hubiera ocurrido la conquista, México sería muy distinto.",
     "fr": "Si la conquête n'avait pas eu lieu, le Mexique serait très différent.",
-    "emoji": "💬"
+    "art": "ui-phrase"
    },
    {
     "id": "b2-historia-g",
     "kind": "grammar",
     "es": "si hubiera…, habría…",
     "fr": "L'hypothèse dans le passé",
-    "emoji": "📘",
+    "art": "ui-grammar",
     "explanation": "Pour une hypothèse irréelle sur le passé : si + hubiera + participe passé, puis habría + participe passé. Si Hidalgo no hubiera dado el grito, la historia habría sido diferente.",
     "examples": [
      {
@@ -4565,7 +4565,7 @@ export const THEMES = [
     "kind": "dialogue",
     "es": "El Grito",
     "fr": "Le Cri de Dolores",
-    "emoji": "🗣️",
+    "art": "ui-dialogue",
     "lines": [
      {
       "speaker": "Alumno",
@@ -4606,7 +4606,7 @@ export const THEMES = [
   "level": "B2",
   "titleEs": "Medios y noticias",
   "titleFr": "Médias et actualité",
-  "emoji": "📰",
+  "art": "periodico",
   "color": "#8E44AD",
   "items": [
    {
@@ -4614,91 +4614,91 @@ export const THEMES = [
     "kind": "word",
     "es": "el periódico",
     "fr": "le journal",
-    "emoji": "📰"
+    "art": "periodico"
    },
    {
     "id": "b2-medios-w1",
     "kind": "word",
     "es": "el noticiero",
     "fr": "le journal télévisé",
-    "emoji": "📺"
+    "art": "noticiero"
    },
    {
     "id": "b2-medios-w2",
     "kind": "word",
     "es": "la entrevista",
     "fr": "l'interview",
-    "emoji": "🎙️"
+    "art": "entrevista"
    },
    {
     "id": "b2-medios-w3",
     "kind": "word",
     "es": "el reportero",
     "fr": "le reporter",
-    "emoji": "🎤"
+    "art": "reportero"
    },
    {
     "id": "b2-medios-w4",
     "kind": "word",
     "es": "el titular",
     "fr": "le gros titre",
-    "emoji": "🗞️"
+    "art": "titular"
    },
    {
     "id": "b2-medios-w5",
     "kind": "word",
     "es": "las redes sociales",
     "fr": "les réseaux sociaux",
-    "emoji": "🌐"
+    "art": "redes-sociales"
    },
    {
     "id": "b2-medios-w6",
     "kind": "word",
     "es": "el rumor",
     "fr": "la rumeur",
-    "emoji": "🤫"
+    "art": "rumor"
    },
    {
     "id": "b2-medios-w7",
     "kind": "word",
     "es": "las noticias falsas",
     "fr": "les fausses informations",
-    "emoji": "🤥"
+    "art": "noticias-falsas"
    },
    {
     "id": "b2-medios-p0",
     "kind": "phrase",
     "es": "Según el periódico, subió el precio de la tortilla.",
     "fr": "Selon le journal, le prix de la tortilla a augmenté.",
-    "emoji": "💬"
+    "art": "ui-phrase"
    },
    {
     "id": "b2-medios-p1",
     "kind": "phrase",
     "es": "Esa noticia es falsa, no la compartas.",
     "fr": "Cette info est fausse, ne la partage pas.",
-    "emoji": "💬"
+    "art": "ui-phrase"
    },
    {
     "id": "b2-medios-p2",
     "kind": "phrase",
     "es": "Me enteré por las redes.",
     "fr": "Je l'ai appris sur les réseaux.",
-    "emoji": "💬"
+    "art": "ui-phrase"
    },
    {
     "id": "b2-medios-p3",
     "kind": "phrase",
     "es": "Dijo que lo anunciarían mañana.",
     "fr": "Il a dit qu'ils l'annonceraient demain.",
-    "emoji": "💬"
+    "art": "ui-phrase"
    },
    {
     "id": "b2-medios-g",
     "kind": "grammar",
     "es": "dijo que llegaría",
     "fr": "Le discours rapporté",
-    "emoji": "📘",
+    "art": "ui-grammar",
     "explanation": "Pour rapporter des paroles au passé, les temps reculent : « Llegaré tarde » → dijo que llegaría tarde. « Estoy cansado » → dijo que estaba cansado. Un ordre devient subjonctif imparfait : « ¡Ven! » → me pidió que fuera.",
     "examples": [
      {
@@ -4727,7 +4727,7 @@ export const THEMES = [
     "kind": "dialogue",
     "es": "¿Ya viste la noticia?",
     "fr": "Tu as vu l'info ?",
-    "emoji": "🗣️",
+    "art": "ui-dialogue",
     "lines": [
      {
       "speaker": "Mariana",
@@ -4768,7 +4768,7 @@ export const THEMES = [
   "level": "B2",
   "titleEs": "Economía y negocios",
   "titleFr": "Économie et affaires",
-  "emoji": "📈",
+  "art": "ganancia",
   "color": "#F5B700",
   "items": [
    {
@@ -4776,91 +4776,91 @@ export const THEMES = [
     "kind": "word",
     "es": "la empresa",
     "fr": "l'entreprise",
-    "emoji": "🏢"
+    "art": "empresa"
    },
    {
     "id": "b2-economia-w1",
     "kind": "word",
     "es": "la inversión",
     "fr": "l'investissement",
-    "emoji": "📈"
+    "art": "inversion"
    },
    {
     "id": "b2-economia-w2",
     "kind": "word",
     "es": "el préstamo",
     "fr": "le prêt",
-    "emoji": "🏦"
+    "art": "prestamo"
    },
    {
     "id": "b2-economia-w3",
     "kind": "word",
     "es": "el impuesto",
     "fr": "l'impôt",
-    "emoji": "🧮"
+    "art": "impuesto"
    },
    {
     "id": "b2-economia-w4",
     "kind": "word",
     "es": "la ganancia",
     "fr": "le bénéfice",
-    "emoji": "💹"
+    "art": "ganancia"
    },
    {
     "id": "b2-economia-w5",
     "kind": "word",
     "es": "el emprendedor",
     "fr": "l'entrepreneur",
-    "emoji": "🚀"
+    "art": "emprendedor"
    },
    {
     "id": "b2-economia-w6",
     "kind": "word",
     "es": "la deuda",
     "fr": "la dette",
-    "emoji": "📉"
+    "art": "deuda"
    },
    {
     "id": "b2-economia-w7",
     "kind": "word",
     "es": "el contrato",
     "fr": "le contrat",
-    "emoji": "📝"
+    "art": "contrato"
    },
    {
     "id": "b2-economia-p0",
     "kind": "phrase",
     "es": "Quiero emprender mi propio negocio.",
     "fr": "Je veux créer ma propre entreprise.",
-    "emoji": "💬"
+    "art": "ui-phrase"
    },
    {
     "id": "b2-economia-p1",
     "kind": "phrase",
     "es": "La inflación afectó a muchas familias.",
     "fr": "L'inflation a touché beaucoup de familles.",
-    "emoji": "💬"
+    "art": "ui-phrase"
    },
    {
     "id": "b2-economia-p2",
     "kind": "phrase",
     "es": "Hay que declarar los impuestos antes de abril.",
     "fr": "Il faut déclarer ses impôts avant avril.",
-    "emoji": "💬"
+    "art": "ui-phrase"
    },
    {
     "id": "b2-economia-p3",
     "kind": "phrase",
     "es": "Firmamos el contrato la semana pasada.",
     "fr": "Nous avons signé le contrat la semaine dernière.",
-    "emoji": "💬"
+    "art": "ui-phrase"
    },
    {
     "id": "b2-economia-g",
     "kind": "grammar",
     "es": "sin embargo, aunque…",
     "fr": "Les connecteurs logiques",
-    "emoji": "📘",
+    "art": "ui-grammar",
     "explanation": "Pour argumenter : sin embargo (cependant), por lo tanto (par conséquent), aunque (bien que / même si), debido a (en raison de), a pesar de (malgré). Aunque + subjonctif = même si (hypothèse) ; aunque + indicatif = bien que (fait réel).",
     "examples": [
      {
@@ -4889,7 +4889,7 @@ export const THEMES = [
     "kind": "dialogue",
     "es": "Un nuevo negocio",
     "fr": "Une nouvelle affaire",
-    "emoji": "🗣️",
+    "art": "ui-dialogue",
     "lines": [
      {
       "speaker": "Luis",
@@ -4930,7 +4930,7 @@ export const THEMES = [
   "level": "B2",
   "titleEs": "Relaciones",
   "titleFr": "Les relations",
-  "emoji": "💞",
+  "art": "noviazgo",
   "color": "#00A6A6",
   "items": [
    {
@@ -4938,70 +4938,70 @@ export const THEMES = [
     "kind": "word",
     "es": "el noviazgo",
     "fr": "la relation amoureuse",
-    "emoji": "💑"
+    "art": "noviazgo"
    },
    {
     "id": "b2-relaciones-w1",
     "kind": "word",
     "es": "la boda",
     "fr": "le mariage",
-    "emoji": "💒"
+    "art": "boda"
    },
    {
     "id": "b2-relaciones-w2",
     "kind": "word",
     "es": "los celos",
     "fr": "la jalousie",
-    "emoji": "😒"
+    "art": "celos"
    },
    {
     "id": "b2-relaciones-w3",
     "kind": "word",
     "es": "la confianza",
     "fr": "la confiance",
-    "emoji": "🫶"
+    "art": "confianza"
    },
    {
     "id": "b2-relaciones-w4",
     "kind": "word",
     "es": "el compromiso",
     "fr": "les fiançailles / l'engagement",
-    "emoji": "💍"
+    "art": "compromiso"
    },
    {
     "id": "b2-relaciones-w5",
     "kind": "word",
     "es": "el cariño",
     "fr": "l'affection",
-    "emoji": "🥰"
+    "art": "carino"
    },
    {
     "id": "b2-relaciones-w6",
     "kind": "word",
     "es": "la pelea",
     "fr": "la dispute",
-    "emoji": "💥"
+    "art": "pelea"
    },
    {
     "id": "b2-relaciones-w7",
     "kind": "word",
     "es": "la reconciliación",
     "fr": "la réconciliation",
-    "emoji": "🕊️"
+    "art": "reconciliacion"
    },
    {
     "id": "b2-relaciones-p0",
     "kind": "phrase",
     "es": "Nos hicimos novios en la prepa.",
     "fr": "On s'est mis ensemble au lycée.",
-    "emoji": "💬"
+    "art": "ui-phrase"
    },
    {
     "id": "b2-relaciones-p1",
     "kind": "phrase",
     "es": "Me late mucho.",
     "fr": "Il / elle me plaît beaucoup.",
-    "emoji": "💬",
+    "art": "ui-phrase",
     "note": "Expression mexicaine familière."
    },
    {
@@ -5009,21 +5009,21 @@ export const THEMES = [
     "kind": "phrase",
     "es": "Le pidió matrimonio en Bellas Artes.",
     "fr": "Il l'a demandée en mariage devant Bellas Artes.",
-    "emoji": "💬"
+    "art": "ui-phrase"
    },
    {
     "id": "b2-relaciones-p3",
     "kind": "phrase",
     "es": "Hay que echarle ganas a la relación.",
     "fr": "Il faut s'investir dans la relation.",
-    "emoji": "💬"
+    "art": "ui-phrase"
    },
    {
     "id": "b2-relaciones-g",
     "kind": "grammar",
     "es": "ponerse, volverse, hacerse",
     "fr": "Les verbes de changement",
-    "emoji": "📘",
+    "art": "ui-grammar",
     "explanation": "Pour « devenir » : ponerse = changement passager (se puso celoso), volverse = changement profond, souvent négatif (se volvió desconfiado), hacerse = changement progressif ou volontaire (se hicieron amigos), quedarse = résultat (se quedó sorprendida).",
     "examples": [
      {
@@ -5052,7 +5052,7 @@ export const THEMES = [
     "kind": "dialogue",
     "es": "Consejos de amiga",
     "fr": "Conseils d'amie",
-    "emoji": "🗣️",
+    "art": "ui-dialogue",
     "lines": [
      {
       "speaker": "Regina",
@@ -5093,7 +5093,7 @@ export const THEMES = [
   "level": "B2",
   "titleEs": "Dichos y modismos",
   "titleFr": "Expressions idiomatiques",
-  "emoji": "🌶️",
+  "art": "estar-de-pelos",
   "color": "#D62839",
   "items": [
    {
@@ -5101,14 +5101,14 @@ export const THEMES = [
     "kind": "word",
     "es": "estar en la luna",
     "fr": "être dans la lune",
-    "emoji": "🌙"
+    "art": "estar-en-la-luna"
    },
    {
     "id": "b2-modismos-w1",
     "kind": "word",
     "es": "echar la hueva",
     "fr": "glander",
-    "emoji": "🦥",
+    "art": "echar-la-hueva",
     "note": "Très familier !"
    },
    {
@@ -5116,77 +5116,77 @@ export const THEMES = [
     "kind": "word",
     "es": "dar el avión",
     "fr": "faire semblant d'écouter",
-    "emoji": "✈️"
+    "art": "dar-el-avion"
    },
    {
     "id": "b2-modismos-w3",
     "kind": "word",
     "es": "ponerse las pilas",
     "fr": "se bouger, s'y mettre",
-    "emoji": "🔋"
+    "art": "ponerse-las-pilas"
    },
    {
     "id": "b2-modismos-w4",
     "kind": "word",
     "es": "estar de pelos",
     "fr": "être génial",
-    "emoji": "🤩"
+    "art": "estar-de-pelos"
    },
    {
     "id": "b2-modismos-w5",
     "kind": "word",
     "es": "hacer de chivo los tamales",
     "fr": "rouler quelqu'un",
-    "emoji": "🐐"
+    "art": "hacer-de-chivo-los-tamales"
    },
    {
     "id": "b2-modismos-w6",
     "kind": "word",
     "es": "no tener pelos en la lengua",
     "fr": "ne pas mâcher ses mots",
-    "emoji": "👅"
+    "art": "no-tener-pelos-en-la-lengua"
    },
    {
     "id": "b2-modismos-w7",
     "kind": "word",
     "es": "ser buena onda",
     "fr": "être sympa",
-    "emoji": "😇"
+    "art": "ser-buena-onda"
    },
    {
     "id": "b2-modismos-p0",
     "kind": "phrase",
     "es": "Ponte las pilas, que mañana es el examen.",
     "fr": "Bouge-toi, l'examen est demain.",
-    "emoji": "💬"
+    "art": "ui-phrase"
    },
    {
     "id": "b2-modismos-p1",
     "kind": "phrase",
     "es": "No le hagas caso, te está dando el avión.",
     "fr": "Laisse tomber, il fait semblant de t'écouter.",
-    "emoji": "💬"
+    "art": "ui-phrase"
    },
    {
     "id": "b2-modismos-p2",
     "kind": "phrase",
     "es": "¡Esa fiesta estuvo de pelos!",
     "fr": "Cette fête était géniale !",
-    "emoji": "💬"
+    "art": "ui-phrase"
    },
    {
     "id": "b2-modismos-p3",
     "kind": "phrase",
     "es": "Más vale pájaro en mano que ciento volando.",
     "fr": "Un tiens vaut mieux que deux tu l'auras.",
-    "emoji": "💬"
+    "art": "ui-phrase"
    },
    {
     "id": "b2-modismos-g",
     "kind": "grammar",
     "es": "ando buscando, llevo… -ando",
     "fr": "Les périphrases avec le gérondif",
-    "emoji": "📘",
+    "art": "ui-grammar",
     "explanation": "Les Mexicains utilisent beaucoup andar + gérondif (ando buscando = je suis en train de chercher), ir + gérondif pour une progression (va mejorando), et llevar + durée + gérondif (llevo dos años viviendo aquí = ça fait deux ans que je vis ici).",
     "examples": [
      {
@@ -5215,7 +5215,7 @@ export const THEMES = [
     "kind": "dialogue",
     "es": "En la oficina",
     "fr": "Au bureau",
-    "emoji": "🗣️",
+    "art": "ui-dialogue",
     "lines": [
      {
       "speaker": "Rodrigo",
@@ -5261,7 +5261,7 @@ export const RECOMMENDATIONS = [
   "title": "Coco",
   "year": "2017",
   "creator": "Pixar — Lee Unkrich",
-  "emoji": "💀",
+  "art": "ui-film",
   "description": "Miguel rêve de musique et se retrouve au pays des morts pendant le Día de Muertos.",
   "tip": "Déjà vu en français ? Revois-le en espagnol avec sous-titres espagnols."
  },
@@ -5272,7 +5272,7 @@ export const RECOMMENDATIONS = [
   "title": "El libro de la vida",
   "year": "2014",
   "creator": "Jorge R. Gutiérrez",
-  "emoji": "🎸",
+  "art": "ui-film",
   "description": "Animation très colorée inspirée des traditions mexicaines.",
   "tip": "Dialogues simples et beaucoup de musique."
  },
@@ -5283,7 +5283,7 @@ export const RECOMMENDATIONS = [
   "title": "Plaza Sésamo",
   "year": "depuis 1972",
   "creator": "Version mexicaine de Sesame Street",
-  "emoji": "🧸",
+  "art": "ui-series",
   "description": "Les marionnettes de Sesame Street, avec un accent mexicain très clair.",
   "tip": "Parfait pour les nombres, les couleurs et les salutations."
  },
@@ -5294,7 +5294,7 @@ export const RECOMMENDATIONS = [
   "title": "Easy Spanish",
   "year": "YouTube",
   "creator": "Micro-trottoirs",
-  "emoji": "🎥",
+  "art": "ui-podcast",
   "description": "Questions posées aux passants dans les rues de Mexico, sous-titres espagnol et anglais.",
   "tip": "Choisis les épisodes « Super Easy » tournés au Mexique."
  },
@@ -5305,7 +5305,7 @@ export const RECOMMENDATIONS = [
   "title": "El principito",
   "year": "1943",
   "creator": "Antoine de Saint-Exupéry",
-  "emoji": "🌹",
+  "art": "ui-book",
   "description": "Pas mexicain, mais tu connais déjà l'histoire : idéal pour une première lecture.",
   "tip": "Lis un chapitre à voix haute chaque jour."
  },
@@ -5316,7 +5316,7 @@ export const RECOMMENDATIONS = [
   "title": "El Chavo del Ocho",
   "year": "1973",
   "creator": "Roberto Gómez Bolaños « Chespirito »",
-  "emoji": "🛢️",
+  "art": "ui-series",
   "description": "La série culte qu'ont vue tous les Mexicains : un orphelin qui vit dans un tonneau, dans une petite cour d'immeuble.",
   "tip": "Humour visuel et répliques répétées : on progresse sans s'en rendre compte."
  },
@@ -5327,7 +5327,7 @@ export const RECOMMENDATIONS = [
   "title": "No se aceptan devoluciones",
   "year": "2013",
   "creator": "Eugenio Derbez",
-  "emoji": "👶",
+  "art": "ui-film",
   "description": "Un séducteur d'Acapulco se retrouve à élever une petite fille.",
   "tip": "Comédie familiale, rythme tranquille."
  },
@@ -5338,7 +5338,7 @@ export const RECOMMENDATIONS = [
   "title": "Nosotros los Nobles",
   "year": "2013",
   "creator": "Gary Alazraki",
-  "emoji": "🎩",
+  "art": "ui-film",
   "description": "Trois enfants gâtés de Mexico doivent soudain travailler pour vivre.",
   "tip": "Excellent pour entendre l'espagnol de Mexico au quotidien."
  },
@@ -5349,7 +5349,7 @@ export const RECOMMENDATIONS = [
   "title": "Una familia de diez",
   "year": "2007",
   "creator": "Sitcom de Televisa",
-  "emoji": "👨‍👩‍👧‍👦",
+  "art": "ui-series",
   "description": "Une famille de classe moyenne de Mexico qui accumule les galères.",
   "tip": "Courts épisodes, situations du quotidien."
  },
@@ -5360,7 +5360,7 @@ export const RECOMMENDATIONS = [
   "title": "Pequeña & GRANDE Frida Kahlo",
   "year": "2017",
   "creator": "Isabel Sánchez Vegara",
-  "emoji": "🎨",
+  "art": "ui-book",
   "description": "La vie de Frida en phrases très simples et en images.",
   "tip": "Livre illustré : on comprend tout grâce aux dessins."
  },
@@ -5371,7 +5371,7 @@ export const RECOMMENDATIONS = [
   "title": "Roma",
   "year": "2018",
   "creator": "Alfonso Cuarón",
-  "emoji": "🎞️",
+  "art": "ui-film",
   "description": "La vie d'une employée de maison dans la colonia Roma, au début des années 70.",
   "tip": "Peu de dialogues, beaucoup d'images : regarde-le en VO sous-titrée espagnol."
  },
@@ -5382,7 +5382,7 @@ export const RECOMMENDATIONS = [
   "title": "Como agua para chocolate",
   "year": "1992",
   "creator": "Alfonso Arau",
-  "emoji": "🍫",
+  "art": "ui-film",
   "description": "Tita exprime son amour impossible à travers sa cuisine. Tiré du roman de Laura Esquivel.",
   "tip": "Lis aussi le roman : chaque chapitre commence par une recette."
  },
@@ -5393,7 +5393,7 @@ export const RECOMMENDATIONS = [
   "title": "Club de Cuervos",
   "year": "2015",
   "creator": "Gary Alazraki — Netflix",
-  "emoji": "⚽",
+  "art": "ui-series",
   "description": "Deux enfants héritent d'un club de foot et se le disputent.",
   "tip": "Beaucoup d'expressions familières mexicaines."
  },
@@ -5404,7 +5404,7 @@ export const RECOMMENDATIONS = [
   "title": "La casa de las flores",
   "year": "2018",
   "creator": "Manolo Caro — Netflix",
-  "emoji": "💐",
+  "art": "ui-series",
   "description": "Une famille bourgeoise et son fleuriste cachent d'innombrables secrets.",
   "tip": "Soap opera décalé, très drôle."
  },
@@ -5415,7 +5415,7 @@ export const RECOMMENDATIONS = [
   "title": "Las batallas en el desierto",
   "year": "1981",
   "creator": "José Emilio Pacheco",
-  "emoji": "🏜️",
+  "art": "ui-book",
   "description": "Court roman : le Mexico des années 40 vu par un garçon amoureux de la mère de son ami.",
   "tip": "Moins de 100 pages : un premier vrai roman en espagnol."
  },
@@ -5426,7 +5426,7 @@ export const RECOMMENDATIONS = [
   "title": "Se Regalan Dudas",
   "year": "depuis 2016",
   "creator": "Ana Julia Yeyé et Lety Sahagún",
-  "emoji": "🎧",
+  "art": "ui-podcast",
   "description": "Deux amies mexicaines parlent de vie, d'émotions et de développement personnel.",
   "tip": "Conversations naturelles, débit modéré."
  },
@@ -5437,7 +5437,7 @@ export const RECOMMENDATIONS = [
   "title": "Amores perros",
   "year": "2000",
   "creator": "Alejandro González Iñárritu",
-  "emoji": "🐕",
+  "art": "ui-film",
   "description": "Trois histoires reliées par un accident de voiture à Mexico.",
   "tip": "Argot de rue authentique : un vrai défi de compréhension."
  },
@@ -5448,7 +5448,7 @@ export const RECOMMENDATIONS = [
   "title": "Y tu mamá también",
   "year": "2001",
   "creator": "Alfonso Cuarón",
-  "emoji": "🚗",
+  "art": "ui-film",
   "description": "Deux ados et une femme plus âgée partent en road trip vers la côte d'Oaxaca.",
   "tip": "Le parler « chilango » des années 2000 dans toute sa splendeur."
  },
@@ -5459,7 +5459,7 @@ export const RECOMMENDATIONS = [
   "title": "Somos.",
   "year": "2021",
   "creator": "James Schamus — Netflix",
-  "emoji": "🌵",
+  "art": "ui-series",
   "description": "Le massacre d'Allende (Coahuila) raconté du point de vue des habitants.",
   "tip": "Accent du nord du Mexique, différent de celui de la capitale."
  },
@@ -5470,7 +5470,7 @@ export const RECOMMENDATIONS = [
   "title": "Pedro Páramo",
   "year": "1955",
   "creator": "Juan Rulfo",
-  "emoji": "👻",
+  "art": "ui-book",
   "description": "Juan Preciado part à Comala chercher son père et découvre un village de fantômes.",
   "tip": "Le grand classique de la littérature mexicaine. Court mais dense."
  },
@@ -5481,7 +5481,7 @@ export const RECOMMENDATIONS = [
   "title": "El laberinto de la soledad",
   "year": "1950",
   "creator": "Octavio Paz",
-  "emoji": "🌀",
+  "art": "ui-book",
   "description": "Essai sur l'identité mexicaine par le prix Nobel de littérature.",
   "tip": "Idéal pour comprendre la culture, à lire par petits morceaux."
  },
@@ -5492,7 +5492,7 @@ export const RECOMMENDATIONS = [
   "title": "Temporada de huracanes",
   "year": "2017",
   "creator": "Fernanda Melchor",
-  "emoji": "🌀",
+  "art": "ui-book",
   "description": "Le meurtre d'une « sorcière » dans un village de Veracruz, en longues phrases haletantes.",
   "tip": "Langue très orale et crue : niveau avancé."
  },
@@ -5503,7 +5503,7 @@ export const RECOMMENDATIONS = [
   "title": "Leyendas Legendarias",
   "year": "depuis 2017",
   "creator": "José Antonio Badía, Eduardo Espinosa",
-  "emoji": "🕯️",
+  "art": "ui-podcast",
   "description": "Crimes, mystères et légendes racontés avec beaucoup d'humour.",
   "tip": "Débit rapide et blagues mexicaines : excellent entraînement."
  },
@@ -5514,7 +5514,7 @@ export const RECOMMENDATIONS = [
   "title": "La Cotorrisa",
   "year": "depuis 2019",
   "creator": "Ricardo Pérez et Slobotzky",
-  "emoji": "😂",
+  "art": "ui-podcast",
   "description": "Podcast comique très populaire au Mexique.",
   "tip": "Plein d'argot : garde l'onglet « Chilango » de l'app à portée de main."
  },
@@ -5525,7 +5525,7 @@ export const RECOMMENDATIONS = [
   "title": "Radio Ambulante",
   "year": "depuis 2012",
   "creator": "NPR",
-  "emoji": "📻",
+  "art": "ui-podcast",
   "description": "Reportages narratifs sur l'Amérique latine, dont de nombreux épisodes au Mexique.",
   "tip": "L'app Lupa propose les transcriptions pour étudier."
  }

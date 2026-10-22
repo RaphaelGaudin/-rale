@@ -4,7 +4,7 @@ import { Lesson, SESSION_SECONDS } from '../lesson.js';
 import { itemsById, LEVEL_INFO } from '../content.js';
 import * as store from '../store.js';
 import { speak, stop } from '../speech.js';
-import { icon, ring } from './components.js';
+import { art, icon, ring } from './components.js';
 import { exerciseView } from './exerciseView.js';
 import { presentationView } from './cards.js';
 
@@ -31,7 +31,7 @@ export function lessonView({ mode, theme, onExit }) {
   if (lesson.isEmpty) {
     root.append(
       h('div', { class: 'lesson-empty' },
-        h('div', { class: 'big-emoji' }, mode === 'review' ? '🎉' : '🏆'),
+        art(mode === 'review' ? 'chido' : 'ui-trophy', 'big-art'),
         h('h2', {}, mode === 'review' ? 'Rien à réviser aujourd\'hui' : 'Thème terminé !'),
         h('p', { class: 'muted' }, mode === 'review'
           ? 'Tout est à jour. Reviens demain, ou apprends de nouveaux mots.'
@@ -84,7 +84,7 @@ export function lessonView({ mode, theme, onExit }) {
     const good = fb.correct;
     const title = good ? PRAISE[Math.floor(Math.random() * PRAISE.length)] : OOPS[Math.floor(Math.random() * OOPS.length)];
     const extra = [];
-    if (fb.justLearned) extra.push(h('p', { class: 'fb-learned' }, '⭐ Appris ! Il reviendra demain en révision.'));
+    if (fb.justLearned) extra.push(h('p', { class: 'fb-learned' }, art('ui-star', 'inline'), 'Appris ! Il reviendra demain en révision.'));
     if (fb.note) extra.push(h('p', { class: 'fb-note' }, fb.note));
     const banner = h('div', { class: `feedback ${good ? 'good' : 'bad'}` },
       h('div', { class: 'fb-head' }, h('strong', {}, title), good ? icon('check') : null),
@@ -96,7 +96,7 @@ export function lessonView({ mode, theme, onExit }) {
     if (fb.speak) setTimeout(() => speak(fb.speak), good ? 150 : 300);
 
     if (fb.comboMilestone) {
-      comboBurst.replaceChildren(h('span', {}, `Combo ×${fb.comboMilestone} 🔥`));
+      comboBurst.replaceChildren(h('span', {}, art('ui-flame', 'inline'), `Combo ×${fb.comboMilestone}`));
       comboBurst.classList.remove('show');
       void comboBurst.offsetWidth;
       comboBurst.classList.add('show');
@@ -144,7 +144,7 @@ function summaryView(lesson, onClose) {
   const minutes = Math.round(store.todaySeconds() / 60);
 
   return h('div', { class: 'summary' },
-    h('div', { class: 'big-emoji pop' }, accuracy >= 80 ? '🎉' : '💪'),
+    art(accuracy >= 80 ? 'ui-trophy' : 'padre', 'big-art pop'),
     h('h2', {}, accuracy >= 80 ? '¡Órale, qué bien!' : '¡Buen trabajo!'),
     h('p', { class: 'muted' }, 'Session terminée'),
     h('div', { class: 'stats-grid' },
@@ -152,7 +152,7 @@ function summaryView(lesson, onClose) {
       stat(`${accuracy} %`, 'Précision'),
       stat(`×${lesson.bestCombo}`, 'Meilleur combo'),
       stat(formatDuration(Math.min(lesson.elapsed, SESSION_SECONDS)), 'Temps')),
-    levelUp ? h('div', { class: 'level-up' }, `🎓 Nouveau niveau : ${levelUp} · ${LEVEL_INFO[levelUp].name} !`) : null,
+    levelUp ? h('div', { class: 'level-up' }, art(LEVEL_INFO[levelUp].art, 'inline'), `Nouveau niveau : ${levelUp} · ${LEVEL_INFO[levelUp].name} !`) : null,
     h('div', { class: 'summary-row' },
       h('div', { class: `streak-box ${streakExtended ? 'extended' : ''}` },
         icon('flame', 'flame'),
@@ -163,7 +163,7 @@ function summaryView(lesson, onClose) {
     learned.length
       ? h('div', { class: 'learned-list' },
         h('h3', {}, `${plural(learned.length, 'élément appris', 'éléments appris')}`),
-        h('div', { class: 'chips' }, learned.map((i) => h('span', { class: 'chip' }, i.kind === 'word' ? `${i.emoji} ${i.es}` : i.kind === 'phrase' ? `💬 ${i.es}` : `${i.emoji} ${i.fr}`))))
+        h('div', { class: 'chips' }, learned.map((i) => h('span', { class: 'chip' }, art(i.art, 'inline'), i.kind === 'word' || i.kind === 'phrase' ? i.es : i.fr))))
       : null,
     lesson.reviewedIds.size ? h('p', { class: 'muted' }, `${plural(lesson.reviewedIds.size, 'révision')} effectuée${lesson.reviewedIds.size > 1 ? 's' : ''}`) : null,
     h('div', { class: 'actions' }, h('button', { class: 'btn btn-primary', onclick: onClose }, 'Terminer')));

@@ -7,43 +7,72 @@ est toujours la bonne réponse ; l'app mélange les options à l'affichage.
 """
 import json
 import os
+import re
+import sys
+import unicodedata
+
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from build_art import collect as collect_art  # noqa: E402
 
 PALETTE = ["#E4007C", "#00A86B", "#FF6B1A", "#1E88E5", "#8E44AD", "#F5B700", "#00A6A6", "#D62839"]
 
 THEMES = []
+
+# Illustration représentant chaque thème (clé de tools/art/*).
+THEME_ART = {
+    "a1-saludos": "hola", "a1-familia": "familia", "a1-mercado": "mango", "a1-taqueria": "taco",
+    "a1-numeros": "billete", "a1-casa": "casa", "a1-ropa": "sombrero", "a1-clima": "sol",
+    "a2-ciudad": "metro", "a2-viaje": "piramide", "a2-rutina": "despertarse", "a2-salud": "doctor",
+    "a2-fiestas": "pinata", "a2-ocio": "lucha-libre", "a2-cocina": "tamal", "a2-animales": "ajolote",
+    "b1-chamba": "chamba", "b1-chilango": "orale", "b1-vivienda": "llave", "b1-fonda": "comida-corrida",
+    "b1-emociones": "feliz", "b1-naturaleza": "volcan", "b1-compras": "tianguis", "b1-tecnologia": "celular",
+    "b2-sociedad": "elecciones", "b2-ambiente": "reciclaje", "b2-arte": "alebrije", "b2-historia": "bandera",
+    "b2-medios": "periodico", "b2-economia": "ganancia", "b2-relaciones": "noviazgo", "b2-modismos": "estar-de-pelos",
+}
+RECO_ART = {"film": "ui-film", "series": "ui-series", "book": "ui-book", "podcast": "ui-podcast"}
+
+
+def art_key(es):
+    """« el mango » → « mango », « ¿qué onda? » → « que-onda »."""
+    s = re.sub(r"^(el|la|los|las)\s+", "", es.lower())
+    s = re.sub(r"[¡!¿?.,]", "", s)
+    s = s.replace("ñ", "n")
+    s = unicodedata.normalize("NFD", s)
+    s = "".join(c for c in s if unicodedata.category(c) != "Mn")
+    return re.sub(r"\s+", "-", s.strip())
 
 
 def theme(tid, level, title_es, title_fr, emoji, words, phrases, grammar, dialogue):
     idx = len([t for t in THEMES if t["level"] == level])
     items = []
     for i, w in enumerate(words):
-        es, fr, em = w[0], w[1], w[2]
-        item = {"id": f"{tid}-w{i}", "kind": "word", "es": es, "fr": fr, "emoji": em}
+        es, fr = w[0], w[1]
+        item = {"id": f"{tid}-w{i}", "kind": "word", "es": es, "fr": fr, "art": art_key(es)}
         if len(w) > 3:
             item["note"] = w[3]
         items.append(item)
     for i, p in enumerate(phrases):
-        item = {"id": f"{tid}-p{i}", "kind": "phrase", "es": p[0], "fr": p[1], "emoji": "💬"}
+        item = {"id": f"{tid}-p{i}", "kind": "phrase", "es": p[0], "fr": p[1], "art": "ui-phrase"}
         if len(p) > 2:
             item["note"] = p[2]
         items.append(item)
     g = grammar
     q = g["quiz"]
     items.append({
-        "id": f"{tid}-g", "kind": "grammar", "es": g["es"], "fr": g["title"], "emoji": "📘",
+        "id": f"{tid}-g", "kind": "grammar", "es": g["es"], "fr": g["title"], "art": "ui-grammar",
         "explanation": g["text"],
         "examples": [{"es": e[0], "fr": e[1]} for e in g["examples"]],
         "quiz": {"prompt": q[0], "options": q[1], "answer": q[1][0], "translation": q[2]},
     })
     d = dialogue
     items.append({
-        "id": f"{tid}-d", "kind": "dialogue", "es": d["es"], "fr": d["title"], "emoji": "🗣️",
+        "id": f"{tid}-d", "kind": "dialogue", "es": d["es"], "fr": d["title"], "art": "ui-dialogue",
         "lines": [{"speaker": l[0], "es": l[1], "fr": l[2]} for l in d["lines"]],
         "question": {"prompt": d["q"][0], "options": d["q"][1], "answer": d["q"][1][0]},
     })
     THEMES.append({
         "id": tid, "level": level, "titleEs": title_es, "titleFr": title_fr,
-        "emoji": emoji, "color": PALETTE[idx % len(PALETTE)], "items": items,
+        "art": THEME_ART[tid], "color": PALETTE[idx % len(PALETTE)], "items": items,
     })
 
 
@@ -918,12 +947,15 @@ RECOS = [
 def main():
     root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
     recos = [{"id": f"r{i}", "level": r[0], "type": r[1], "title": r[2], "year": r[3],
-              "creator": r[4], "emoji": r[5], "description": r[6], "tip": r[7]}
+              "creator": r[4], "art": RECO_ART[r[1]], "description": r[6], "tip": r[7]}
              for i, r in enumerate(RECOS)]
     for lvl in ("A1", "A2", "B1", "B2"):
         n = len([t for t in THEMES if t["level"] == lvl])
         assert n == 8, f"{lvl} a {n} thèmes"
     ids = [i["id"] for t in THEMES for i in t["items"]]
+    art = collect_art()
+    missing = sorted({i["art"] for t in THEMES for i in t["items"]} - set(art)) + [t["art"] for t in THEMES if t["art"] not in art]
+    assert not missing, f"illustrations manquantes : {missing}"
     assert len(ids) == len(set(ids))
     out = os.path.join(root, "js", "data", "content.js")
     with open(out, "w", encoding="utf-8") as f:

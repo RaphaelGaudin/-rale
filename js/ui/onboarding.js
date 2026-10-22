@@ -4,7 +4,7 @@ import { LEVELS, LEVEL_INFO } from '../content.js';
 import { PlacementTest, QUESTIONS_PER_LEVEL } from '../placement.js';
 import * as store from '../store.js';
 import { play } from '../sound.js';
-import { logo } from './components.js';
+import { art, logo } from './components.js';
 import { exerciseView } from './exerciseView.js';
 
 export function onboardingView({ onDone }) {
@@ -17,9 +17,9 @@ export function onboardingView({ onDone }) {
         h('h1', { class: 'brand' }, 'Órale'),
         h('p', { class: 'tagline' }, 'L\'espagnol du Mexique,', h('br'), 'cinq minutes par jour.'),
         h('ul', { class: 'perks' },
-          h('li', {}, '🌮 32 thèmes de la vie au Mexique'),
-          h('li', {}, '🔊 Une voix à l\'accent mexicain'),
-          h('li', {}, '🧠 Répétition espacée pour ne rien oublier')),
+          h('li', {}, art('taco'), '32 thèmes de la vie au Mexique'),
+          h('li', {}, art('ui-speaker'), 'Des voix en espagnol à chaque mot'),
+          h('li', {}, art('ui-brain'), 'Répétition espacée pour ne rien oublier')),
         h('div', { class: 'actions stack' },
           h('button', { class: 'btn btn-primary', onclick: test }, 'Faire le test de niveau'),
           h('button', { class: 'btn btn-ghost', onclick: () => result('A1', true) }, 'Je débute complètement'))));
@@ -67,7 +67,7 @@ export function onboardingView({ onDone }) {
     const info = LEVEL_INFO[level];
     root.replaceChildren(
       h('div', { class: 'result' },
-        h('div', { class: 'big-emoji pop' }, info.emoji),
+        art(info.art, 'big-art pop'),
         h('p', { class: 'muted' }, skipped ? 'On commence par les bases' : 'Ton niveau'),
         h('h1', { class: 'level-title' }, level, h('span', {}, ` · ${info.name}`)),
         h('p', {}, info.blurb),

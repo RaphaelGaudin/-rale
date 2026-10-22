@@ -21,6 +21,7 @@ const DEFAULTS = {
   sound: true,
   haptics: true,
   speechRate: 0.9,
+  voice: 'recorded', // 'recorded' (clips audio) ou 'device' (synthèse de l'iPhone)
   levelUpNotice: null,
 };
 

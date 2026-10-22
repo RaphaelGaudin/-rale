@@ -4,10 +4,10 @@ import { THEMES, RECOMMENDATIONS } from './data/content.js';
 export const LEVELS = ['A1', 'A2', 'B1', 'B2'];
 
 export const LEVEL_INFO = {
-  A1: { name: 'Débutant', emoji: '🌱', blurb: 'Se présenter, commander des tacos, compter ses pesos.' },
-  A2: { name: 'Élémentaire', emoji: '🌵', blurb: 'Se déplacer en ville, voyager, raconter sa journée.' },
-  B1: { name: 'Intermédiaire', emoji: '🌶️', blurb: 'Travailler, louer un appart, parler comme un chilango.' },
-  B2: { name: 'Avancé', emoji: '🦅', blurb: 'Débattre, comprendre l\'actualité, l\'histoire et l\'argot.' },
+  A1: { name: 'Débutant', art: 'ui-sprout', blurb: 'Se présenter, commander des tacos, compter ses pesos.' },
+  A2: { name: 'Élémentaire', art: 'nopal', blurb: 'Se déplacer en ville, voyager, raconter sa journée.' },
+  B1: { name: 'Intermédiaire', art: 'chile', blurb: 'Travailler, louer un appart, parler comme un chilango.' },
+  B2: { name: 'Avancé', art: 'aguila', blurb: 'Débattre, comprendre l\'actualité, l\'histoire et l\'argot.' },
 };
 
 export const KIND_LABEL = {

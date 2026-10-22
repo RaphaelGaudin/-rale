@@ -3,7 +3,7 @@ import { h } from '../util.js';
 import { KIND_LABEL, LEVEL_INFO } from '../content.js';
 import * as store from '../store.js';
 import { speak } from '../speech.js';
-import { header, ring, sheet, speakerButton, stageDots } from './components.js';
+import { art, header, ring, sheet, speakerButton, stageDots } from './components.js';
 import { itemCardContent } from './cards.js';
 
 const KINDS = [
@@ -27,7 +27,7 @@ export function themeDetailView(theme, ctx) {
   return h('div', { class: 'screen theme-detail', style: { '--theme': theme.color } },
     header('', { onBack: ctx.back }),
     h('div', { class: 'theme-hero' },
-      ring(p.ratio, { size: 110, stroke: 8, color: '#fff', track: 'rgba(255,255,255,.25)', content: h('span', { class: 'emoji big' }, theme.emoji) }),
+      ring(p.ratio, { size: 110, stroke: 8, color: '#fff', track: 'rgba(255,255,255,.25)', content: art(theme.art, 'theme-hero-art') }),
       h('h1', {}, theme.titleEs),
       h('p', {}, theme.titleFr),
       h('p', { class: 'small' }, `${theme.level} · ${LEVEL_INFO[theme.level].name} · ${p.learned}/${p.total} appris`),
@@ -49,7 +49,7 @@ function itemRow(item) {
       sheet(h('div', { class: `present present-${item.kind} in-sheet` }, itemCardContent(item)), { title: KIND_LABEL[item.kind] });
     },
   },
-  h('span', { class: 'emoji' }, item.emoji),
+  art(item.art, 'row-art'),
   h('span', { class: 'item-text' }, h('strong', {}, label), h('small', {}, sub)),
   stageDots(stage),
   item.kind === 'word' || item.kind === 'phrase' ? speakerButton(item.es) : null);

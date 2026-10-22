@@ -78,18 +78,18 @@ function wordExercise(item, difficulty, showCaption) {
     case 0:
       return mcq(
         { ...base, label: 'Quelle image correspond ?', prompt: { text: item.es, audio: item.es, autoplay: true }, choiceStyle: 'image' },
-        { emoji: item.emoji, label: item.fr, id: item.id },
-        distractors(item, 3, (i) => i.emoji).map((d) => ({ emoji: d.emoji, label: d.fr, id: d.id })),
+        { art: item.art, label: item.fr, id: item.id },
+        distractors(item, 3, (i) => i.art).map((d) => ({ art: d.art, label: d.fr, id: d.id })),
       );
     case 1:
       return mcq(
-        { ...base, label: 'Quel est le mot ?', prompt: { emoji: item.emoji, caption: item.fr }, choiceStyle: 'text' },
+        { ...base, label: 'Quel est le mot ?', prompt: { art: item.art, caption: item.fr }, choiceStyle: 'text' },
         { label: item.es, id: item.id },
         distractors(item, 3, (i) => i.es).map((d) => ({ label: d.es, id: d.id })),
       );
     case 2:
       return spellExercise(
-        { ...base, label: 'Épelle le mot', prompt: { emoji: item.emoji, caption: item.fr } },
+        { ...base, label: 'Épelle le mot', prompt: { art: item.art, caption: item.fr } },
         item.es,
       );
     default:
@@ -98,7 +98,7 @@ function wordExercise(item, difficulty, showCaption) {
           ...base,
           type: 'write',
           label: 'Écris en espagnol',
-          prompt: { emoji: item.emoji, caption: item.fr, forceCaption: true },
+          prompt: { art: item.art, caption: item.fr, forceCaption: true },
         };
       }
       return mcq(

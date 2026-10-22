@@ -4,7 +4,7 @@ import { themesById } from '../content.js';
 import * as store from '../store.js';
 import { MASTERED_STAGE, INTERVALS } from '../srs.js';
 import { speak } from '../speech.js';
-import { header, stageDots } from './components.js';
+import { art, header, stageDots } from './components.js';
 
 export function reviewView(ctx) {
   const due = store.dueItems();
@@ -31,17 +31,17 @@ export function reviewView(ctx) {
     ? [...groups.entries()].map(([themeId, items]) => {
       const theme = themesById.get(themeId);
       return h('section', { class: 'due-group', style: { '--theme': theme.color } },
-        h('h3', {}, h('span', { class: 'emoji' }, theme.emoji), ` ${theme.titleEs}`, h('span', { class: 'muted small' }, ` · ${items.length}`)),
+        h('h3', {}, art(theme.art, 'inline'), theme.titleEs, h('span', { class: 'muted small' }, ` · ${items.length}`)),
         h('div', { class: 'item-list' }, items.map((item) =>
           h('div', { class: 'item-row', role: 'button', tabindex: '0', onclick: () => item.kind !== 'dialogue' && item.kind !== 'grammar' && speak(item.es) },
-            h('span', { class: 'emoji' }, item.emoji),
+            art(item.art, 'row-art'),
             h('span', { class: 'item-text' },
               h('strong', {}, item.kind === 'grammar' || item.kind === 'dialogue' ? item.fr : item.es),
               h('small', {}, item.kind === 'grammar' || item.kind === 'dialogue' ? item.es : item.fr)),
             stageDots(store.stageOf(item.id))))));
     })
     : h('div', { class: 'empty' },
-      h('div', { class: 'big-emoji' }, learned.length ? '😎' : '🌱'),
+      art(learned.length ? 'chido' : 'ui-sprout', 'big-art'),
       h('p', {}, learned.length ? 'Rien à réviser aujourd\'hui. ¡Qué chido!' : 'Apprends tes premiers mots : ils apparaîtront ici quand il sera temps de les revoir.'));
 
   return h('div', { class: 'screen review' },
