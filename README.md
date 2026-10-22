@@ -24,7 +24,8 @@ C'est une **web app installable (PWA)**. Elle s'installe sur l'iPhone depuis Saf
 
 L'icône Órale apparaît sur ton écran d'accueil. L'app s'ouvre en plein écran, fonctionne sans réseau et ne périme jamais. Elle se met à jour automatiquement à chaque modification poussée sur GitHub.
 
-> 🔊 **Pour une voix plus naturelle** : Réglages iPhone › Accessibilité › Contenu énoncé › Voix › Espagnol › **Espagnol (Mexique)**. Télécharge la version « améliorée » de Paulina ou de Juan.
+> 🔊 **Le son** : chaque mot, phrase et réplique de dialogue est accompagné d'un fichier audio enregistré. Les sons de l'app fonctionnent même en mode silencieux à partir d'iOS 17. Sur une version plus ancienne, désactive le mode silencieux.
+> Dans **Profil › Voix**, tu peux aussi choisir la voix de l'iPhone. Pour un vrai accent mexicain, installe d'abord la voix : Réglages iPhone › Accessibilité › Contenu énoncé › Voix › Espagnol (Mexique), puis la version « améliorée » de Paulina ou de Juan.
 
 > 💾 Ta progression est enregistrée sur le téléphone. L'onglet **Profil** permet de l'exporter ou de l'importer, pour la sauvegarder ou changer d'appareil.
 
@@ -36,7 +37,11 @@ L'icône Órale apparaît sur ton écran d'accueil. L'app s'ouvre en plein écra
   - des phrases ;
   - un point de grammaire par thème ;
   - un dialogue par thème.
-- **Voix à l'accent mexicain** : synthèse vocale es-MX de l'appareil. Dans les dialogues, chaque personnage a sa propre voix ou une hauteur différente.
+- **Des voix partout** :
+  - environ 620 enregistrements générés avec le modèle neuronal Supertonic 3, en espagnol ;
+  - dans les dialogues, une voix féminine ou masculine selon le personnage ;
+  - repli possible sur la voix mexicaine de l'iPhone (es-MX).
+- **Illustrations dessinées** : plus de 270 dessins vectoriels faits main, dans un style BD assorti au logo. Chaque mot a son illustration.
 - **Répétition espacée** : un élément revient après 1, 3, 7, 14, 30, 60, 120 puis 240 jours. Une erreur le fait redescendre d'une étape et il revient dès le lendemain.
 - **Apprentissage d'un nouvel élément** : il est d'abord présenté (image, mot, traduction, audio), puis doit être retrouvé **3 fois** dans la session avant d'être compté comme appris.
 - **Difficulté progressive** : reconnaître l'image → choisir le mot → épeler → écrire ou comprendre à l'oral. La légende française sous les images disparaît à mesure qu'on progresse.
@@ -63,9 +68,17 @@ python3 -m http.server 8080
 # Régénérer le contenu après modification de tools/build_content.py
 python3 tools/build_content.py
 
+# Régénérer les illustrations (tools/art/*.py → js/data/art.js)
+python3 tools/build_art.py --preview apercu.html
+
+# Régénérer les voix (nécessite sherpa-onnx, num2words, ffmpeg et le modèle Supertonic 3)
+python3 tools/build_audio.py --model chemin/vers/supertonic-3 --only-missing
+
 # Régénérer les icônes (nécessite Pillow)
 python3 tools/build_icons.py
 ```
+
+Après une modification du contenu, relance `build_content.py`, puis `build_audio.py --only-missing` pour enregistrer les nouvelles phrases.
 
 Organisation du code :
 
@@ -78,6 +91,8 @@ Organisation du code :
 | `js/lesson.js` | Moteur d'une session de 5 minutes |
 | `js/placement.js` | Test de niveau adaptatif |
 | `js/speech.js` / `js/sound.js` | Voix mexicaine et effets sonores |
+| `tools/art/` | Illustrations SVG dessinées en code (un fichier par niveau) |
+| `tools/build_audio.py` / `audio/` | Voix enregistrées (une empreinte par texte) |
 | `js/ui/` | Écrans de l'app |
 | `sw.js` | Fonctionnement hors-ligne |
 
