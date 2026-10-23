@@ -1,5 +1,5 @@
 // Index du contenu pédagogique (généré dans js/data/content.js).
-import { THEMES, RECOMMENDATIONS } from './data/content.js';
+import { THEMES, RECOMMENDATIONS, PLACEMENT } from './data/content.js';
 
 export const LEVELS = ['A1', 'A2', 'B1', 'B2'];
 
@@ -17,7 +17,7 @@ export const KIND_LABEL = {
   dialogue: 'Dialogue',
 };
 
-export { THEMES, RECOMMENDATIONS };
+export { THEMES, RECOMMENDATIONS, PLACEMENT };
 
 export const themesById = new Map(THEMES.map((t) => [t.id, t]));
 export const itemsById = new Map();

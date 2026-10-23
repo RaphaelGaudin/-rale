@@ -34,11 +34,15 @@ FEMALE = {"Lupita", "Ana", "Claire", "Marie", "Rosa", "Vendedora", "Julia", "Se�
 EXTRA_TEXTS = ["¡Órale! ¿Qué onda?", "Hola, ¿cómo estás? Bienvenido a México.", "¡Hola! ¿Cómo estás?"]
 
 
-def load_content():
-    """Lit js/data/content.js (JSON précédé de « export const … = »)."""
+def load_export(name):
+    """Lit un « export const NAME = … ; » de js/data/content.js (JSON)."""
     src = open(os.path.join(ROOT, "js", "data", "content.js"), encoding="utf-8").read()
-    themes = json.loads(src.split("export const THEMES = ", 1)[1].split(";\n\nexport const RECOMMENDATIONS", 1)[0])
-    return themes
+    body = src.split(f"export const {name} = ", 1)[1]
+    return json.loads(body.split(";\n\nexport const ", 1)[0].rstrip().rstrip(";"))
+
+
+def load_content():
+    return load_export("THEMES")
 
 
 def quiz_sentence(q):
@@ -64,6 +68,11 @@ def collect(themes):
                     if line["speaker"] not in seen:
                         seen[line["speaker"]] = (g, sum(1 for v in seen.values() if v[0] == g))
                     clips.setdefault(line["es"], seen[line["speaker"]])
+    # Questions d'écoute du test de niveau.
+    for questions in load_export("PLACEMENT")["bank"].values():
+        for q in questions:
+            if q.get("audio"):
+                clips.setdefault(q["audio"], ("M", 0))
     for text in EXTRA_TEXTS:
         clips.setdefault(text, ("F", 0))
     return clips
@@ -126,12 +135,23 @@ def main():
         return np.asarray(a.samples, dtype=np.float32), a.sample_rate
 
     # Classement des voix du modèle en féminines / masculines selon la hauteur.
+    # On réutilise le classement déjà enregistré pour que les noms de fichiers restent stables.
+    previous = None
+    if os.path.exists(MANIFEST):
+        try:
+            previous = json.loads(open(MANIFEST, encoding="utf-8").read().split("export const AUDIO = ", 1)[1].rstrip().rstrip(";"))["voices"]
+        except (IndexError, KeyError, ValueError):
+            previous = None
     n = tts.num_speakers or 1
-    probe = [(sid, pitch(*generate("Hola, ¿cómo estás? Me llamo Lupita y vivo en México.", sid))) for sid in range(n)]
-    probe.sort(key=lambda p: -p[1])
-    half = max(1, n // 2)
-    voices = {"F": [sid for sid, _ in probe[:half]], "M": [sid for sid, _ in probe[half:]] or [probe[-1][0]]}
-    print("Voix (sid, Hz) :", [(s, round(f)) for s, f in probe], "→", voices)
+    if previous and previous.get("F") and previous.get("M"):
+        voices = {"F": previous["F"], "M": previous["M"]}
+        print("Voix reprises du manifeste :", voices)
+    else:
+        probe = [(sid, pitch(*generate("Hola, ¿cómo estás? Me llamo Lupita y vivo en México.", sid))) for sid in range(n)]
+        probe.sort(key=lambda p: -p[1])
+        half = max(1, n // 2)
+        voices = {"F": [sid for sid, _ in probe[:half]], "M": [sid for sid, _ in probe[half:]] or [probe[-1][0]]}
+        print("Voix (sid, Hz) :", [(s, round(f)) for s, f in probe], "→", voices)
 
     os.makedirs(OUT_DIR, exist_ok=True)
     clips = collect(load_content())

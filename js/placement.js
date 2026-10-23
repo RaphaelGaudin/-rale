@@ -1,102 +1,65 @@
-// Test de niveau adaptatif. À chaque niveau (A1 → B2), 8 questions couvrant
-// vocabulaire, compréhension écrite et orale, grammaire et dialogue — une par thème.
-// On passe au niveau suivant avec au moins 6 bonnes réponses sur 8 ; dès que ce score
-// devient impossible, on s'arrête : c'est le niveau où commencer.
-import { LEVELS, themesForLevel } from './content.js';
-import { distractors } from './exercises.js';
-import { pick, shuffle } from './util.js';
+// Test de niveau adaptatif, avec une banque de questions dédiée (tools/placement_bank.py).
+// À chaque niveau (A1 → B2), 10 questions : réponses à écrire, grammaire, vocabulaire,
+// lecture d'un texte et écoute. On passe au niveau suivant avec au moins 8/10 ;
+// dès que ce score devient impossible, le test s'arrête.
+// Le niveau estimé est le dernier niveau réussi ; on commence par le contenu du niveau suivant.
+import { LEVELS, PLACEMENT } from './content.js';
+import { shuffle } from './util.js';
 
-export const QUESTIONS_PER_LEVEL = 8;
-export const PASS_MARK = 6;
+export const QUESTIONS_PER_LEVEL = Object.values(PLACEMENT.plan).reduce((a, b) => a + b, 0);
+export const PASS_MARK = 8;
 
 export const SKILLS = {
+  write: 'Expression écrite',
+  grammar: 'Grammaire',
   vocab: 'Vocabulaire',
   reading: 'Compréhension écrite',
   listening: 'Compréhension orale',
-  grammar: 'Grammaire',
 };
 
-function choicesFrom(correct, others) {
-  return shuffle([{ label: correct, correct: true }, ...others.map((label) => ({ label, correct: false }))]);
-}
-
-function quizSentence(q) {
-  return q.prompt.replace('___', q.answer).replace(/\s*\([^)]*\)\s*$/, '');
-}
-
-const BUILDERS = {
-  // « Que signifie jitomate ? » — le mot espagnol, sans image (elle donnerait la réponse).
-  wordToFr(theme) {
-    const item = pick(theme.items.filter((i) => i.kind === 'word'));
-    return {
-      skill: 'vocab', item, type: 'mcq', choiceStyle: 'text',
-      label: 'Que signifie ce mot ?',
-      prompt: { text: item.es, audio: item.es },
-      choices: choicesFrom(item.fr, distractors(item, 3, (i) => i.fr).map((d) => d.fr)),
-      answer: item.es, answerFr: item.fr,
-    };
-  },
-  frToWord(theme) {
-    const item = pick(theme.items.filter((i) => i.kind === 'word'));
-    return {
-      skill: 'vocab', item, type: 'mcq', choiceStyle: 'text',
-      label: 'Comment dit-on… ?',
-      prompt: { text: item.fr, lang: 'fr' },
-      choices: choicesFrom(item.es, distractors(item, 3, (i) => i.es).map((d) => d.es)),
-      answer: item.es, answerFr: item.fr,
-    };
-  },
-  reading(theme) {
-    const item = pick(theme.items.filter((i) => i.kind === 'phrase'));
-    return {
-      skill: 'reading', item, type: 'mcq', choiceStyle: 'text',
-      label: 'Que signifie cette phrase ?',
-      prompt: { text: item.es },
-      choices: choicesFrom(item.fr, distractors(item, 3, (i) => i.fr).map((d) => d.fr)),
-      answer: item.es, answerFr: item.fr,
-    };
-  },
-  // Phrase entendue seulement, sans le texte.
-  listening(theme) {
-    const item = pick(theme.items.filter((i) => i.kind === 'phrase'));
-    return {
-      skill: 'listening', item, type: 'mcq', choiceStyle: 'text',
-      label: 'Écoute : que signifie cette phrase ?',
-      prompt: { audio: item.es, autoplay: true, listenOnly: true },
-      choices: choicesFrom(item.fr, distractors(item, 3, (i) => i.fr).map((d) => d.fr)),
-      answer: item.es, answerFr: item.fr,
-    };
-  },
-  grammar(theme) {
-    const item = theme.items.find((i) => i.kind === 'grammar');
-    const q = item.quiz;
-    return {
-      skill: 'grammar', item, type: 'mcq', choiceStyle: 'text',
-      label: 'Complète la phrase',
-      prompt: { text: q.prompt, blank: true },
-      choices: shuffle(q.options.map((o) => ({ label: o, correct: o === q.answer }))),
-      answer: quizSentence(q), answerFr: q.translation,
-    };
-  },
-  dialogue(theme) {
-    const item = theme.items.find((i) => i.kind === 'dialogue');
-    const q = item.question;
-    return {
-      skill: 'reading', item, type: 'mcq', choiceStyle: 'text',
-      label: 'Lis le dialogue et réponds',
-      prompt: { dialogue: item.lines, question: q.prompt },
-      choices: shuffle(q.options.map((o) => ({ label: o, correct: o === q.answer }))),
-      answer: q.answer, answerFr: null,
-    };
-  },
+const LABELS = {
+  write: 'Écris la réponse',
+  grammar: 'Complète la phrase',
+  vocab: 'Choisis la bonne réponse',
+  reading: 'Lis et réponds',
+  listening: 'Écoute et réponds',
 };
 
-// Du plus simple au plus exigeant ; chaque question vient d'un thème différent.
-const PLAN = ['wordToFr', 'frToWord', 'reading', 'grammar', 'wordToFr', 'listening', 'grammar', 'dialogue'];
+function toExercise(q, uid) {
+  const base = { uid, skill: q.skill, label: LABELS[q.skill], item: null };
+  if (q.skill === 'write') {
+    return {
+      ...base,
+      type: 'write',
+      prompt: { text: q.prompt, blank: q.prompt.includes('___'), lang: q.prompt.includes('___') ? 'es' : 'fr' },
+      accept: q.accept,
+      answer: q.accept[0],
+      answerFr: null,
+    };
+  }
+  const prompt = q.skill === 'reading' ? { passage: q.text, question: q.question }
+    : q.skill === 'listening' ? { audio: q.audio, autoplay: true, listenOnly: true, question: q.question }
+      : { text: q.prompt, blank: q.prompt.includes('___'), lang: q.prompt.includes('___') ? 'es' : 'fr' };
+  return {
+    ...base,
+    type: 'mcq',
+    choiceStyle: 'text',
+    prompt,
+    choices: shuffle(q.options.map((o) => ({ label: o, correct: o === q.answer }))),
+    answer: q.answer,
+    answerFr: null,
+  };
+}
 
+/** 10 questions d'un niveau, tirées au hasard selon la répartition prévue, dans un ordre de difficulté croissante. */
 function questionsFor(level) {
-  const themes = shuffle(themesForLevel(level));
-  return PLAN.map((kind, i) => ({ ...BUILDERS[kind](themes[i % themes.length]), uid: `${level}-${i}` }));
+  const bank = PLACEMENT.bank[level];
+  const order = ['vocab', 'grammar', 'reading', 'write', 'listening'];
+  const picked = [];
+  for (const skill of order) {
+    picked.push(...shuffle(bank.filter((q) => q.skill === skill)).slice(0, PLACEMENT.plan[skill] || 0));
+  }
+  return picked.map((q, i) => toExercise(q, `${level}-${i}`));
 }
 
 export class PlacementTest {
@@ -120,9 +83,9 @@ export class PlacementTest {
     return this.questions[this.index];
   }
 
-  /** Nombre total de questions posées jusqu'ici (pour la barre de progression). */
-  get asked() {
-    return Object.values(this.scores).reduce((n, s) => n + s.asked, 0) + this.index;
+  /** Dernier niveau réussi (null si aucun). */
+  get estimated() {
+    return this.passed[this.passed.length - 1] || null;
   }
 
   answer(correct) {
@@ -152,7 +115,7 @@ export class PlacementTest {
       this.questions = questionsFor(this.level);
       return false;
     }
-    // Échec : on commence à ce niveau. Réussite du B2 : on reste en B2.
+    // On commence par le niveau échoué (ou B2 si tout est réussi).
     this.result = this.level;
     return true;
   }

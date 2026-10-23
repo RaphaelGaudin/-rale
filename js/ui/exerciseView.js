@@ -45,6 +45,9 @@ function promptView(ex) {
     if (p.caption && !p.art) parts.push(h('p', { class: 'hint' }, p.caption));
   }
 
+  if (p.passage) parts.push(h('div', { class: 'passage', lang: 'es' }, p.passage));
+  if (p.question) parts.push(h('p', { class: 'question' }, p.question));
+
   if (p.autoplay && p.audio) setTimeout(() => speak(p.audio), 350);
   return h('div', { class: 'prompt' }, parts);
 }
@@ -225,7 +228,7 @@ function writeView(ex, onAnswer) {
     if (done || !input.value.trim()) return;
     done = true;
     input.blur();
-    const { correct, note } = checkWritten(input.value, ex.answer);
+    const { correct, note } = checkWritten(input.value, ex.accept || ex.answer);
     input.classList.add(correct ? 'correct' : 'wrong');
     input.disabled = true;
     onAnswer(correct, note);

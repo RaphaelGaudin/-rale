@@ -32,10 +32,10 @@ export function onboardingView({ onDone }) {
         art('ui-brain', 'big-art pop'),
         h('h1', { class: 'level-title small-title' }, 'Test de niveau'),
         h('ul', { class: 'perks' },
-          h('li', {}, art('ui-calendar'), `${QUESTIONS_PER_LEVEL} questions par niveau, de A1 à B2 : vocabulaire, grammaire, lecture et écoute.`),
+          h('li', {}, art('ui-calendar'), `${QUESTIONS_PER_LEVEL} questions par niveau, de A1 à B2 : réponses à écrire, grammaire, lecture de textes et écoute.`),
           h('li', {}, art('ui-trophy'), `Avec ${PASS_MARK} bonnes réponses sur ${QUESTIONS_PER_LEVEL}, tu passes au niveau suivant.`),
           h('li', {}, art('ui-bulb'), 'Tu ne sais pas ? Touche « Je ne sais pas » plutôt que de deviner : le résultat sera plus juste.')),
-        h('p', { class: 'muted small' }, 'Entre 3 et 10 minutes. Monte le son pour les questions d\'écoute.'),
+        h('p', { class: 'muted small' }, 'Entre 3 et 15 minutes. Monte le son pour les questions d\'écoute.'),
         h('div', { class: 'actions stack' },
           h('button', { class: 'btn btn-primary', onclick: test }, 'C\'est parti'),
           h('button', { class: 'btn btn-ghost', onclick: welcome }, 'Retour'))));
@@ -65,7 +65,8 @@ export function onboardingView({ onDone }) {
         skip.remove();
         placement.answer(correct);
         play(correct ? 'correct' : 'wrong');
-        next(correct ? 700 : 1500);
+        if (!correct && ex.type === 'write') showAnswer(view, ex);
+        next(correct ? 700 : 2000);
       });
       const skip = h('button', {
         class: 'btn btn-ghost small dont-know',
@@ -76,6 +77,7 @@ export function onboardingView({ onDone }) {
           // On montre la bonne réponse, sans pénalité sonore.
           view.querySelectorAll('.choice').forEach((b, i) => b.classList.add(ex.choices[i].correct ? 'correct' : 'dim'));
           view.classList.add('locked');
+          if (ex.type === 'write') showAnswer(view, ex);
           placement.answer(false);
           next(1400);
         },
@@ -89,6 +91,10 @@ export function onboardingView({ onDone }) {
           levelBadges, dots, view, h('div', { class: 'actions' }, skip)));
     };
     ask();
+  }
+
+  function showAnswer(view, ex) {
+    view.append(h('p', { class: 'placement-answer' }, 'Réponse : ', h('strong', {}, ex.accept.join(' / '))));
   }
 
   function levelPassed(level, placement, then) {
@@ -116,6 +122,7 @@ export function onboardingView({ onDone }) {
         },
       }, h('strong', {}, `${g} min`), h('span', {}, g === 5 ? 'Tranquilo' : g === 10 ? 'Régulier' : g === 15 ? 'Sérieux' : 'Intense')));
     const info = LEVEL_INFO[level];
+    const estimated = placement?.estimated || null;
     const passed = placement?.passed || [];
     const seedCount = passed.reduce((n, l) => n + itemsForLevel(l).length, 0);
 
@@ -149,8 +156,11 @@ export function onboardingView({ onDone }) {
     root.replaceChildren(
       h('div', { class: 'result' },
         art(info.art, 'big-art pop'),
-        h('p', { class: 'muted' }, skipped ? 'On commence par les bases' : 'Ton niveau'),
-        h('h1', { class: 'level-title' }, level, h('span', {}, ` · ${info.name}`)),
+        skipped
+          ? [h('p', { class: 'muted' }, 'On commence par les bases'), h('h1', { class: 'level-title' }, level, h('span', {}, ` · ${info.name}`))]
+          : [h('p', { class: 'muted' }, 'Ton niveau estimé'),
+            h('h1', { class: 'level-title' }, estimated || 'A0', h('span', {}, estimated ? ` · ${LEVEL_INFO[estimated].name}` : ' · Grand débutant')),
+            h('p', { class: 'start-at' }, estimated === 'B2' ? 'Bravo ! Tu peux réviser tout le contenu, en commençant par B2.' : `On commence par le contenu ${level} · ${info.name}.`)],
         h('p', {}, info.blurb),
         levelRows,
         skillRows,
@@ -161,7 +171,7 @@ export function onboardingView({ onDone }) {
           h('button', {
             class: 'btn btn-primary',
             onclick: () => {
-              store.update({ onboarded: true, level, placement: skipped ? null : level, dailyGoal: goal });
+              store.update({ onboarded: true, level, placement: skipped ? null : (estimated || 'A0'), dailyGoal: goal });
               if (seed && passed.length) store.seedKnownLevels(passed);
               play('complete');
               onDone();

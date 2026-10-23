@@ -13,6 +13,7 @@ import unicodedata
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from build_art import collect as collect_art  # noqa: E402
+from placement_bank import BANK as PLACEMENT_BANK, PLAN as PLACEMENT_PLAN  # noqa: E402
 
 PALETTE = ["#E4007C", "#00A86B", "#FF6B1A", "#1E88E5", "#8E44AD", "#F5B700", "#00A6A6", "#D62839"]
 
@@ -962,6 +963,9 @@ def main():
         f.write("// Fichier généré par tools/build_content.py — ne pas modifier à la main.\n")
         f.write("export const THEMES = ")
         json.dump(THEMES, f, ensure_ascii=False, indent=1)
+        f.write(";\n\nexport const PLACEMENT = ")
+        bank = {lvl: [dict(q, answer=q["options"][0]) if "options" in q else q for q in qs] for lvl, qs in PLACEMENT_BANK.items()}
+        json.dump({"plan": PLACEMENT_PLAN, "bank": bank}, f, ensure_ascii=False, indent=1)
         f.write(";\n\nexport const RECOMMENDATIONS = ")
         json.dump(recos, f, ensure_ascii=False, indent=1)
         f.write(";\n")

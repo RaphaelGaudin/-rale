@@ -518,3 +518,6 @@ body.in-lesson .tabbar { display: none; }
 .seed-setting { width: 100%; background: var(--surface); border-radius: 18px; padding: 14px; text-align: left; flex-wrap: nowrap; }
 .seed-setting small { display: block; color: var(--muted); font-weight: 500; font-size: 13px; margin-top: 2px; }
 .switch { flex: none; }
+.passage { text-align: left; font-size: 17px; line-height: 1.55; background: rgba(255, 255, 255, .08); border-left: 4px solid var(--yellow); padding: 14px 16px; border-radius: 14px; -webkit-user-select: text; user-select: text; }
+.placement-answer { text-align: center; color: var(--yellow); margin-top: 8px; }
+.start-at { font-weight: 700; color: #FF5FB0; }

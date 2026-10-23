@@ -226,13 +226,14 @@ export function makeExercise(item, difficulty, showCaption = true) {
   return { showCaption, difficulty: d, ...ex, uid: Math.random().toString(36).slice(2) };
 }
 
-/** Vérifie une réponse écrite. Renvoie { correct, note }. Les accents oubliés sont tolérés. */
+/** Vérifie une réponse écrite (une ou plusieurs réponses acceptées). Renvoie { correct, note }. Les accents oubliés sont tolérés. */
 export function checkWritten(input, expected) {
   const a = normalizeAnswer(input);
-  const b = normalizeAnswer(expected);
   if (!a) return { correct: false };
-  if (a === b) return { correct: true };
-  if (removeAccents(a) === removeAccents(b)) return { correct: true, note: `Attention aux accents : ${expected}` };
+  const accepted = Array.isArray(expected) ? expected : [expected];
+  if (accepted.some((e) => normalizeAnswer(e) === a)) return { correct: true };
+  const close = accepted.find((e) => removeAccents(normalizeAnswer(e)) === removeAccents(a));
+  if (close) return { correct: true, note: `Attention aux accents : ${close}` };
   return { correct: false };
 }
 

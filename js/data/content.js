@@ -5253,6 +5253,658 @@ export const THEMES = [
  }
 ];
 
+export const PLACEMENT = {
+ "plan": {
+  "write": 3,
+  "grammar": 2,
+  "vocab": 1,
+  "reading": 2,
+  "listening": 2
+ },
+ "bank": {
+  "A1": [
+   {
+    "skill": "write",
+    "prompt": "Écris en espagnol : « merci beaucoup »",
+    "accept": [
+     "muchas gracias"
+    ],
+    "hint": null
+   },
+   {
+    "skill": "write",
+    "prompt": "Yo ___ de Francia. (ser)",
+    "accept": [
+     "soy"
+    ],
+    "hint": null
+   },
+   {
+    "skill": "write",
+    "prompt": "¿Cuántos años ___ tú? (tener)",
+    "accept": [
+     "tienes"
+    ],
+    "hint": null
+   },
+   {
+    "skill": "write",
+    "prompt": "Écris en espagnol : « la maison »",
+    "accept": [
+     "la casa",
+     "casa"
+    ],
+    "hint": null
+   },
+   {
+    "skill": "grammar",
+    "prompt": "Mi hermana ___ muy simpática.",
+    "options": [
+     "es",
+     "está",
+     "son",
+     "hay",
+     "tiene"
+    ],
+    "answer": "es"
+   },
+   {
+    "skill": "grammar",
+    "prompt": "En mi casa ___ dos baños.",
+    "options": [
+     "hay",
+     "están",
+     "es",
+     "tiene",
+     "son"
+    ],
+    "answer": "hay"
+   },
+   {
+    "skill": "grammar",
+    "prompt": "Nosotros ___ en Guadalajara. (vivir)",
+    "options": [
+     "vivimos",
+     "viven",
+     "vivo",
+     "vivís",
+     "viviendo"
+    ],
+    "answer": "vivimos"
+   },
+   {
+    "skill": "grammar",
+    "prompt": "¿A qué hora ___ la tienda?",
+    "options": [
+     "abre",
+     "abro",
+     "abres",
+     "abrimos",
+     "abrir"
+    ],
+    "answer": "abre"
+   },
+   {
+    "skill": "vocab",
+    "prompt": "« La semana que viene » signifie…",
+    "options": [
+     "la semaine prochaine",
+     "la semaine dernière",
+     "cette semaine",
+     "le week-end",
+     "le mois prochain"
+    ],
+    "answer": "la semaine prochaine"
+   },
+   {
+    "skill": "reading",
+    "text": "Hola, me llamo Daniela. Tengo veinticuatro años y vivo en Puebla con mis papás y mi hermano. Trabajo en un café y los domingos voy al mercado con mi abuela.",
+    "question": "Avec qui Daniela va-t-elle au marché ?",
+    "options": [
+     "Avec sa grand-mère",
+     "Avec son frère",
+     "Avec ses parents",
+     "Seule",
+     "Avec une amie"
+    ],
+    "answer": "Avec sa grand-mère"
+   },
+   {
+    "skill": "reading",
+    "text": "MUSEO DE ARTE POPULAR — Cerrado los lunes. De martes a domingo, de 10:00 a 18:00.",
+    "question": "Quand peut-on visiter le musée ?",
+    "options": [
+     "Le mardi à 11 h",
+     "Le lundi à 10 h",
+     "Le dimanche à 19 h",
+     "Tous les jours",
+     "Le lundi après-midi"
+    ],
+    "answer": "Le mardi à 11 h"
+   },
+   {
+    "skill": "listening",
+    "audio": "Buenos días. Quiero dos tacos de pollo y un agua de jamaica, por favor.",
+    "question": "Que commande la personne ?",
+    "options": [
+     "Deux tacos au poulet et une eau de jamaica",
+     "Deux tacos au porc et un soda",
+     "Un taco au poulet et un café",
+     "Trois tacos et une bière",
+     "Deux quesadillas et un jus"
+    ],
+    "answer": "Deux tacos au poulet et une eau de jamaica"
+   },
+   {
+    "skill": "listening",
+    "audio": "Mi cumpleaños es el doce de marzo.",
+    "question": "Quand est son anniversaire ?",
+    "options": [
+     "Le 12 mars",
+     "Le 2 mars",
+     "Le 12 mai",
+     "Le 20 mars",
+     "Le 10 mars"
+    ],
+    "answer": "Le 12 mars"
+   },
+   {
+    "skill": "listening",
+    "audio": "La farmacia está a la derecha del banco, enfrente del parque.",
+    "question": "Où est la pharmacie ?",
+    "options": [
+     "À droite de la banque, en face du parc",
+     "À gauche de la banque",
+     "Derrière le parc",
+     "Dans le parc",
+     "À côté de l'église"
+    ],
+    "answer": "À droite de la banque, en face du parc"
+   }
+  ],
+  "A2": [
+   {
+    "skill": "write",
+    "prompt": "Ayer nosotros ___ al cine. (ir)",
+    "accept": [
+     "fuimos"
+    ],
+    "hint": null
+   },
+   {
+    "skill": "write",
+    "prompt": "El año pasado ellos ___ en Cancún. (estar)",
+    "accept": [
+     "estuvieron"
+    ],
+    "hint": null
+   },
+   {
+    "skill": "write",
+    "prompt": "¿Qué ___ tú anoche? (hacer)",
+    "accept": [
+     "hiciste"
+    ],
+    "hint": null
+   },
+   {
+    "skill": "write",
+    "prompt": "Mañana ___ a llover. (ir)",
+    "accept": [
+     "va"
+    ],
+    "hint": null
+   },
+   {
+    "skill": "grammar",
+    "prompt": "Me ___ mucho los tacos al pastor.",
+    "options": [
+     "gustan",
+     "gusta",
+     "gusto",
+     "gustas",
+     "gustamos"
+    ],
+    "answer": "gustan"
+   },
+   {
+    "skill": "grammar",
+    "prompt": "Cuando era niño, ___ al parque todos los domingos.",
+    "options": [
+     "iba",
+     "fui",
+     "voy",
+     "iré",
+     "he ido"
+    ],
+    "answer": "iba"
+   },
+   {
+    "skill": "grammar",
+    "prompt": "Este regalo es ___ ti.",
+    "options": [
+     "para",
+     "por",
+     "a",
+     "de",
+     "en"
+    ],
+    "answer": "para"
+   },
+   {
+    "skill": "grammar",
+    "prompt": "Mi hermano es ___ alto ___ mi papá.",
+    "options": [
+     "más… que",
+     "tan… que",
+     "más… como",
+     "mucho… que",
+     "muy… de"
+    ],
+    "answer": "más… que"
+   },
+   {
+    "skill": "vocab",
+    "prompt": "« Me duele la garganta » signifie…",
+    "options": [
+     "J'ai mal à la gorge",
+     "J'ai mal à la tête",
+     "J'ai mal au ventre",
+     "J'ai soif",
+     "J'ai froid"
+    ],
+    "answer": "J'ai mal à la gorge"
+   },
+   {
+    "skill": "reading",
+    "text": "El sábado pasado fui a Teotihuacán con mis primos. Salimos muy temprano porque queríamos subir a la Pirámide del Sol antes del calor. Al final no subimos: había demasiada gente y mi prima se sentía mal.",
+    "question": "Pourquoi ne sont-ils pas montés sur la pyramide ?",
+    "options": [
+     "Il y avait trop de monde et sa cousine se sentait mal",
+     "Il faisait trop chaud",
+     "Ils sont arrivés trop tard",
+     "La pyramide était fermée",
+     "Ils n'avaient pas de billets"
+    ],
+    "answer": "Il y avait trop de monde et sa cousine se sentait mal"
+   },
+   {
+    "skill": "reading",
+    "text": "Se renta cuarto amueblado en la colonia Narvarte. Incluye internet y agua. No se aceptan mascotas. A cinco minutos del metro Etiopía.",
+    "question": "Quelle affirmation est vraie ?",
+    "options": [
+     "Internet est inclus",
+     "Les animaux sont acceptés",
+     "Le logement est loin du métro",
+     "La chambre n'est pas meublée",
+     "L'eau n'est pas incluse"
+    ],
+    "answer": "Internet est inclus"
+   },
+   {
+    "skill": "listening",
+    "audio": "Perdón por llegar tarde. Es que el metro se detuvo veinte minutos entre dos estaciones.",
+    "question": "Pourquoi la personne est-elle en retard ?",
+    "options": [
+     "Le métro s'est arrêté vingt minutes",
+     "Elle s'est réveillée tard",
+     "Il y avait des bouchons",
+     "Elle a raté le bus",
+     "Elle s'est perdue"
+    ],
+    "answer": "Le métro s'est arrêté vingt minutes"
+   },
+   {
+    "skill": "listening",
+    "audio": "Si quieres, nos vemos el jueves en la tarde, porque el miércoles tengo que trabajar hasta las nueve.",
+    "question": "Quand se voient-ils ?",
+    "options": [
+     "Jeudi après-midi",
+     "Mercredi soir",
+     "Mercredi à 9 h",
+     "Jeudi matin",
+     "Vendredi après-midi"
+    ],
+    "answer": "Jeudi après-midi"
+   },
+   {
+    "skill": "listening",
+    "audio": "Hace dos años que vivo aquí, pero todavía me pierdo en el centro.",
+    "question": "Que dit la personne ?",
+    "options": [
+     "Elle vit ici depuis deux ans et se perd encore dans le centre",
+     "Elle est arrivée il y a deux jours",
+     "Elle ne se perd jamais",
+     "Elle va déménager dans deux ans",
+     "Elle travaille dans le centre depuis deux ans"
+    ],
+    "answer": "Elle vit ici depuis deux ans et se perd encore dans le centre"
+   }
+  ],
+  "B1": [
+   {
+    "skill": "write",
+    "prompt": "Espero que ___ buen viaje. (tener, tú)",
+    "accept": [
+     "tengas"
+    ],
+    "hint": null
+   },
+   {
+    "skill": "write",
+    "prompt": "Cuando ___ a la casa, te llamo. (llegar, yo)",
+    "accept": [
+     "llegue"
+    ],
+    "hint": null
+   },
+   {
+    "skill": "write",
+    "prompt": "Si tuviera tiempo, ___ más. (leer, yo)",
+    "accept": [
+     "leería"
+    ],
+    "hint": null
+   },
+   {
+    "skill": "write",
+    "prompt": "Ya ___ visto esa película tres veces. (haber, yo)",
+    "accept": [
+     "he"
+    ],
+    "hint": null
+   },
+   {
+    "skill": "grammar",
+    "prompt": "Busco un departamento que ___ cerca del trabajo.",
+    "options": [
+     "esté",
+     "está",
+     "estará",
+     "estaba",
+     "estar"
+    ],
+    "answer": "esté"
+   },
+   {
+    "skill": "grammar",
+    "prompt": "Cuando llegué a la fiesta, mis amigos ya ___.",
+    "options": [
+     "se habían ido",
+     "se fueron",
+     "se van",
+     "se iban a ir",
+     "se han ido"
+    ],
+    "answer": "se habían ido"
+   },
+   {
+    "skill": "grammar",
+    "prompt": "No es caro, ___ barato.",
+    "options": [
+     "sino",
+     "pero",
+     "si no",
+     "sin",
+     "aunque"
+    ],
+    "answer": "sino"
+   },
+   {
+    "skill": "grammar",
+    "prompt": "Te lo explico ___ que no te preocupes.",
+    "options": [
+     "para",
+     "por",
+     "porque",
+     "aunque",
+     "sino"
+    ],
+    "answer": "para"
+   },
+   {
+    "skill": "vocab",
+    "prompt": "« Echarle ganas » signifie…",
+    "options": [
+     "Faire des efforts",
+     "Avoir faim",
+     "Abandonner",
+     "Se mettre en colère",
+     "Avoir sommeil"
+    ],
+    "answer": "Faire des efforts"
+   },
+   {
+    "skill": "reading",
+    "text": "Querida Ana: perdona que no te haya escrito antes. Desde que empecé en la nueva chamba casi no tengo tiempo libre. Mi jefa es buena onda, pero las juntas duran horas. Ojalá que el mes que entra pueda tomarme unos días para ir a verte a Mérida.",
+    "question": "Que souhaite l'autrice de la lettre ?",
+    "options": [
+     "Prendre quelques jours le mois prochain pour aller voir Ana",
+     "Changer de travail",
+     "Que sa cheffe soit plus sympathique",
+     "Qu'Ana vienne la voir",
+     "Avoir moins de réunions"
+    ],
+    "answer": "Prendre quelques jours le mois prochain pour aller voir Ana"
+   },
+   {
+    "skill": "reading",
+    "text": "AVISO: Por obras de mantenimiento, la Línea 1 del Metro permanecerá cerrada hasta nuevo aviso. Se recomienda usar el Metrobús o las rutas alternas de autobús.",
+    "question": "Que dit l'avis ?",
+    "options": [
+     "La ligne 1 est fermée pour une durée indéterminée",
+     "La ligne 1 rouvre demain",
+     "Le Metrobús est fermé",
+     "Les bus ne circulent pas",
+     "Les travaux sont terminés"
+    ],
+    "answer": "La ligne 1 est fermée pour une durée indéterminée"
+   },
+   {
+    "skill": "listening",
+    "audio": "Me hubiera gustado ir a la boda, pero justo ese fin de semana tenía un examen y no me dio tiempo de nada.",
+    "question": "Que s'est-il passé ?",
+    "options": [
+     "Elle n'est pas allée au mariage à cause d'un examen",
+     "Elle est allée au mariage après son examen",
+     "Le mariage a été annulé",
+     "Elle a oublié le mariage",
+     "Elle n'était pas invitée"
+    ],
+    "answer": "Elle n'est pas allée au mariage à cause d'un examen"
+   },
+   {
+    "skill": "listening",
+    "audio": "Ahorita no puedo, estoy en una junta. Te marco en cuanto salga.",
+    "question": "Que va faire la personne ?",
+    "options": [
+     "Rappeler dès la fin de sa réunion",
+     "Rappeler demain",
+     "Venir tout de suite",
+     "Envoyer un message pendant la réunion",
+     "Annuler la réunion"
+    ],
+    "answer": "Rappeler dès la fin de sa réunion"
+   },
+   {
+    "skill": "listening",
+    "audio": "Aunque llueva, vamos a ir a la feria; ya compramos los boletos.",
+    "question": "Que vont-ils faire ?",
+    "options": [
+     "Aller à la foire même s'il pleut",
+     "Ne pas y aller s'il pleut",
+     "Acheter les billets",
+     "Rester chez eux car la foire est annulée",
+     "Décider plus tard"
+    ],
+    "answer": "Aller à la foire même s'il pleut"
+   }
+  ],
+  "B2": [
+   {
+    "skill": "write",
+    "prompt": "Si me lo ___ dicho antes, habría venido. (haber, tú)",
+    "accept": [
+     "hubieras",
+     "hubieses"
+    ],
+    "hint": null
+   },
+   {
+    "skill": "write",
+    "prompt": "Me pidió que no le ___ nada a nadie. (decir, yo)",
+    "accept": [
+     "dijera",
+     "dijese"
+    ],
+    "hint": null
+   },
+   {
+    "skill": "write",
+    "prompt": "No creo que ellos ___ a tiempo. (llegar)",
+    "accept": [
+     "lleguen"
+    ],
+    "hint": null
+   },
+   {
+    "skill": "write",
+    "prompt": "Ojalá ___ más tiempo el año pasado. (tener, yo — plus-que-parfait)",
+    "accept": [
+     "hubiera tenido",
+     "hubiese tenido"
+    ],
+    "hint": null
+   },
+   {
+    "skill": "grammar",
+    "prompt": "De ___ sabido que llovería, me habría quedado en casa.",
+    "options": [
+     "haber",
+     "había",
+     "hubiera",
+     "habría",
+     "he"
+    ],
+    "answer": "haber"
+   },
+   {
+    "skill": "grammar",
+    "prompt": "Le prometí que ___ por ella a las ocho.",
+    "options": [
+     "pasaría",
+     "pasaré",
+     "pase",
+     "pasara",
+     "pasaba"
+    ],
+    "answer": "pasaría"
+   },
+   {
+    "skill": "grammar",
+    "prompt": "Con tal de que me ___, te presto el coche.",
+    "options": [
+     "lo devuelvas mañana",
+     "lo devuelves mañana",
+     "lo devolverás mañana",
+     "lo devolviste mañana",
+     "devolverlo mañana"
+    ],
+    "answer": "lo devuelvas mañana"
+   },
+   {
+    "skill": "grammar",
+    "prompt": "___ sea difícil, lo vamos a lograr.",
+    "options": [
+     "Aunque",
+     "A pesar de",
+     "Sin embargo",
+     "Por lo tanto",
+     "Ya que"
+    ],
+    "answer": "Aunque"
+   },
+   {
+    "skill": "vocab",
+    "prompt": "« Dar el avión » signifie…",
+    "options": [
+     "Faire semblant d'écouter",
+     "Prendre l'avion",
+     "Donner un coup de main",
+     "Se tromper",
+     "Partir sans prévenir"
+    ],
+    "answer": "Faire semblant d'écouter"
+   },
+   {
+    "skill": "reading",
+    "text": "Si bien el gobierno capitalino presume la ampliación de la red de ciclovías, colectivos ciudadanos advierten que muchas de ellas no conectan entre sí y que, en la práctica, siguen siendo más simbólicas que funcionales.",
+    "question": "Quelle est la critique des collectifs citoyens ?",
+    "options": [
+     "Les pistes ne sont pas reliées entre elles et servent peu en pratique",
+     "Il n'y a aucune piste cyclable",
+     "Les pistes coûtent trop cher",
+     "Le gouvernement a supprimé des pistes",
+     "Les cyclistes refusent de les utiliser"
+    ],
+    "answer": "Les pistes ne sont pas reliées entre elles et servent peu en pratique"
+   },
+   {
+    "skill": "reading",
+    "text": "No es que no me guste mi trabajo; es que llevo tres años haciendo lo mismo y siento que ya no aprendo nada. Por eso, aunque me ofrecieran un aumento, me iría.",
+    "question": "Que pense la personne ?",
+    "options": [
+     "Elle partirait même avec une augmentation, car elle n'apprend plus rien",
+     "Elle déteste son travail",
+     "Elle resterait pour une augmentation",
+     "Elle travaille là depuis trois mois",
+     "Elle veut surtout gagner plus"
+    ],
+    "answer": "Elle partirait même avec une augmentation, car elle n'apprend plus rien"
+   },
+   {
+    "skill": "listening",
+    "audio": "La neta, si hubiera sabido que el examen estaba tan pesado, me habría puesto las pilas desde antes.",
+    "question": "Que ressent la personne ?",
+    "options": [
+     "Elle regrette de ne pas avoir travaillé plus tôt",
+     "Elle a réussi l'examen facilement",
+     "Elle savait que l'examen serait difficile",
+     "Elle passe l'examen demain",
+     "L'examen a été annulé"
+    ],
+    "answer": "Elle regrette de ne pas avoir travaillé plus tôt"
+   },
+   {
+    "skill": "listening",
+    "audio": "No te creas todo lo que circula en redes; esa nota la sacaron de contexto para generar polémica.",
+    "question": "Que dit la personne de cette information ?",
+    "options": [
+     "Elle a été sortie de son contexte pour créer la polémique",
+     "Elle est vraie",
+     "Elle vient d'un journal sérieux",
+     "Il faut la partager",
+     "Elle parle des réseaux sociaux"
+    ],
+    "answer": "Elle a été sortie de son contexte pour créer la polémique"
+   },
+   {
+    "skill": "listening",
+    "audio": "Me late que nos están haciendo de chivo los tamales con ese contrato.",
+    "question": "Que pense la personne ?",
+    "options": [
+     "Qu'on est en train de les arnaquer avec ce contrat",
+     "Que le contrat est très avantageux",
+     "Qu'elle veut manger des tamales",
+     "Qu'il faut signer vite",
+     "Que le contrat parle de nourriture"
+    ],
+    "answer": "Qu'on est en train de les arnaquer avec ce contrat"
+   }
+  ]
+ }
+};
+
 export const RECOMMENDATIONS = [
  {
   "id": "r0",
