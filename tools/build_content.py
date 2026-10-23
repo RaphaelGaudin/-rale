@@ -21,6 +21,10 @@ THEMES = []
 
 # Illustration représentant chaque thème (clé de tools/art/*).
 THEME_ART = {
+    "a1-escuela": "escuela", "a1-verbos": "bailar", "a1-bebidas": "cafe-de-olla", "a1-personas": "bigote",
+    "a2-transporte": "pesero", "a2-profesiones": "bombero", "a2-quehaceres": "escoba", "a2-musica": "trompeta",
+    "b1-tramites": "sello", "b1-deporte": "medalla", "b1-viajar": "pueblo-magico", "b1-cocinar": "comal",
+    "b2-urbano": "rascacielos", "b2-desastres": "alerta-sismica", "b2-migracion": "remesa", "b2-indigena": "huipil",
     "a1-saludos": "hola", "a1-familia": "familia", "a1-mercado": "mango", "a1-taqueria": "taco",
     "a1-numeros": "billete", "a1-casa": "casa", "a1-ropa": "sombrero", "a1-clima": "sol",
     "a2-ciudad": "metro", "a2-viaje": "piramide", "a2-rutina": "despertarse", "a2-salud": "doctor",
@@ -30,6 +34,8 @@ THEME_ART = {
     "b2-sociedad": "elecciones", "b2-ambiente": "reciclaje", "b2-arte": "alebrije", "b2-historia": "bandera",
     "b2-medios": "periodico", "b2-economia": "ganancia", "b2-relaciones": "noviazgo", "b2-modismos": "estar-de-pelos",
 }
+# Illustrations à part quand deux mots donneraient la même clé.
+ART_OVERRIDE = {("a1-mercado", "la papa"): "papa-tuberculo", ("b1-chilango", "fresa"): "fresa-snob"}
 RECO_ART = {"film": "ui-film", "series": "ui-series", "book": "ui-book", "podcast": "ui-podcast"}
 
 
@@ -43,38 +49,73 @@ def art_key(es):
     return re.sub(r"\s+", "-", s.strip())
 
 
+RAW = []  # thèmes avant construction des éléments
+
+
 def theme(tid, level, title_es, title_fr, emoji, words, phrases, grammar, dialogue):
+    """Déclare un thème. grammar / dialogue : un dict ou une liste de dicts."""
+    # Les mots d'origine sont (es, fr, emoji[, note]) : on retire l'ancien emoji.
+    words = [(w[0], w[1]) + ((w[3],) if len(w) > 3 else ()) for w in words]
+    RAW.append(dict(id=tid, level=level, es=title_es, fr=title_fr, art=THEME_ART[tid], words=words, phrases=list(phrases),
+                    grammar=grammar if isinstance(grammar, list) else [grammar],
+                    dialogue=dialogue if isinstance(dialogue, list) else [dialogue]))
+
+
+def as_list(x):
+    return x if isinstance(x, list) else [x]
+
+
+def build_theme(raw):
+    tid, level = raw["id"], raw["level"]
     idx = len([t for t in THEMES if t["level"] == level])
     items = []
-    for i, w in enumerate(words):
-        es, fr = w[0], w[1]
-        item = {"id": f"{tid}-w{i}", "kind": "word", "es": es, "fr": fr, "art": art_key(es)}
-        if len(w) > 3:
-            item["note"] = w[3]
+    for i, w in enumerate(raw["words"]):
+        item = {"id": f"{tid}-w{i}", "kind": "word", "es": w[0], "fr": w[1], "art": ART_OVERRIDE.get((tid, w[0]), art_key(w[0]))}
+        if len(w) > 2:
+            item["note"] = w[2]
         items.append(item)
-    for i, p in enumerate(phrases):
+    for i, p in enumerate(raw["phrases"]):
         item = {"id": f"{tid}-p{i}", "kind": "phrase", "es": p[0], "fr": p[1], "art": "ui-phrase"}
         if len(p) > 2:
             item["note"] = p[2]
         items.append(item)
-    g = grammar
-    q = g["quiz"]
-    items.append({
-        "id": f"{tid}-g", "kind": "grammar", "es": g["es"], "fr": g["title"], "art": "ui-grammar",
-        "explanation": g["text"],
-        "examples": [{"es": e[0], "fr": e[1]} for e in g["examples"]],
-        "quiz": {"prompt": q[0], "options": q[1], "answer": q[1][0], "translation": q[2]},
-    })
-    d = dialogue
-    items.append({
-        "id": f"{tid}-d", "kind": "dialogue", "es": d["es"], "fr": d["title"], "art": "ui-dialogue",
-        "lines": [{"speaker": l[0], "es": l[1], "fr": l[2]} for l in d["lines"]],
-        "question": {"prompt": d["q"][0], "options": d["q"][1], "answer": d["q"][1][0]},
-    })
+    for i, g in enumerate(raw["grammar"]):
+        items.append({
+            "id": f"{tid}-g" + (str(i + 1) if i else ""), "kind": "grammar", "es": g["es"], "fr": g["title"], "art": "ui-grammar",
+            "explanation": g["text"],
+            "examples": [{"es": e[0], "fr": e[1]} for e in g["examples"]],
+            "quizzes": [{"prompt": q[0], "options": q[1], "answer": q[1][0], "translation": q[2]} for q in as_list(g["quiz"])],
+        })
+    for i, d in enumerate(raw["dialogue"]):
+        items.append({
+            "id": f"{tid}-d" + (str(i + 1) if i else ""), "kind": "dialogue", "es": d["es"], "fr": d["title"], "art": "ui-dialogue",
+            "lines": [{"speaker": l[0], "es": l[1], "fr": l[2]} for l in d["lines"]],
+            "questions": [{"prompt": q[0], "options": q[1], "answer": q[1][0]} for q in as_list(d["q"])],
+        })
     THEMES.append({
-        "id": tid, "level": level, "titleEs": title_es, "titleFr": title_fr,
-        "art": THEME_ART[tid], "color": PALETTE[idx % len(PALETTE)], "items": items,
+        "id": tid, "level": level, "titleEs": raw["es"], "titleFr": raw["fr"],
+        "art": raw["art"], "color": PALETTE[idx % len(PALETTE)], "items": items,
     })
+
+
+def build_all():
+    from content_extra import EXTRA
+    from content_new import NEW
+    for raw in RAW:
+        x = EXTRA.get(raw["id"])
+        if not x:
+            continue
+        raw["words"] += x["words"]
+        raw["phrases"] += x["phrases"]
+        raw["grammar"][0]["quiz"] = as_list(raw["grammar"][0]["quiz"]) + x.get("gq", [])
+        raw["dialogue"][0]["q"] = as_list(raw["dialogue"][0]["q"]) + x.get("dq", [])
+        raw["grammar"].append(x["grammar"])
+        raw["dialogue"].append(x["dialogue"])
+    for t in NEW:
+        RAW.append(dict(t))
+    order = {"A1": 0, "A2": 1, "B1": 2, "B2": 3}
+    for raw in sorted(RAW, key=lambda r: order[r["level"]]):
+        build_theme(raw)
 
 
 # ───────────────────────────── A1 ─────────────────────────────
@@ -946,16 +987,19 @@ RECOS = [
 
 
 def main():
+    build_all()
     root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
     recos = [{"id": f"r{i}", "level": r[0], "type": r[1], "title": r[2], "year": r[3],
               "creator": r[4], "art": RECO_ART[r[1]], "description": r[6], "tip": r[7]}
              for i, r in enumerate(RECOS)]
     for lvl in ("A1", "A2", "B1", "B2"):
         n = len([t for t in THEMES if t["level"] == lvl])
-        assert n == 8, f"{lvl} a {n} thèmes"
+        assert n == 12, f"{lvl} a {n} thèmes"
     ids = [i["id"] for t in THEMES for i in t["items"]]
     art = collect_art()
     missing = sorted({i["art"] for t in THEMES for i in t["items"]} - set(art)) + [t["art"] for t in THEMES if t["art"] not in art]
+    words = [i for t in THEMES for i in t["items"] if i["kind"] == "word"]
+    assert len({i["art"] for i in words}) == len(words), "deux mots partagent la même illustration"
     assert not missing, f"illustrations manquantes : {missing}"
     assert len(ids) == len(set(ids))
     out = os.path.join(root, "js", "data", "content.js")

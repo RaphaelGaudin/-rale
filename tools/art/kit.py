@@ -311,3 +311,92 @@ def coin(cx, cy, r=12, fill=GOLD, sign="$"):
 
 def building_windows(x, y, cols, rows, w=8, h=8, gx=4, gy=4, fill=LBLUE):
     return "".join(rect(x + c * (w + gx), y + r * (h + gy), w, h, fill, rx=1.5, sw=2) for r in range(rows) for c in range(cols))
+
+
+# ───────── Réutilisation et petits pictos ─────────
+
+def inner(svg_str):
+    """Contenu d'une illustration déjà générée (sans les balises <svg> et <g> extérieures)."""
+    body = svg_str.split(">", 2)[2]
+    return body[: -len("</g></svg>")]
+
+
+def use(svg_str, x=0, y=0, s=1.0):
+    """Replace une illustration existante, mise à l'échelle s, coin haut-gauche en (x, y)."""
+    return group(f"translate({x} {y}) scale({s})", inner(svg_str))
+
+
+def arrow(x1, y1, x2, y2, color=INK, sw=3.6, head=7):
+    import math
+    a = math.atan2(y2 - y1, x2 - x1)
+    p1 = (round(x2 - head * math.cos(a - 0.5), 2), round(y2 - head * math.sin(a - 0.5), 2))
+    p2 = (round(x2 - head * math.cos(a + 0.5), 2), round(y2 - head * math.sin(a + 0.5), 2))
+    return (f'<line x1="{x1}" y1="{y1}" x2="{x2}" y2="{y2}" stroke="{color}" stroke-width="{sw}"/>'
+            + path(f"M{p1[0]} {p1[1]} L{x2} {y2} L{p2[0]} {p2[1]}", stroke=color, sw=sw))
+
+
+def check(cx, cy, r=12, fill=GREEN):
+    return circle(cx, cy, r, fill) + path(f"M{cx - r * 0.45} {cy} l{r * 0.32} {r * 0.35} l{r * 0.6} {-r * 0.65}", stroke=WHITE, sw=3.4)
+
+
+def cross(cx, cy, r=12, fill=RED):
+    d = r * 0.4
+    return circle(cx, cy, r, fill) + path(f"M{cx - d} {cy - d} L{cx + d} {cy + d} M{cx + d} {cy - d} L{cx - d} {cy + d}", stroke=WHITE, sw=3.4)
+
+
+def bubble(x, y, w, h, fill=WHITE, tail="left"):
+    tx = x + 12 if tail == "left" else x + w - 12
+    d = 8 if tail == "left" else -8
+    return rect(x, y, w, h, fill, rx=min(12, h / 2)) + \
+        path(f"M{tx} {y + h - 1.5} l{d * 0.2} 10 l{d} -10", fill) + \
+        path(f"M{tx - 1.5 * (1 if d > 0 else -1)} {y + h - 2} h{d * 1.3}", stroke=fill, sw=3.4)
+
+
+def paper(x=24, y=14, w=52, h=72, fill=WHITE, lines=5, line_color=LGREY):
+    els = [path(f"M{x} {y} H{x + w - 12} L{x + w} {y + 12} V{y + h} H{x}Z", fill),
+           path(f"M{x + w - 12} {y} V{y + 12} H{x + w}", LGREY, sw=2.4)]
+    for i in range(lines):
+        els.append(line(x + 8, y + 22 + i * 9, x + w - 8 - (12 if i == lines - 1 else 0), y + 22 + i * 9, sw=3, color=line_color))
+    return "".join(els)
+
+
+def swatch(color, label=None):
+    """Tache de peinture (couleurs)."""
+    d = ("M50 14 C64 12 70 24 80 26 C92 30 90 46 86 54 C82 64 92 74 80 82 C70 90 60 82 50 86 "
+         "C38 90 28 92 20 82 C12 72 18 62 14 52 C10 40 14 28 26 24 C36 20 40 16 50 14Z")
+    return path(d, color) + circle(28, 88, 5, color) + circle(84, 18, 4, color) + \
+        path("M34 34 q6 -6 14 -6", stroke=WHITE, sw=3.6, extra='opacity="0.7"') + (text(50, 60, label, 18, WHITE) if label else "")
+
+
+def tag(x, y, w, s, fill=YELLOW, size=15, color=INK):
+    """Étiquette avec un texte court."""
+    return rect(x, y, w, 24, fill, rx=8) + text(x + w / 2, y + 17, s, size, color)
+
+
+def sign_post(s, fill=GREEN, color=WHITE, size=16, y=24):
+    return rect(46, y + 20, 8, 64 - y, BROWN) + rect(14, y, 72, 30, fill, rx=6) + text(50, y + 21, s, size, color)
+
+
+def hat(kind, cx=50, cy=26, s=1.0):
+    """Couvre-chefs posés sur la tête d'un person() (tête en 50,42 r19)."""
+    if kind == "cap":
+        return path(f"M{cx - 19} {cy + 6} Q{cx} {cy - 20} {cx + 19} {cy + 6}Z", BLUE) + path(f"M{cx + 10} {cy + 4} h20 q-2 5 -20 5z", BLUE)
+    if kind == "helmet":
+        return path(f"M{cx - 22} {cy + 8} Q{cx} {cy - 22} {cx + 22} {cy + 8}Z", YELLOW) + rect(cx - 26, cy + 4, 52, 7, YELLOW, rx=3) + \
+            rect(cx - 4, cy - 12, 8, 14, ORANGE, rx=3)
+    if kind == "chef":
+        return circle(cx - 11, cy - 10, 9, WHITE) + circle(cx + 11, cy - 10, 9, WHITE) + circle(cx, cy - 15, 11, WHITE) + \
+            rect(cx - 17, cy - 6, 34, 14, WHITE, rx=3)
+    if kind == "police":
+        return path(f"M{cx - 20} {cy + 6} L{cx - 22} {cy - 10} Q{cx} {cy - 22} {cx + 22} {cy - 10} L{cx + 20} {cy + 6}Z", NAVY) + \
+            rect(cx - 22, cy + 2, 44, 7, BLACK, rx=2) + star(cx, cy - 6, 5, GOLD, sw=1.6)
+    if kind == "straw":
+        return ellipse(cx, cy + 6, 32, 7, TAN) + path(f"M{cx - 16} {cy + 5} Q{cx - 15} {cy - 16} {cx} {cy - 16} Q{cx + 15} {cy - 16} {cx + 16} {cy + 5}Z", TAN) + \
+            path(f"M{cx - 16} {cy} H{cx + 16}", stroke=RED, sw=3.6)
+    if kind == "grad":
+        return poly([(cx - 26, cy - 4), (cx, cy - 14), (cx + 26, cy - 4), (cx, cy + 6)], BLACK) + \
+            path(f"M{cx + 20} {cy - 2} v14", stroke=GOLD, sw=2.6) + circle(cx + 20, cy + 13, 2.4, GOLD, sw=1.4)
+    if kind == "fire":
+        return path(f"M{cx - 26} {cy + 8} Q{cx - 22} {cy - 20} {cx} {cy - 20} Q{cx + 22} {cy - 20} {cx + 26} {cy + 8}Z", RED) + \
+            rect(cx - 6, cy - 14, 12, 14, GOLD, rx=3)
+    raise ValueError(kind)

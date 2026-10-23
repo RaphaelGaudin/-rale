@@ -521,3 +521,21 @@ body.in-lesson .tabbar { display: none; }
 .passage { text-align: left; font-size: 17px; line-height: 1.55; background: rgba(255, 255, 255, .08); border-left: 4px solid var(--yellow); padding: 14px 16px; border-radius: 14px; -webkit-user-select: text; user-select: text; }
 .placement-answer { text-align: center; color: var(--yellow); margin-top: 8px; }
 .start-at { font-weight: 700; color: #FF5FB0; }
+
+/* ── Nouveaux exercices ── */
+.choices.tf { grid-template-columns: 1fr 1fr; }
+.choice-yes, .choice-no { min-height: 76px; font-size: 24px; font-weight: 900; }
+.pairs { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.pair-col { display: flex; flex-direction: column; gap: 10px; }
+.pair-tile { min-height: 64px; padding: 8px 10px; border-radius: 16px; background: #fff; color: #1B1528; font-weight: 800; font-size: 16px; box-shadow: 0 5px 0 rgba(0, 0, 0, .22); transition: transform .12s, opacity .3s, background .2s; }
+.pair-tile.has-art { padding: 4px; }
+.pair-tile.has-art .art-svg { width: 56px; height: 56px; }
+.pair-tile.selected { background: var(--yellow); transform: translateY(2px); }
+.pair-tile.matched { background: #0FA968; color: #fff; opacity: .35; pointer-events: none; box-shadow: none; }
+.pair-tile.shake { animation: shake .4s; background: #FFD6DB; }
+.order { display: flex; flex-direction: column; gap: 14px; }
+.order-done { min-height: 40px; }
+.order-pool { display: flex; flex-direction: column; gap: 8px; }
+.order-line { display: flex; flex-direction: column; gap: 2px; text-align: left; padding: 10px 14px; border-radius: 16px; background: #fff; color: #1B1528; font-weight: 700; box-shadow: 0 4px 0 rgba(0, 0, 0, .2); }
+.order-line .who { font-size: 12px; font-weight: 800; text-transform: uppercase; letter-spacing: .6px; opacity: .55; }
+.order-line.shake { animation: shake .4s; background: #FFD6DB; }

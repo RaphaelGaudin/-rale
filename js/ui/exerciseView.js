@@ -84,7 +84,7 @@ function mcqView(ex, onAnswer) {
     const btn = h(
       'button',
       {
-        class: `choice ${ex.choiceStyle === 'image' ? 'choice-image' : 'choice-text'}`,
+        class: `choice ${ex.choiceStyle === 'image' ? 'choice-image' : 'choice-text'} ${choice.tf ? `choice-${choice.tf}` : ''}`,
         onclick: () => {
           if (answered) return;
           answered = true;
@@ -103,7 +103,8 @@ function mcqView(ex, onAnswer) {
     );
     return btn;
   });
-  return h('div', { class: `choices ${ex.choiceStyle === 'image' ? 'grid' : 'list'}` }, buttons);
+  const layout = ex.choiceStyle === 'image' ? 'grid' : ex.choiceStyle === 'tf' ? 'tf' : 'list';
+  return h('div', { class: `choices ${layout}` }, buttons);
 }
 
 // ── Épeler ──
@@ -251,6 +252,80 @@ function writeView(ex, onAnswer) {
     h('div', { class: 'actions' }, h('button', { class: 'btn btn-primary', onclick: submit }, 'Vérifier')));
 }
 
+// ── Jeu des paires ──
+
+function pairsView(ex, onAnswer) {
+  let selected = null; // { side, id, el }
+  let mistakes = 0;
+  let found = 0;
+  const byId = Object.fromEntries(ex.pairs.map((p) => [p.id, p]));
+  const make = (side, id) => {
+    const p = byId[id];
+    const content = side === 'left' ? h('span', {}, p.es) : p.art ? art(p.art) : h('span', {}, p.fr);
+    const el = h('button', { class: `pair-tile ${side} ${side === 'right' && p.art ? 'has-art' : ''}`, onclick: () => tap(side, id, el) }, content);
+    return el;
+  };
+  const tap = (side, id, el) => {
+    if (el.classList.contains('matched')) return;
+    if (side === 'left') speak(byId[id].es);
+    if (!selected || selected.side === side) {
+      selected?.el.classList.remove('selected');
+      selected = { side, id, el };
+      el.classList.add('selected');
+      return;
+    }
+    if (selected.id === id) {
+      [selected.el, el].forEach((x) => { x.classList.remove('selected'); x.classList.add('matched'); });
+      play('tap');
+      found++;
+      selected = null;
+      if (found === ex.pairs.length) onAnswer(mistakes <= 1);
+    } else {
+      mistakes++;
+      buzz(40);
+      [selected.el, el].forEach((x) => { x.classList.remove('shake'); void x.offsetWidth; x.classList.add('shake'); });
+      selected.el.classList.remove('selected');
+      selected = null;
+    }
+  };
+  return h('div', { class: 'pairs' },
+    h('div', { class: 'pair-col' }, ex.left.map((id) => make('left', id))),
+    h('div', { class: 'pair-col' }, ex.right.map((id) => make('right', id))));
+}
+
+// ── Remettre un dialogue dans l'ordre ──
+
+function orderView(ex, onAnswer) {
+  let next = 0;
+  let mistakes = 0;
+  const done = h('div', { class: 'order-done transcript' });
+  const speakers = [...new Set(ex.lines.map((l) => l.speaker))];
+  const pool = h('div', { class: 'order-pool' }, ex.order.map((i) => {
+    const line = ex.lines[i];
+    const el = h('button', {
+      class: 'order-line',
+      onclick: () => {
+        if (i === next) {
+          el.remove();
+          done.append(h('div', { class: `bubble ${speakers.indexOf(line.speaker) % 2 ? 'right' : 'left'} card-enter` },
+            h('span', { class: 'who' }, line.speaker), h('span', {}, line.es)));
+          speak(line.es, { speaker: speakers.indexOf(line.speaker) });
+          next++;
+          if (next === ex.lines.length) onAnswer(mistakes <= 1);
+        } else {
+          mistakes++;
+          buzz(40);
+          el.classList.remove('shake');
+          void el.offsetWidth;
+          el.classList.add('shake');
+        }
+      },
+    }, h('span', { class: 'who' }, line.speaker), h('span', {}, line.es));
+    return el;
+  }));
+  return h('div', { class: 'order' }, done, pool);
+}
+
 /** Construit la vue d'un exercice. `onAnswer(correct, note)` est appelé une seule fois. */
 export function exerciseView(ex, onAnswer) {
   stop();
@@ -261,9 +336,12 @@ export function exerciseView(ex, onAnswer) {
     onAnswer(correct, note);
   };
   const body =
-    ex.type === 'spell' ? spellView(ex, once)
+    ex.type === 'pairs' ? pairsView(ex, once)
+      : ex.type === 'order' ? orderView(ex, once)
+      : ex.type === 'spell' ? spellView(ex, once)
       : ex.type === 'build' ? buildView(ex, once)
         : ex.type === 'write' ? writeView(ex, once)
           : mcqView(ex, once);
-  return h('div', { class: `exercise ex-${ex.type}` }, h('p', { class: 'ex-label' }, ex.label), promptView(ex), body);
+  const prompt = ex.prompt ? promptView(ex) : null;
+  return h('div', { class: `exercise ex-${ex.type}` }, h('p', { class: 'ex-label' }, ex.label), prompt, body);
 }
