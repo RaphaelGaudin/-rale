@@ -11,7 +11,7 @@ import sys
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, os.path.join(ROOT, "tools"))
 
-MODULES = ["art.a1", "art.a2", "art.b1", "art.b2", "art.ui"]
+MODULES = ["art.a1", "art.a2", "art.b1", "art.b2", "art.ui", "art.a1x", "art.a2x", "art.b1x", "art.b2x"]
 
 
 def collect():
