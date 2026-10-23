@@ -539,3 +539,5 @@ body.in-lesson .tabbar { display: none; }
 .order-line { display: flex; flex-direction: column; gap: 2px; text-align: left; padding: 10px 14px; border-radius: 16px; background: #fff; color: #1B1528; font-weight: 700; box-shadow: 0 4px 0 rgba(0, 0, 0, .2); }
 .order-line .who { font-size: 12px; font-weight: 800; text-transform: uppercase; letter-spacing: .6px; opacity: .55; }
 .order-line.shake { animation: shake .4s; background: #FFD6DB; }
+.theme-actions { display: flex; flex-direction: column; align-items: center; gap: 10px; width: 100%; }
+.btn-ghost-light { background: rgba(255, 255, 255, .18); color: #fff; border: 2px solid rgba(255, 255, 255, .7); }

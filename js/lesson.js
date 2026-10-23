@@ -2,30 +2,35 @@
 // et les révisions d'autres thèmes. Aucune manipulation du DOM ici.
 import * as store from './store.js';
 import { difficultyForStage, showCaptionForStage } from './srs.js';
-import { makeExercise } from './exercises.js';
+import { makeExercise, makePairs } from './exercises.js';
 import { itemsById } from './content.js';
 import { play } from './sound.js';
+import { shuffle } from './util.js';
 
 export const SESSION_SECONDS = 5 * 60;
 const NEW_PER_BATCH = 4;
 const RETRIEVALS_TO_LEARN = 3;
 const COMBO_MILESTONES = [3, 5, 10, 15, 20, 30, 50];
+const PAIRS_XP = 20;
+/** Nombre d'éléments nouveaux vus en une leçon, pour annoncer « Leçon X/Y ». */
+export const ITEMS_PER_LESSON = 8;
 
-/** Ordre d'introduction dans un thème : on intercale phrases, grammaire et dialogue entre les mots. */
+/** Ordre d'introduction dans un thème : on intercale phrases, points de grammaire et dialogues entre les mots. */
 function introductionOrder(items) {
-  let w = 0, p = 0;
+  let w = 0, p = 0, g = 0, d = 0;
   const slot = (item) => {
     if (item.kind === 'word') return w++;
     if (item.kind === 'phrase') return 2.5 + 3 * p++;
-    if (item.kind === 'grammar') return 5.5;
-    return 9.5;
+    if (item.kind === 'grammar') return 5.5 + 12 * g++;
+    return 9.5 + 12 * d++;
   };
   return items.map((item) => ({ item, s: slot(item) })).sort((a, b) => a.s - b.s).map((x) => x.item);
 }
 
 export class Lesson {
   /**
-   * @param {{mode: 'theme'|'review', theme?: object, onChange: Function}} options
+   * @param {{mode: 'theme'|'review'|'practice', theme?: object, onChange: Function}} options
+   * « practice » : entraînement libre sur les éléments déjà appris d'un thème (une erreur compte pour la révision).
    */
   constructor({ mode, theme = null, onChange }) {
     this.mode = mode;
@@ -65,6 +70,13 @@ export class Lesson {
           .map((i) => ({ type: 'practice', id: i.id }));
         this.reviewPool.push(...practice);
       }
+    } else if (mode === 'practice') {
+      this.newPool = [];
+      const learned = theme.items.filter((i) => store.isLearned(i.id));
+      // Les éléments les moins solides d'abord, puis le reste au hasard.
+      const weak = learned.filter((i) => store.stageOf(i.id) <= 2);
+      const strong = learned.filter((i) => store.stageOf(i.id) > 2);
+      this.reviewPool = [...shuffle(weak), ...shuffle(strong)].map((i) => ({ type: 'practice', id: i.id, harder: true }));
     } else {
       this.newPool = [];
       this.reviewPool = store.dueItems().map((i) => ({ type: 'review', id: i.id }));
@@ -108,8 +120,26 @@ export class Lesson {
       if (reviews.length) steps.push(reviews.shift());
     }
     steps.push(...reviews);
+    // Petit jeu des paires en fin de lot (bonus d'XP, sans effet sur les révisions).
+    const pairs = this.pairsCandidates(fresh);
+    if (pairs.length >= 4) steps.push({ type: 'pairs', id: pairs[0].id, ids: pairs.map((i) => i.id) });
     this.queue.push(...steps);
     return steps.length;
+  }
+
+  /** Éléments pour le jeu des paires : ceux du lot, complétés par des éléments déjà appris du thème. */
+  pairsCandidates(fresh) {
+    const pairable = (i) => i.kind === 'word' || i.kind === 'phrase';
+    const ids = new Set();
+    const out = [];
+    const add = (i) => { if (i && pairable(i) && !ids.has(i.id)) { ids.add(i.id); out.push(i); } };
+    fresh.forEach(add);
+    if (this.mode === 'review') return [];
+    if (this.theme) shuffle(this.theme.items.filter((i) => store.isLearned(i.id))).forEach(add);
+    // Toujours le même type d'élément (que des mots ou que des phrases) pour que les paires restent lisibles.
+    const words = out.filter((i) => i.kind === 'word');
+    const chosen = words.length >= 4 ? words : out.filter((i) => i.kind === 'phrase');
+    return chosen.slice(0, 5);
   }
 
   next() {
@@ -132,6 +162,10 @@ export class Lesson {
         this.presented.add(step.id);
         this.current = { step, item };
         play('newItem');
+      } else if (step.type === 'pairs') {
+        const exercise = makePairs(step.ids.map((id) => itemsById.get(id)).filter(Boolean));
+        if (!exercise) continue;
+        this.current = { step, item, exercise };
       } else {
         this.current = { step, item, exercise: this.exerciseFor(step, item) };
       }
@@ -145,6 +179,7 @@ export class Lesson {
     const stage = store.stageOf(item.id);
     const difficulty = difficultyForStage(stage);
     if (step.type === 'retry') return makeExercise(item, Math.max(0, difficulty - 1), true);
+    if (step.harder) return makeExercise(item, Math.max(difficulty, 2), showCaptionForStage(stage));
     return makeExercise(item, difficulty, showCaptionForStage(stage));
   }
 
@@ -166,7 +201,9 @@ export class Lesson {
       this.combo = 0;
     }
 
-    if (step.type === 'learn') {
+    if (step.type === 'pairs') {
+      if (correct) this.xp += PAIRS_XP;
+    } else if (step.type === 'learn') {
       if (correct) {
         this.sessionCorrect[item.id] = (this.sessionCorrect[item.id] || 0) + 1;
         if (this.sessionCorrect[item.id] === RETRIEVALS_TO_LEARN) {

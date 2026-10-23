@@ -1,5 +1,5 @@
 // Service worker : l'app fonctionne hors-ligne, et se met à jour dès qu'il y a du réseau.
-const CACHE = 'orale-v4';
+const CACHE = 'orale-v5';
 const AUDIO_CACHE = 'orale-audio';
 const ASSETS = [
   './',

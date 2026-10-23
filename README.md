@@ -37,19 +37,21 @@ L'icône Órale apparaît sur ton écran d'accueil. L'app s'ouvre en plein écra
   - un bouton « Je ne sais pas » évite les réponses au hasard ;
   - le niveau affiché est le dernier niveau *réussi*, et les leçons commencent au niveau suivant ;
   - les niveaux réussis peuvent rejoindre les révisions, étalés sur 3 semaines.
-- **32 thèmes de la vie au Mexique**, 8 par niveau : taquería, marché, Día de Muertos, lucha libre, la chamba, l'argot chilango, l'histoire du Mexique… Le contenu compte **448 éléments** :
-  - des mots illustrés ;
-  - des phrases ;
-  - un point de grammaire par thème ;
-  - un dialogue par thème.
+- **48 thèmes de la vie au Mexique**, 12 par niveau : taquería, marché, Día de Muertos, lucha libre, la chamba, l'argot chilango, les transports, la musique, les démarches administratives, les séismes, la migration, le Mexique indigène… Le contenu compte **1 344 éléments**, soit 28 par thème et environ 4 leçons :
+  - 16 mots illustrés ;
+  - 8 phrases ;
+  - 2 points de grammaire ;
+  - 2 dialogues.
 - **Des voix partout** :
-  - environ 620 enregistrements générés avec le modèle neuronal Supertonic 3, en espagnol ;
+  - environ 2 000 enregistrements générés avec le modèle neuronal Supertonic 3, en espagnol ;
   - dans les dialogues, une voix féminine ou masculine selon le personnage ;
   - repli possible sur la voix mexicaine de l'iPhone (es-MX).
-- **Illustrations dessinées** : plus de 270 dessins vectoriels faits main, dans un style BD assorti au logo. Chaque mot a son illustration.
+- **Illustrations dessinées** : près de 800 dessins vectoriels faits main, dans un style BD assorti au logo. Chaque mot a son illustration.
 - **Répétition espacée** : un élément revient après 1, 3, 7, 14, 30, 60, 120 puis 240 jours. Une erreur le fait redescendre d'une étape et il revient dès le lendemain.
 - **Apprentissage d'un nouvel élément** : il est d'abord présenté (image, mot, traduction, audio), puis doit être retrouvé **3 fois** dans la session avant d'être compté comme appris.
 - **Difficulté progressive** : reconnaître l'image → choisir le mot → épeler → écrire ou comprendre à l'oral. La légende française sous les images disparaît à mesure qu'on progresse.
+- **Exercices variés** : vrai ou faux, écoute et choisis l'image, phrase à trous, phrase à reconstruire, dictée, conjugaison à écrire, questions sur un dialogue, dialogue à remettre dans l'ordre et jeu des paires en fin de série.
+- **Leçons et entraînement** : chaque thème se découpe en leçons (« Leçon 2/4 »). Une fois quelques éléments appris, le bouton **S'entraîner** permet de rejouer le thème autant qu'on veut, en commençant par les éléments les moins solides.
 - **Leçons mélangées** : chaque leçon combine les nouveautés du thème et des révisions d'autres thèmes.
 - **Côté ludique** :
   - sessions chronométrées de 5 minutes ;

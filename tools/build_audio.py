@@ -28,7 +28,16 @@ MANIFEST = os.path.join(ROOT, "js", "data", "audio.js")
 # Genre des personnages des dialogues (pour choisir une voix féminine ou masculine).
 FEMALE = {"Lupita", "Ana", "Claire", "Marie", "Rosa", "Vendedora", "Julia", "Señora", "Recepcionista", "Emma", "Karla",
           "Doctora", "Inés", "Léa", "Chloé", "Abuela", "Sarah", "Licenciada", "Casera", "Nina", "Margaux", "Camille",
-          "Lisa", "Andrea", "Valeria", "Élodie", "Manon", "Maestra", "Mariana", "Pauline", "Regina", "Juliette", "Inès"}
+          "Lisa", "Andrea", "Valeria", "Élodie", "Manon", "Maestra", "Mariana", "Pauline", "Regina", "Juliette", "Inès",
+          "Mamá", "Marchanta", "Taquera", "Sara", "Valentina", "Mónica", "Paola", "Fátima", "Mesera", "Nora", "Claudia",
+          "Carmen", "Elisa", "Ximena", "Clara", "Rocío", "Diana", "Lucía", "Pasajera", "Lupe", "Laura", "Lola", "Abril",
+          "Iris", "Jefa", "Gabriela", "Sofía", "Natalia", "Profesora", "Ejecutiva", "Paula", "Entrenadora", "Cobradora",
+          "Camila", "Alma", "Moderadora", "Candidata", "Vecina", "Alumna", "Reportera", "Proveedora", "Paty", "Fernanda",
+          "Carla", "Lorena", "Voluntaria", "Brenda", "Marcela", "Galerista"}
+
+
+def is_female(speaker):
+    return speaker in FEMALE or speaker.startswith(("Señora", "Doña"))
 
 # Phrases lues ailleurs dans l'app (réglages).
 EXTRA_TEXTS = ["¡Órale! ¿Qué onda?", "Hola, ¿cómo estás? Bienvenido a México.", "¡Hola! ¿Cómo estás?"]
@@ -60,11 +69,12 @@ def collect(themes):
             elif item["kind"] == "grammar":
                 for ex in item["examples"]:
                     clips.setdefault(ex["es"], ("F", 0))
-                clips.setdefault(quiz_sentence(item["quiz"]), ("F", 0))
+                for q in item.get("quizzes") or [item["quiz"]]:
+                    clips.setdefault(quiz_sentence(q), ("F", 0))
             else:
                 seen = {}
                 for line in item["lines"]:
-                    g = "F" if line["speaker"] in FEMALE else "M"
+                    g = "F" if is_female(line["speaker"]) else "M"
                     if line["speaker"] not in seen:
                         seen[line["speaker"]] = (g, sum(1 for v in seen.values() if v[0] == g))
                     clips.setdefault(line["es"], seen[line["speaker"]])
